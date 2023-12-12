@@ -1,12 +1,11 @@
 ---
 hero:
-  title: ayongUI
-  description: 这是一个 react 组件库的 demo，用于学习 react 组件库的开发
+  title: AyongUI
+  description: AyongUI 是一个功能丰富的 React 组件库
   actions:
-    - text: Hello
-      link: /
-    - text: World
-      link: /
+    - text: 让我们开始吧
+      link: /components/button
+
 features:
   - title: Hello
     emoji: 💎
@@ -19,4 +18,3 @@ features:
     description: Put ! description here
 ---
 
-ayongUI
