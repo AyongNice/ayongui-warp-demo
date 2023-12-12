@@ -1,6 +1,6 @@
 ---
 hero:
-  title: library
+  title: ayongUI
   description: 这是一个 react 组件库的 demo，用于学习 react 组件库的开发
   actions:
     - text: Hello
