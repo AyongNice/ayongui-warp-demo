@@ -1,104 +1,40 @@
-# react-ayongUI-demo
+# ayongUI
 
-## 介绍
+[![NPM version](https://img.shields.io/npm/v/ayongUI.svg?style=flat)](https://npmjs.org/package/ayongUI)
+[![NPM downloads](http://img.shields.io/npm/dm/ayongUI.svg?style=flat)](https://npmjs.org/package/ayongUI)
 
 这是一个 react 组件库的 demo，用于学习 react 组件库的开发
 
-## 该组件库技术属于 原生 React jsx 开发 无需任何第三方库,除动画以外不运行使用第三方 UI 库
+## Usage
 
-## 开始使用
+TODO
 
-### 规范必须使用 yarn 命令安装依赖
+## Options
 
-```
- yarn
-```
+TODO
 
-## 运行命令
+## Development
 
-```
-npm run dev
-```
+```bash
+# install dependencies
+$ yarn install
 
-## 项目结构
+# develop library by docs demo
+$ yarn start
 
-1. 项目分为 demo 一个仓库 ayongUI 组件一个仓库
-2. ⚠️ 拉取仓库时候，先拉取 demo 仓库， ⚠️ 然后在 demo 的 node_modules 目录 拉代码 ayongUI 组件仓库
-3. 提交代码时，先提交组件仓库，再提交 demo 仓库 切记 顺序不能乱!!!
+# build library source code
+$ yarn run build
 
-## 组件库的结构目录说明 (在组件库 ayongUI 仓库内也有一份)
+# build library source code in watch mode
+$ yarn run build:watch
 
-### ⚠️ 组件库的导出 必须统一在 index.ts 文件内导出
+# build docs
+$ yarn run docs:build
 
-```json
- ———— components
-|··· 主体组件
-———— config 组件全局配置
-|
-———style.module.less 全局样式
-———style-const.ts    全局样式TS常量
-———— utils 工具类
-———— index.ts 组件总入口文件所有组件导出地方
-———— package.json 组件依赖文件
-———— tsconfig.json 组件TS配置
-———— tsconfig.node.json 组件TS-node配置
-———— vite.config.ts 组件打包配置
-———— yarn.lock 组件打包依赖版本锁
+# check your project for potential problems
+$ yarn run doctor
 ```
 
-## 组件样式规范
+## LICENSE
 
-1. 样式必须使用 model 类型文件 类名使用 小驼峰
-2. 全局样式 必须在 config/style 里 颜色必须统一使用 全局颜色变量
-
-## 组件开发规范 JS TS 类型声明文件
-
-1. 声明的 TS 类必须单独创建改组件的类型文件 例如：index.d.ts 放在 当前文件夹下
-
-## 开源组件开发规范
-
-组件代码开源 所有人都可看到 所以注意 JS 细节
-
-1. 变量名 方法名必须使用小驼峰 纯英语翻译 如果实在不知道怎么翻译 可以添加前缀 ayong
-2. 组件内部 JS 单个方法代码量超过 20 行必须处抽离到外部文件 如果是公共可服用 放到 utils 文件内, 如果不可复用放到当前组件文件夹内
-
-## 组件使用说明
-
-## 测试流程
-
-### 开发模式
-
-```js
-
-```
-
-### 测试模式
-
-```js
-//demo页面路径需要改成 dist
-```
-
-```ts
-//mian.ts 在demo的main.ts文件引入样式文件
-```
-
-## git 提交规范
-
-1. !⚠️ 必须先提交 ayongUI 组件库仓库 然后在提交 demo 仓库 切记顺序不可乱!⚠️
-   2!⚠️ git 提交必须序号 说清 哪些 添加文件 | 删除文件 | 修改文件
-
-```MD
-1 添加 button 使用说明示例文档
-2 添加 工具utils文件夹
-
-```
-
-3. 先提交 dev 分支 通过微信群通知大家 代码已经提交到 dev 分支 我在合并主分支 请大家注意拉取代码
-
-## git 解决冲突技巧
-
-1. 先拉去代码 再提交
-2. 代码拉去不到 说明有冲突
-3. 现将更改内容 git 暂存
-4. 然后在拉去代码
-5. 将暂存代码回复使用 手动修改冲突
+MIT
