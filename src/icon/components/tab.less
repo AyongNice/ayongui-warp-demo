@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.tab-header {
+  display: flex;
+
+  .tab-t {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 30px;
+    border-radius: 6px;
+  }
+
+  .search {
+    margin-left: 50px;
+  }
+
+  .tab-item {
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    padding: 0;
+  }
+
+  .active {
+    color: var(--theme-reverse-font);
+    background: var(--theme-reverse);
+
+  }
+}
