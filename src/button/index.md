@@ -1,6 +1,6 @@
 ---
 nav:
-  title: Components
+  title: 使用说明
 ---
 
 # Button
