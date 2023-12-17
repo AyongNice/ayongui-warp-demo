@@ -15,7 +15,7 @@ import {
     Swapleft, Swapright, Tick, Wrong, Lament, Illustrate, Delete, Search, Transfer,
     Unlock, Save, Message, Play, Panetop, Panedown, Paneleft, Paneright, Login, Logout,
     Menufold, Menuunfold, Borderbottom, Borderhorizontal, Borderlnner, Bordersolid,
-    Borderleft, Borderight, Bordertop, Borderverticle
+    Borderleft, Borderight, Bordertop, Borderverticle,Wrongs,Under,Nocontent
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -270,6 +270,18 @@ export default () => {
             cmp: Borderight,
             name: "Borderight",
         },
+        {
+            cmp: Wrongs,
+            name: "Wrongs",
+        },
+        {
+            cmp: Under,
+            name: "Under",
+        },
+        {
+            cmp: Nocontent,
+            name: "Nocontent",
+        },
     ];
     const iconClick = (name: string) => {
         copyText(`<${name}/>`);
@@ -314,12 +326,13 @@ import {
     Swapleft, Swapright, Tick, Wrong, Lament, Illustrate, Delete, Search, Transfer,
     Unlock, Save, Message, Play, Panetop, Panedown, Paneleft, Paneright, Login, Logout,
     Menufold, Menuunfold, Borderbottom, Borderhorizontal, Borderlnner, Bordersolid,
-    Borderleft, Borderight, Bordertop, Borderverticle
+    Borderleft, Borderight, Bordertop, Borderverticle, Empty
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
 import "./index.less";
-export default ()=>{
+
+export default () => {
     const solidicon = [
         {
             cmp: Alipayfull,
@@ -413,12 +426,16 @@ export default ()=>{
             cmp: Illustrate,
             name: "Illustrate",
         },
+        {
+            cmp: Empty,
+            name:"Empty",
+        },
     ]
     const iconClick = (name: string) => {
         copyText(`<${name}/>`);
         Message.success({message: "复制成功", duration: 1});
     };
-    let tabData =[
+    let tabData = [
         {
             title: "实底风格",
             content: <div className='solidicon'>
@@ -436,7 +453,7 @@ export default ()=>{
     ]
     return (
         <div>
-            <Tab  defaultActiveTab={0} tabs={tabData}/>
+            <Tab defaultActiveTab={0} tabs={tabData}/>
         </div>
     )
 }
