@@ -30,7 +30,6 @@ const App = () => (
         >
             warning-消息
         </Button>
-
         <Button type='error'
                 onClick={() => Message.error({message: 'This is a info message'})}
         >
