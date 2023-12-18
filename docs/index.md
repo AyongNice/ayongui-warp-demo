@@ -6,15 +6,24 @@ hero:
     - text: 让我们开始吧
       link: /components/button
 
+
 features:
-  - title: Hello
+  - title: 赞助商1
     emoji: 💎
     description: Put hello description here
-  - title: World
+    actions:
+      - text: 让我们开始吧
+        link: /components/button
+  - title: 赞助商2
     emoji: 🌈
     description: Put world description here
-  - title: '!'
+  - title: 赞助商3
     emoji: 🚀
     description: Put ! description here
 ---
 
+```tsx hideCode=true inline=true
+export default () => {
+    return <h1>组件库由一下项目赞助</h1>
+}
+```
