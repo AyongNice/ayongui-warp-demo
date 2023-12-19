@@ -3,21 +3,11 @@
 
 ### 基本用法
 
-```tsx  hideCode=true inline=true
+```tsx  
 import React, {useEffect} from 'react';
-import {Rate, Table, Alert} from 'ayongUI';
-import CodeDisplayCom from "@/code-display/code-display.tsx";
-import useExpandableList from "@/code-display/code-display.tsx";
-import global from '@/config/index.ts';
+import {Rate, Table, Alert} from 'ayongUI';;
 const Ratepage: React.FC = () => {
-    const {expandedItems, handleExpandAll} = useExpandableList([1, 2, 3, 4]);
-    return (<>
-        <fieldset>
-            <legend></legend>
-            <Rate/>
-        </fieldset>
-    </>)
-
+    return <Rate/>
 }
 export default Ratepage;
 ```
@@ -25,42 +15,22 @@ export default Ratepage;
 
 ### 只读
 
-```tsx  hideCode=true inline=true
+```tsx  
 import React, {useEffect} from 'react';
 import {Rate, Table, Alert} from 'ayongUI';
-import CodeDisplayCom from "@/code-display/code-display.tsx";
-import useExpandableList from "@/code-display/code-display.tsx";
-import global from '@/config/index.ts';
 const Ratepage: React.FC = () => {
-    const {expandedItems, handleExpandAll} = useExpandableList([1, 2, 3, 4]);
-    return (<>
-        <fieldset>
-            <legend></legend>
-            <Rate disabled value={3}/>
-        </fieldset>
-    </>)
-
+    return <Rate disabled value={3}/>
 }
 export default Ratepage;
 ```
 
 ### 自定义color
 
-```tsx  hideCode=true inline=true
+```tsx 
 import React, {useEffect} from 'react';
 import {Rate, Table, Alert} from 'ayongUI';
-import CodeDisplayCom from "@/code-display/code-display.tsx";
-import useExpandableList from "@/code-display/code-display.tsx";
-import global from '@/config/index.ts';
 const Ratepage: React.FC = () => {
-    const {expandedItems, handleExpandAll} = useExpandableList([1, 2, 3, 4]);
-    return (<>
-        <fieldset>
-            <legend></legend>
-            <Rate color='#cbbcf7' value={3}/>
-        </fieldset>
-    </>)
-
+    return <Rate color='#cbbcf7' value={3}/>
 }
 export default Ratepage;
 ```
@@ -68,21 +38,11 @@ export default Ratepage;
 
 ### 自定义icon
 
-```tsx  hideCode=true inline=true
+```tsx
 import React, {useEffect} from 'react';
 import {Rate, Table, Alert} from 'ayongUI';
-import CodeDisplayCom from "@/code-display/code-display.tsx";
-import useExpandableList from "@/code-display/code-display.tsx";
-import global from '@/config/index.ts';
 const Ratepage: React.FC = () => {
-    const {expandedItems, handleExpandAll} = useExpandableList([1, 2, 3, 4]);
-    return (<>
-        <fieldset>
-            <legend></legend>
-            <Rate value={3} icon={Alert}/>
-        </fieldset>
-    </>)
-
+    return <Rate value={3} icon={Alert}/>
 }
 export default Ratepage;
 ```
