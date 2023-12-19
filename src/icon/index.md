@@ -332,8 +332,8 @@ import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
 import "./index.less";
 
-export default () => {
-    const solidicon = [
+ export default () => {
+     const solidicon = [
         {
             cmp: Alipayfull,
             name: "Alipayfull",
