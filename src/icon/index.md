@@ -15,7 +15,9 @@ import {
     Swapleft, Swapright, Tick, Wrong, Lament, Illustrate, Delete, Search, Transfer,
     Unlock, Save, Message, Play, Panetop, Panedown, Paneleft, Paneright, Login, Logout,
     Menufold, Menuunfold, Borderbottom, Borderhorizontal, Borderlnner, Bordersolid,
-    Borderleft, Borderight, Bordertop, Borderverticle,Wrongs,Under,Nocontent
+    Borderleft, Borderight, Bordertop, Borderverticle,Wrongs,Under,Nocontent,Picture,
+    Pictureletf,Pictureright,Images,Ieftbottom,Rightbottom,Upleft,Upright,Fullscren,
+    Exitfullscren,Gitlab,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -282,6 +284,50 @@ export default () => {
             cmp: Nocontent,
             name: "Nocontent",
         },
+        {
+            cmp: Picture,
+            name: "Picture",
+        },
+        {
+            cmp: Pictureletf,
+            name: "Pictureletf",
+        },
+        {
+            cmp: Pictureright,
+            name: "Pictureright",
+        },
+        {
+            cmp: Images,
+            name: "Images",
+        },
+        {
+            cmp: Ieftbottom,
+            name: "Ieftbottom",
+        }, 
+        {
+            cmp: Rightbottom,
+            name: "Rightbottom",
+        },
+        {
+            cmp: Upleft,
+            name: "Upleft",
+        }, 
+        {
+            cmp: Upright,
+            name: "Upright",
+        }, 
+        {
+            cmp: Fullscren,
+            name: "Fullscren",
+        },
+        {
+            cmp: Exitfullscren,
+            name: "Exitfullscren",
+        },
+        {
+            cmp: Gitlab,
+            name: "Gitlab",
+        },
     ];
     const iconClick = (name: string) => {
         copyText(`<${name}/>`);
@@ -326,14 +372,14 @@ import {
     Swapleft, Swapright, Tick, Wrong, Lament, Illustrate, Delete, Search, Transfer,
     Unlock, Save, Message, Play, Panetop, Panedown, Paneleft, Paneright, Login, Logout,
     Menufold, Menuunfold, Borderbottom, Borderhorizontal, Borderlnner, Bordersolid,
-    Borderleft, Borderight, Bordertop, Borderverticle, Empty
+    Borderleft, Borderight, Bordertop, Borderverticle, Empty,Github
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
 import "./index.less";
 
- export default () => {
-     const solidicon = [
+export default () => {
+    const solidicon = [
         {
             cmp: Alipayfull,
             name: "Alipayfull",
@@ -428,7 +474,11 @@ import "./index.less";
         },
         {
             cmp: Empty,
-            name:"Empty",
+            name: "Empty",
+        },
+        {
+            cmp: Github,
+            name: "Github",
         },
     ]
     const iconClick = (name: string) => {
