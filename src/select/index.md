@@ -5,15 +5,12 @@
   ```tsx
 import React from 'react';
 import {Select} from 'ayongUI';
-
-console.log(Select);
 export default () => {
     const handleChange = (value: any) => {
         console.log(`selected ${value}`);
     };
     return (<div style={{display: "flex"}}>
         <Select
-            defaultValue='lucy'
             style={{width: 150}}
             onChange={handleChange}
             options={[
@@ -181,7 +178,6 @@ export default () => {
     };
     return (<React.Fragment>
         <Select
-            search
             defaultValue='lucy'
             style={{width: 300}}
             onChange={handleChange}
