@@ -15,13 +15,15 @@ import {
     Swapleft, Swapright, Tick, Wrong, Lament, Illustrate, Delete, Search, Transfer,
     Unlock, Save, Message, Play, Panetop, Panedown, Paneleft, Paneright, Login, Logout,
     Menufold, Menuunfold, Borderbottom, Borderhorizontal, Borderlnner, Bordersolid,
-    Borderleft, Borderight, Bordertop, Borderverticle,Wrongs,Under,Nocontent,Picture,
-    Pictureletf,Pictureright,Images,Ieftbottom,Rightbottom,Upleft,Upright,Fullscren,
-    Exitfullscren,Gitlab,
+    Borderleft, Borderight, Bordertop, Borderverticle, Wrongs, Under, Nocontent, Picture,
+    Pictureletf, Pictureright, Images, Ieftbottom, Rightbottom, Upleft, Upright, Fullscren,
+    Exitfullscren, Gitlab, Right, Rightcircle, Folder, Openfolder,Send,Useradd,Deleteuser,
+    Addusers,Userdelete,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
 import "./index.less";
+
 export default () => {
     const iconCmps = [
         {
@@ -303,7 +305,7 @@ export default () => {
         {
             cmp: Ieftbottom,
             name: "Ieftbottom",
-        }, 
+        },
         {
             cmp: Rightbottom,
             name: "Rightbottom",
@@ -311,11 +313,11 @@ export default () => {
         {
             cmp: Upleft,
             name: "Upleft",
-        }, 
+        },
         {
             cmp: Upright,
             name: "Upright",
-        }, 
+        },
         {
             cmp: Fullscren,
             name: "Fullscren",
@@ -327,6 +329,42 @@ export default () => {
         {
             cmp: Gitlab,
             name: "Gitlab",
+        },
+        {
+            cmp: Right,
+            name: "Right",
+        },
+        {
+            cmp: Rightcircle,
+            name: "Rightcircle",
+        },
+        {
+            cmp: Folder,
+            name: "Folder",
+        },
+        {
+            cmp: Openfolder,
+            name: "Openfolder",
+        },
+        {
+            cmp: Send,
+            name:"Send",
+        },
+        {
+            cmp: Useradd,
+            name:"Useradd",
+        },
+        {
+            cmp: Deleteuser,
+            name:"Deleteuser",
+        },
+        {
+            cmp: Addusers,
+            name:"Addusers",
+        }, 
+        {
+            cmp: Userdelete,
+            name:"Userdelete",
         },
     ];
     const iconClick = (name: string) => {
@@ -353,7 +391,7 @@ export default () => {
     ];
     return (
         <div>
-            <Tab  defaultActiveTab={0} tabs={tabData}/>
+            <Tab defaultActiveTab={0} tabs={tabData}/>
         </div>
     );
 };
