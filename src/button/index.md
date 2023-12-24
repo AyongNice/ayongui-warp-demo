@@ -97,3 +97,11 @@ export default () => {
 };
 ```
 
+| 属性名   | 说明                                        | 类型   | 默认值  | 版本 |
+| -------- | ------------------------------------------- | ------ | ------- | ---- |
+| type     | 按钮类型 'primary' \| 'default' \| 'dashed' | string | default | 1.0  |
+| time     | 防抖时间设置 0 为不防抖                     | number | -       | 1.0  |
+| size     | 按钮大小 'large' \| 'default' \| 'small'    | string | default | 1.0  |
+| shape    | 按钮形状 'circle' \| 'default' \| 'round'   | string | default | 1.0  |
+| htmlType | 原生button类型                              | string | button  | 1.0  |
+
