@@ -1,5 +1,10 @@
 # Select 选择器
 
+
+
+
+
+
 ### 基本用法
 
   ```tsx
@@ -60,21 +65,47 @@ export default () => {
 ```tsx
 import React from 'react';
 import {Select} from 'ayongUI';
+import style from './index.module.less';
+
 export default () => {
-  const handleChange = (value: any) => {
-    console.log(`selected ${value}`);
-  };
-  return (<React.Fragment>
-    <Select
-      defaultValue='jack'
-      style={{width: 150}}
-      clearable
-      onChange={handleChange}
-      options={[
-        {value: 'jack', label: 'Jack'},
-      ]}
-    />
-  </React.Fragment>)
+    const handleChange = (value: any) => {
+        console.log(`selected ${value}`);
+    };
+    return (<React.Fragment>
+        <Select
+            defaultValue='jack'
+            clearable
+            style={{width: 150}}
+            onChange={handleChange}
+            options={[
+                {value: 'jack', label: 'Jack'},
+            ]}
+        />
+    </React.Fragment>)
+};
+```
+
+### 自定义className 样式
+
+```tsx
+import React from 'react';
+import {Select} from 'ayongUI';
+import style from './index.module.less';
+
+export default () => {
+    const handleChange = (value: any) => {
+        console.log(`selected ${value}`);
+    };
+    return (<React.Fragment>
+        <Select
+            className={style.diy}
+            defaultValue='jack'
+            clearable
+            options={[
+                {value: 'jack', label: 'Jack'},
+            ]}
+        />
+    </React.Fragment>)
 };
 ```
 
@@ -91,7 +122,7 @@ export default () => {
     return (<div style={{display: 'flex'}}>
         <Select
             defaultValue={['lucy', 'jack']}
-            style={{width: 300}}
+            style={{width: '300px'}}
             onChange={handleChange}
             options={[
                 {value: 'jack', label: 'Jack'},
@@ -219,7 +250,7 @@ export default () => {
     const [checked, setChecked] = useState<boolean>(false);
     const [value, setValue] = useState<string[]>(['lucy']);
     const handleChange = (value: any) => {
-        // console.log(`selected ${value}`);
+        console.log(`selected ${value}`);
     };
     const options = [
         {value: 'jack', label: 'Jack'},
@@ -237,8 +268,6 @@ export default () => {
         setValue((prevState) => {
             return checked ? options.map(_ => _.value) : []
         })
-        console.log('all', value)
-        console.log('all--checked', checked)
     }, [checked])
     const onChecked = (e) => {
         setChecked(!checked)
@@ -265,3 +294,28 @@ export default () => {
 };
 
   ```
+
+### 组件Props参数
+
+| 属性名             | 说明                                           | 是否必填 | 类型                                      | 默认值                          | 版本     |
+| ------------------ |----------------------------------------------|--------|-----------------------------------------|------------------------------|--------|
+| className          | 样式 className名 必须是module类型的样式 否则无法覆盖组件样式         |   否    | string                                  | -                            |     1.0    |
+| defaultValue       | 默认值                                          | 否 | string \| string[]                      | string                       | 1.0   |
+| value              | 选中值 再搭配父组件直接控制组件选中值的时候需要用到  参考自定义头部下拉模版 代码示例 | 否     | -                                       | -                            | 1.0    |
+| style              | css行间样式写法 参考代码示例                             | 否 | string                                  | width:'150px'                | 1.0    |
+| onChange           | 选中值改变时的回调 方法接受当前选中的值                         | 否 | (value: string  string[]) => void;      | ()=>{}                       | 1.0 |
+| disabled           | 是否禁用                                         |   否    | boolean                                 | false                        | 1.0 |
+| clearable          | 是否可清空                                        | 否 | boolean                                 | false                        | 1.0    |
+| search             | 是否可搜索                                        |    否    | boolean                                 | false                        | 1.0 |
+| collapseTags       | 是否折叠多选                                       |    否    | boolean                                 | false                        | 1.0 |
+| optionRender       | 自定义下拉模版 内容                                   |    否    | (opt: Options) => React.FC              | null                         |   1.0      |
+| optionHeaderRender | 自定义头部下拉模版  内容                                |   否    | (opt: Options) => React.FC ; | null  [Option参数详解](#Options) |    1.0     |
+
+<span id="Options">Options参数详解</span>
+
+| 属性名   | 说明     | 类型    | 版本 |
+| -------- | -------- | ------- | ---- |
+| value    | 参数值   | string  | 1.0  |
+| label    | 下拉文案 | string  | 1.0  |
+| disabled | 是否禁用 | boolean | 1.0  |
+
