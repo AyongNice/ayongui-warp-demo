@@ -53,7 +53,7 @@ export default App;
 
 ```
 ## 使用 HTML 片段作为正文内容
-##### message 还支持使用 HTML 字符串作为正文内容。 需要注意的是 防止XSS 攻击 必须设置useHTMLString为true
+* `message 还支持使用 HTML 字符串作为正文内容。 需要注意的是 防止XSS 攻击 必须设置useHTMLString为true`
 ```tsx
 import {Button, Message} from 'ayongUI';
 import style from './index.module.less';
@@ -72,7 +72,7 @@ export default App;
 
 
 ## 自定义时长
-##### 自定义显示时间6秒
+* 自定义显示时间6秒
 ```tsx
 import {Button, Message} from 'ayongUI';
 import style from './index.module.less';
