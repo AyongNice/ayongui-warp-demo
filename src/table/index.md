@@ -2,10 +2,43 @@
 
 ### 指定 data 和 columns数据基本写法
 
+```tsx  hideCode=true inline=true
+import {usePrefersColor} from 'dumi';
+import React, {useEffect} from 'react';
+import {setThemeVariables} from "ayongUI";
+
+export default ({children}) => {
+    // color 为当前应用的主题色，dark or light
+    const [color] = usePrefersColor();
+
+    function mode() {
+        this.light = {
+            themeBulue: '#40a9ff',
+            themeWithe: '#fff'
+        }
+        this.dark = {
+            themeBulue: '#53728b',
+            themeWithe: '#b0b0b0'
+        }
+        this.undefined = this.light
+    }
+
+    useEffect(() => {
+        console.log(color)
+        setThemeVariables(new mode()[color])
+    }, [color])
+
+};
+```
+
+ 
+
+
 ```tsx
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {Table} from 'ayongUI';
+import style from './index.module.less';
 
 const data = [
 
@@ -41,7 +74,7 @@ const data = [
 
         key: '3',
 
-        age: 32,
+        age: 58,
 
         name: 'Joe Black',
 
@@ -86,12 +119,20 @@ const columns = [
     },
 
 ];
+/** 动态设置 年龄58岁的行样式 **/
+const cellActiveClassName = (record: Item) => {
+    if (record.age === 58) return style.active;
+};
+const App = () => {
 
-const App = () => (
+    return <Table
+        data={data}
+        columns={columns}
+        className={style.diyTable}
+        cellActiveClassName={cellActiveClassName}
+    />
 
-    <Table className='diy-table' columns={columns} data={data}/>
-
-);
+};
 
 export default App;
 ```
@@ -101,6 +142,7 @@ export default App;
 ```tsx
 import React from 'react';
 import {Table} from 'ayongUI';
+import style from './index.module.less';
 
 const Column = Table.Column;
 const data = [
@@ -127,7 +169,7 @@ const data = [
     },
 ];
 const App = () => (
-    <Table data={data}>
+    <Table data={data} className={style.diyTable}>
         <Column title="Age" dataIndex="age" key={1}/>
         <Column title="Address" dataIndex="address" key={2}/>
         <Column
@@ -153,7 +195,7 @@ export default App;
 
 import React from 'react';
 import {Table} from 'ayongUI';
-
+import style from './index.module.less';
 const data = [
     {
         key: '1',
@@ -198,7 +240,7 @@ const columns = [
     },
 ];
 const App = () => (
-    <Table className='diy-table' columns={columns} data={data}/>
+    <Table className={style.diyTable} columns={columns} data={data}/>
 );
 export default App;
 ```
@@ -206,8 +248,11 @@ export default App;
 ```tsx
 
 import React from 'react';
-import { Table} from 'ayongUI'
-const ColumnGroup = Table.ColumnGroup;;
+import {Table} from 'ayongUI'
+import style from './index.module.less';
+
+const ColumnGroup = Table.ColumnGroup;
+;
 const Column = Table.Column;
 const columns = [
     {
@@ -257,7 +302,7 @@ const data: Item[] = [
     },
 ];
 const App = () =>
-    <Table data={data} className='table-theme'>
+    <Table data={data} className={style.diyTable}>
         <Column title='First Name' dataIndex='firstName' key={10}/>
         <ColumnGroup title='Name' key={666}>
             <Column title='Last Name' dataIndex='lastName' key={11}/>
@@ -286,7 +331,9 @@ export default App;
 ```tsx
 
 import React from 'react';
-import { Table} from 'ayongUI';
+import {Table} from 'ayongUI';
+import style from './index.module.less';
+
 const columns = [
     {
         title: '姓名',
@@ -329,19 +376,19 @@ const data = [
     },
 ];
 const App = () =>
-        <Table
-            data={data}
-            draggable
-            columns={columns}
-            className='table-theme'
-        />
+    <Table
+        draggable
+        data={data}
+        columns={columns}
+        className={style.diyTable}
+    />
 export default App;
 ```
 ## 展开折叠行
 ```tsx
 import React from 'react';
 import {Table} from 'ayongUI';
-
+import style from './index.module.less';
 const Column = Table.Column;
 
 interface Item {
@@ -396,8 +443,7 @@ const columns = [
     },
 ];
 const App = () => (
-    <Table className='diy-table'
-           test='test'
+    <Table className={style.diyTable}
            expandable={{
                expandedRowRender: (record: Item) => (<p>{record.name} 为你展示展开折叠行功能</p>),
                onExpandChange: (index: number, state: boolean) => {
@@ -412,7 +458,7 @@ export default App;
 
 import React from 'react';
 import {Table, Minusround, Plusround} from 'ayongUI';
-
+import style from './index.module.less';
 const Column = Table.Column;
 const data = [
     {
@@ -456,8 +502,7 @@ const columns = [
     },
 ];
 const App = () => (
-        <Table className='diy-table'
-               test='test'
+        <Table className={style.diyTable}
                expandable={{
                    expandedRowRender: (record) => (<p>{record.name} 为你展示展开折叠行功能</p>),
                    expandIcon: ({onExpand, record, expanded}: {
