@@ -380,7 +380,7 @@ export default () => {
                         return (
                             <div className="icon-border" key={index}>
                                 <div className="icon-item" onClick={() => iconClick(item.name)}>
-                                    {React.createElement(item.cmp)}
+                                    {React.createElement(item.cmp,{className:"icon" as string})}
                                 </div>
                             </div>
                         );
@@ -531,7 +531,7 @@ export default () => {
                     return (
                         <div className="solidicon-border" key={index}>
                             <div className="solidicon-item" onClick={() => iconClick(item.name)}>
-                                {React.createElement(item.cmp)}
+                                {React.createElement(item.cmp,{className:"solidicon-icons" as string} )}
                             </div>
                         </div>
                     );

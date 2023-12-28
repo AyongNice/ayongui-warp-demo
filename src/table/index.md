@@ -189,7 +189,7 @@ const App = () => (
 export default App;
 ```
 ### 指定排序
-* `排序功能需要在 columns 列数据中传入，指定用的 指定排序规则，defaultSortOrder 非必传字段为指定默认排序（升序/降序），可选值为 'ascend' 或 'descend'，或者设置为 false（默认值，表示不排序）。1`
+* `排序功能需要在 columns 列数据中传入，指定用的 指定排序规则，defaultSortOrder 非必传字段为指定默认排序（升序/降序），可选值为 'ascend' 或 'descend'，或者设置为 false（默认值，表示不排序）。`
 
 ```tsx
 
