@@ -7,7 +7,7 @@ import React from 'react';
 import {
     Alipay, Alert, PreviousStep, FileCopy, CodeDisplay, LabelersLists, UserHollow,
     EyesOpen, EyesClosed, Setting, Collapse, Unfold, Alipayfull, Advance, Wechatfull,
-    Fileput, Download, Upload, Wechat, Weibofull, Weibo, Fulcopy, Taobao, Taobaoful, Android,
+    Fileput, Download, Uploads, Wechat, Weibofull, Weibo, Fulcopy, Taobao, Taobaoful, Android,
     Androidfu, Google, Googlefu, Plusround, Plusrofu, Minusround, Minusrfu, Upward, Upwardfu,
     Downward, Downwardfu, Downwleft, Downwleftfu, Downwright, Downwrightfu, Arrotopfu,
     Arrowbuttomfu, Arroleft, Arroright, Shrinks, Dilate, Rewind, Forward, Doubleright,
@@ -87,7 +87,7 @@ export default () => {
             name: "Download",
         },
         {
-            cmp: Upload,
+            cmp: Uploads,
             name: "Upload",
         },
         {

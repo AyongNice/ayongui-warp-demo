@@ -244,7 +244,7 @@ const App = () => (
 );
 export default App;
 ```
-## 表头分组
+### 表头分组
 ```tsx
 
 import React from 'react';
@@ -326,7 +326,7 @@ const App = () =>
     </Table>
 export default App;
 ```
-## 可拖拽表格
+### 可拖拽表格
 
 ```tsx
 
@@ -384,7 +384,7 @@ const App = () =>
     />
 export default App;
 ```
-## 展开折叠行
+### 展开折叠行
 ```tsx
 import React from 'react';
 import {Table} from 'ayongUI';
@@ -453,7 +453,7 @@ const App = () => (
 )
 export default App;
 ```
-## 自定义展开/折叠按钮
+### 自定义展开/折叠按钮
 ```tsx
 
 import React from 'react';

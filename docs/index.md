@@ -24,7 +24,7 @@ features:
 
 ```tsx hideCode=true inline=true
 export default () => {
-    return <h1>组件库由一下项目赞助</h1>
+    return <h1>AyongUI由以下项目赞助</h1>
 }
 ```
 
