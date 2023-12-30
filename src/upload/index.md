@@ -42,8 +42,35 @@ import {Upload, Uploads, Button} from 'ayongUI';
 
 const Ratepage: React.FC = () => {
     return <Upload uplaodRender={(onUplaod) => {
-        return <Button onClick={onUplaod} type='primary'> <Uploads/> 上传附件</Button>
+        return <Button onClick={onUplaod} type='warn'> <Uploads style={{color: '#fff'}}/> 上传附件</Button>
     }}/>
 }
 export default Ratepage;
+```
+
+```tsx
+import React, {useState} from 'react';
+import {Button, Upload} from 'ayongUI';
+
+export default () => {
+    const [fileList, setFileList] = useState<any[]>([])
+
+    const onChange = (file: any) => {
+        setFileList((prevState) => {
+            prevState.push(file)
+            return prevState
+        })
+        console.log('onChange', file)
+    }
+    const onRemove = (file: any) => {
+        return new Promise(async (resolve, reject) => {
+            file && file.name === 'file.png' ? resolve(false) : resolve(true);
+        })
+
+    }
+    return <React.Fragment>
+
+        <Upload onChange={onChange} fileList={fileList} onRemove={onRemove} defaultFileList={[{name: 'file.png'}]}/>
+    </React.Fragment>
+};
 ```
