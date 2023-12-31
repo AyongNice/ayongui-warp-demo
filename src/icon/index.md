@@ -18,12 +18,12 @@ import {
     Borderleft, Borderight, Bordertop, Borderverticle, Wrongs, Under, Nocontent, Picture,
     Pictureletf, Pictureright, Images, Ieftbottom, Rightbottom, Upleft, Upright, Fullscren,
     Exitfullscren, Gitlab, Right, Rightcircle, Folder, Openfolder,Send,Useradd,Deleteuser,
-    Addusers,Userdelete,
+    Addusers,Userdelete,Paper,Support,Loading,Lock,Letter,Messages,Poweroff,Printer,Flushed,
+    Rest,Sweep,Soundoff,Sound,Close,Laments,Rounlament,Question,Quesround,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
 import "./index.less";
-
 export default () => {
     const iconCmps = [
         {
@@ -365,6 +365,78 @@ export default () => {
         {
             cmp: Userdelete,
             name:"Userdelete",
+        },
+        {
+            cmp: Paper,
+            name:"Paper",
+        },
+        {
+            cmp: Support,
+            name:"Support",
+        },
+        {
+            cmp: Loading,
+            name:"Loading",
+        },
+        {
+            cmp: Lock,
+            name:"Lock",
+        },
+        {
+            cmp: Letter,
+            name:"Letter",
+        },   
+        {
+            cmp: Messages,
+            name:"Messages",
+        },
+        {
+            cmp: Poweroff,
+            name:"Poweroff",
+        },  
+        {
+            cmp: Printer,
+            name:"Printer",
+        },
+        {
+            cmp: Flushed,
+            name:"Flushed",
+        },
+        {
+            cmp: Rest,
+            name:"Rest",
+        },  
+        {
+            cmp: Sweep,
+            name:"Sweep",
+        },
+        {
+            cmp: Soundoff,
+            name:"Soundoff",
+        },
+        {
+            cmp: Sound,
+            name:"Sound",
+        },
+        {
+            cmp: Close,
+            name:"Close",
+        }, 
+        {
+            cmp: Laments,
+            name:"Laments",
+        }, 
+        {
+            cmp: Rounlament,
+            name:"Rounlament",
+        },
+        {
+            cmp: Question,
+            name:"Question",
+        }, 
+        {
+            cmp: Quesround,
+            name:"Quesround",
         },
     ];
     const iconClick = (name: string) => {
