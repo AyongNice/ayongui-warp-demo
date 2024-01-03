@@ -13,3 +13,16 @@ export function ModeTheme() {
   }
   this.undefined = this.light
 }
+
+import {usePrefersColor} from 'dumi';
+import React, {useEffect} from 'react';
+import {setThemeVariables} from "ayongUI";
+
+export const handoffTheme = () => {
+  // color 为当前应用的主题色，dark or light
+  const [color] = usePrefersColor();
+  useEffect(() => {
+    setThemeVariables(new ModeTheme()[color])
+  }, [color])
+
+};
