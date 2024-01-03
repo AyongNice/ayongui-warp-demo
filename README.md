@@ -57,8 +57,22 @@ npm run dev
 ——————index.d.ts 组件类型文件
 
 ```
+## demo目录结构
 
+```json
 
+——————.dumirc.ts 框架配置文件
+——————docs 首页文案
+——————globe 全局配置
+      --index.less 全局样式
+      --theme 全局白天/黑夜主题配置
+——————public静态文件
+——————src 主体内容
+      --组件说明
+        --index.md 使用说明
+        --index.module.less 文案样式
+
+```
 
 ## 组件样式规范
 
