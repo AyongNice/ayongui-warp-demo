@@ -6,26 +6,13 @@
 import {usePrefersColor} from 'dumi';
 import React, {useEffect} from 'react';
 import {setThemeVariables} from "ayongUI";
+import {ModeTheme} from '../../globe/theme.ts'
 
 export default ({children}) => {
     // color 为当前应用的主题色，dark or light
     const [color] = usePrefersColor();
-
-    function mode() {
-        this.light = {
-            themeBulue: '#40a9ff',
-            themeWithe: '#fff'
-        }
-        this.dark = {
-            themeBulue: '#53728b',
-            themeWithe: '#b0b0b0'
-        }
-        this.undefined = this.light
-    }
-
     useEffect(() => {
-        console.log(color)
-        setThemeVariables(new mode()[color])
+        setThemeVariables(new ModeTheme()[color])
     }, [color])
 
 };
