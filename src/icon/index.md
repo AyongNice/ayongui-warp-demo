@@ -19,7 +19,8 @@ import {
     Pictureletf, Pictureright, Images, Ieftbottom, Rightbottom, Upleft, Upright, Fullscren,
     Exitfullscren, Gitlab, Right, Rightcircle, Folder, Openfolder,Send,Useradd,Deleteuser,
     Addusers,Userdelete,Paper,Support,Loading,Lock,Letter,Messages,Poweroff,Printer,Flushed,
-    Rest,Sweep,Soundoff,Sound,Close,Laments,Rounlament,Question,Quesround,
+    Rest,Sweep,Soundoff,Sound,Close,Laments,Rounlament,Question,Quesround,Disc,Disike,Expand,
+    Ellipsis,Exprot,Fileimg,Userswich,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -201,6 +202,10 @@ export default () => {
         {
             cmp: Unlock,
             name: "Unlock",
+        }, 
+        {
+            cmp: Lock,
+            name: "Lock",
         },
         {
             cmp: Save,
@@ -379,10 +384,6 @@ export default () => {
             name:"Loading",
         },
         {
-            cmp: Lock,
-            name:"Lock",
-        },
-        {
             cmp: Letter,
             name:"Letter",
         },   
@@ -438,6 +439,35 @@ export default () => {
             cmp: Quesround,
             name:"Quesround",
         },
+        {
+            cmp: Disc,
+            name:"Disc",
+        },
+        {
+            cmp: Disike,
+            name:"Disike",
+        }, 
+        {
+            cmp: Expand,
+            name:"Expand",
+        },
+        {
+            cmp: Ellipsis,
+            name:"Ellipsis",
+        },
+        {
+            cmp: Exprot,
+            name:"Exprot",
+        },
+        {
+            cmp: Fileimg,
+            name:"Fileimg",
+        }, 
+        {
+            cmp: Userswich,
+            name:"Userswich",
+        }, 
+       ,
     ];
     const iconClick = (name: string) => {
         copyText(`<${name}/>`);
@@ -482,7 +512,7 @@ import {
     Swapleft, Swapright, Tick, Wrong, Lament, Illustrate, Delete, Search, Transfer,
     Unlock, Save, Message, Play, Panetop, Panedown, Paneleft, Paneright, Login, Logout,
     Menufold, Menuunfold, Borderbottom, Borderhorizontal, Borderlnner, Bordersolid,
-    Borderleft, Borderight, Bordertop, Borderverticle, Empty,Github
+    Borderleft, Borderight, Bordertop, Borderverticle, Empty,Github,Image,Posit,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -589,6 +619,14 @@ export default () => {
         {
             cmp: Github,
             name: "Github",
+        },
+        {
+            cmp: Image,
+            name:"Image",
+        },
+        {
+            cmp: Posit,
+            name:"Posit",
         },
     ]
     const iconClick = (name: string) => {
