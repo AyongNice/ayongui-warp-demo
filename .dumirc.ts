@@ -3,7 +3,7 @@ import {defineConfig} from 'dumi';
 export default defineConfig({
   outputPath: 'docs-dist',
   favicons: ['/images/Ayong.png'],
-  logo: '/images/AyongUI.png',
+  logo: '/ayonguidocs/images/AyongUI.png',
   mfsu: false,//关闭mfsu 会导致打包速度变慢 但是没有缓存 可以热更新 组件库代码
   themeConfig: {
     name: '',
@@ -17,7 +17,8 @@ export default defineConfig({
     //   },
     // },
   },
-
+  base: '/ayonguidocs/',
+  publicPath: '/ayonguidocs/',
   proxy: {
     '/api': {
       'target': 'http://localhost:3000',
