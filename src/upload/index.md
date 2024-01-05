@@ -16,7 +16,7 @@ export default ({children}) => {
 };
 ```
 
-### 默认点击上传
+### 默认基本功能演示1
 
 ```tsx  
 import React, {useEffect} from 'react';
@@ -32,12 +32,35 @@ const UpalodPage: React.FC = () => {
             file && file.name === 'file.png' ? resolve(false) : resolve(true);
         })
     }
+    const onChange = (file: any) => {
+        console.log('onChange', file)
+    }
     return <React.Fragment>
-        <Upload action={'/api/weekend/upload-img'} className={style.upload}/>
+        <Upload action={'/api/weekend/upload-img'} onChange={onChange} className={style.upload}/>
         <Upload className={style.upload} maxFileSize={1024} uplaodText='限制大小1M'/>
         <Upload className={style.upload} beforeUpload={beforeUpload} uplaodText='停止上传'/>
         <Upload className={style.upload} onRemove={onRemove} uplaodText='停止删除文件'/>
+    </React.Fragment>
+
+}
+export default UpalodPage;
+```
+
+### 默认基本功能演示2
+
+```tsx  
+import React, {useEffect} from 'react';
+import {Upload, Button, Uploads} from 'ayongUI';
+import style from './index.module.less';
+
+const UpalodPage: React.FC = () => {
+
+    const onChange = (file: any) => {
+        console.log('onChange', file)
+    }
+    return <React.Fragment>
         <Upload className={style.upload} disabled uplaodText='禁用上传'/>
+        <Upload className={style.upload} onChange={onChange} maxCount={1} uplaodText='上传单个'/>
         <Upload className={style.upload} uplaodRender={(onUplaod) => {
             return <Button onClick={onUplaod} type='warn'> <Uploads style={{color: '#fff'}}/> 自定义dom节点上传</Button>
         }}/>
@@ -51,16 +74,24 @@ const UpalodPage: React.FC = () => {
 }
 export default UpalodPage;
 ```
-
 ### 头像上传
 
 ```tsx  
 import React, {useEffect} from 'react';
 import {Upload} from 'ayongUI';
-import style from './index.module.less';
 
 const UpalodPage: React.FC = () => {
-  return <Upload className={style.avatar} mode='avatar'/>
+    const onChange = (file: any) => {
+        console.log('onChange', file)
+    }
+    return <Upload
+        mode='avatar'
+        style={{
+            width: 86,
+            height: 86
+        }}
+        onChange={onChange}
+    />
 }
 export default UpalodPage;
 ```
