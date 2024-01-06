@@ -16,7 +16,7 @@ export default ({children}) => {
 };
 ```
 
-### 默认基本功能演示1
+### 默认基本功能
 
 ```tsx  
 import React, {useEffect} from 'react';
@@ -40,7 +40,7 @@ const UpalodPage: React.FC = () => {
       })
     },
     beforeUpload: (file: UploadFile) => {
-      return new Promise((resolve) => resolve(false))
+      return new Promise((resolve) => resolve(true))
     },
     onChange: (file: UploadFile) => {
       console.log('onChange', file)
@@ -60,23 +60,23 @@ import {Upload, Button, Uploads} from 'ayongUI';
 import style from './index.module.less';
 
 const UpalodPage: React.FC = () => {
-  const beforeUpload = () => {
-    return new Promise((resolve) => resolve(false))
-  }
-  const onRemove = (file: any) => {
-    return new Promise(async (resolve, reject) => {
-      file && file.name === 'file.png' ? resolve(false) : resolve(true);
-    })
-  }
-  const onChange = (file: any) => {
-    console.log('onChange', file)
-  }
-  return <React.Fragment>
-    <Upload action={'/api/weekend/upload-img'} onChange={onChange} className={style.upload}/>
-    <Upload className={style.upload} maxFileSize={1024} uplaodText='限制大小1M'/>
-    <Upload className={style.upload} beforeUpload={beforeUpload} uplaodText='停止上传'/>
-    <Upload className={style.upload} onRemove={onRemove} uplaodText='停止删除文件'/>
-  </React.Fragment>
+    const beforeUpload = () => {
+        return new Promise((resolve) => resolve(false))
+    }
+    const onRemove = (file: any) => {
+        return new Promise(async (resolve, reject) => {
+            file && file.name === 'file.png' ? resolve(false) : resolve(true);
+        })
+    }
+    const onChange = (file: any) => {
+        console.log('onChange', file)
+    }
+    return <React.Fragment>
+        <Upload className={style.upload} maxFileSize={1024} uplaodText='限制大小1M'/>
+        <Upload className={style.upload} beforeUpload={beforeUpload} uplaodText='停止上传'/>
+        <Upload className={style.upload} onRemove={onRemove} uplaodText='停止删除文件'/>
+        <Upload disabled uplaodText='禁用上传'/>
+    </React.Fragment>
 
 }
 export default UpalodPage;
@@ -95,7 +95,6 @@ const UpalodPage: React.FC = () => {
     console.log('onChange', file)
   }
   return <React.Fragment>
-    <Upload className={style.upload} disabled uplaodText='禁用上传'/>
     <Upload className={style.upload} onChange={onChange} maxCount={1} uplaodText='上传单个文件'/>
     <Upload className={style.upload} uplaodRender={(onUplaod) => {
       return <Button onClick={onUplaod} type='warn'> <Uploads style={{color: '#fff'}}/> 自定义dom节点上传</Button>
@@ -171,29 +170,30 @@ import {Button, Upload} from 'ayongUI';
 import type {UploadFile} from 'ayongUI';
 
 export default () => {
-  const [fileList, setFileList] = useState<UploadFile[]>([])
+    const [fileList, setFileList] = useState<UploadFile[]>([])
 
-  const customRequest = (file: UploadFile) => {
-    setFileList((prevState) => [...prevState, file]);
-    /**
-     * 手动发起网络请求上传文件上传逻辑
-     */
-  }
-  /** 上传文件之前回调 **/
-  const beforeUpload = (file: UploadFile) => {
-    return new Promise((resolve) => resolve(false))
-  }
-  /** 删除文件之前回调 **/
-  const onRemove = (file: UploadFile) => {
-    return new Promise(async (resolve, reject) => {
-      file && file.name === 'file.png' ? resolve(false) : resolve(true);
-    })
-  }
-  return <Upload
-    onRemove={onRemove}
-    beforeUpload={beforeUpload}
-    customRequest={customRequest}
-  />
+    const customRequest = (file: UploadFile) => {
+      console.log('diy',file)
+        setFileList((prevState) => [...prevState, file]);
+        /**
+         * 手动发起网络请求上传文件上传逻辑
+         */
+    }
+    /** 上传文件之前回调 **/
+    const beforeUpload = (file: UploadFile) => {
+        return new Promise((resolve) => resolve(true))
+    }
+    /** 删除文件之前回调 **/
+    const onRemove = (file: UploadFile) => {
+        return new Promise(async (resolve, reject) => {
+            file && file.name === 'file.png' ? resolve(false) : resolve(true);
+        })
+    }
+    return <Upload
+        onRemove={onRemove}
+        beforeUpload={beforeUpload}
+        customRequest={customRequest}
+    />
 };
 ```
 
