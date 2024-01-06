@@ -8,7 +8,7 @@ export function ModeTheme() {
   this.dark = {
     themeBulue: '#53728b',
     themeWithe: '#b0b0b0',
-    'ayong-grey-crescent': '#414244',
+    'ayong-grey-crescent': '#ff8cb8',
     'ayong-font-color': '#4067b6'
   }
   this.undefined = this.light

@@ -7,7 +7,6 @@ export const themeIng = () => {
   console.log(131)
   const [color] = usePrefersColor();
   useEffect(() => {
-    console.log(color)
   }, [color])
   return null
 };

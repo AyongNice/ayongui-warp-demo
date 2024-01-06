@@ -173,7 +173,6 @@ export default () => {
     const [fileList, setFileList] = useState<UploadFile[]>([])
 
     const customRequest = (file: UploadFile) => {
-      console.log('diy',file)
         setFileList((prevState) => [...prevState, file]);
         /**
          * 手动发起网络请求上传文件上传逻辑
