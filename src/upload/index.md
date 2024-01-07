@@ -46,7 +46,7 @@ const UpalodPage: React.FC = () => {
       console.log('onChange', file)
     }
   }
-  return <Upload {...porps}/>
+  return <Upload {...porps} multiple/>
 
 }
 export default UpalodPage;
@@ -91,20 +91,21 @@ import style from './index.module.less';
 
 const UpalodPage: React.FC = () => {
 
-  const onChange = (file: any) => {
-    console.log('onChange', file)
-  }
-  return <React.Fragment>
-    <Upload className={style.upload} onChange={onChange} maxCount={1} uplaodText='上传单个文件'/>
-    <Upload className={style.upload} uplaodRender={(onUplaod) => {
-      return <Button onClick={onUplaod} type='warn'> <Uploads style={{color: '#fff'}}/> 自定义dom节点上传</Button>
-    }}/>
-    <Upload uplaodText='自定义icon渲染' iconRender={() => <img style={{width: "18px"}}
-                                                               src={require('.././assets/pdflogo.png')}/>}
-    />
+    const onChange = (file: UploadFile) => {
+    }
+    return <React.Fragment>
+        <Upload className={style.upload} onChange={onChange} maxCount={1} uplaodText='上传单个文件'/>
+        <Upload className={style.upload} onChange={onChange} multiple uplaodText='多选文件'/>
+
+        <Upload className={style.upload} uplaodRender={(onUplaod) => {
+            return <Button onClick={onUplaod} type='warn'> <Uploads style={{color: '#fff'}}/> 自定义dom节点上传</Button>
+        }}/>
+        <Upload uplaodText='自定义icon渲染' iconRender={() => <img style={{width: "18px"}}
+                                                                   src={require('.././assets/pdflogo.png')}/>}
+        />
 
 
-  </React.Fragment>
+    </React.Fragment>
 
 }
 export default UpalodPage;
@@ -115,9 +116,9 @@ export default UpalodPage;
 ```tsx  
 import React, {useEffect} from 'react';
 import {Upload} from 'ayongUI';
-
+import type {UploadFile} from 'ayongUI';
 const UpalodPage: React.FC = () => {
-  const onChange = (file: any) => {
+  const onChange = (file: UploadFile) => {
     console.log('onChange', file)
   }
   return <Upload
