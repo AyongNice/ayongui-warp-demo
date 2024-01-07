@@ -157,9 +157,27 @@ export default () => {
 
 <span id="ayonUIcss"  style="color:#8aabec;">**组件全局样式字段表详情**</span>
 
-| 样式名        | 值       | 说明           |
-| ------------- | -------- | -------------- |
-| ayong-primary | \#8aabec | 组件全局主题色 |
-|               |          |                |
-|               |          |                |
-
+| 样式名                    | 值        | 说明                                 |
+| ------------------------- | --------- | ------------------------------------ |
+| ayong-primary             | \#8aabec  | 组件全局主题色                       |
+| ayong-safe                | #8e8e8e   | 安全                                 |
+| ayong-error               | #ad0000   | 危险                                 |
+| ayong-warn                | #d6af0c   | 警告                                 |
+| ayong-font-color          | #fff      |                                      |
+| ayong-selected-font-color | #ffffff   | 选中文字颜色                         |
+| ayong-selected-bg-color   | #8aabec   | 选中背景色                           |
+| ayong-font-dark           | #222731   |                                      |
+| ayong-light               | #fff      |                                      |
+| ayong-bolck               | #000      | 黑夜色                               |
+| ayong-table-thead-color   | #f5f5f5   |                                      |
+| ayong-beige               | #EDF9E6FF | 米黄 message组件                     |
+| ayong-leaf-yellow         | #d1eac1   | 叶黄  message组件                    |
+| ayong-apricot-yellow      | #58BA2DFF | 杏黄  message组件                    |
+| ayong-message-error       | #f79797   |                                      |
+| ayong-grey                | #dcdfe6   | 灰色                                 |
+| ayong-primary-grey        | #f0f4fd   | 主题灰                               |
+| ayong-premium-grey        | #ededed   | 高级灰                               |
+| ayong-stone-gray          | #9b9ea4   | 石灰色 字体颜色 边框颜色  select字体 |
+| ayong-dark-green-gray     | #747679   | 浅莲灰  table字体                    |
+| ayong-grey-crescent       | #f4f4f5   | 月牙灰色                             |
+| ayong-carbon-gray         | #222731   | 碳灰色                               |
