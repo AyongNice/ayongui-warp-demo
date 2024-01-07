@@ -20,7 +20,8 @@ import {
     Exitfullscren, Gitlab, Right, Rightcircle, Folder, Openfolder,Send,Useradd,Deleteuser,
     Addusers,Userdelete,Paper,Support,Loading,Lock,Letter,Messages,Poweroff,Printer,Flushed,
     Rest,Sweep,Soundoff,Sound,Close,Laments,Rounlament,Question,Quesround,Disc,Disike,Expand,
-    Ellipsis,Exprot,Fileimg,Userswich,
+    Ellipsis,Exprot,Fileimg,Userswich,Cendas,Imgjpg,Zip,Updatetime,Reply,Stars,Exits,Codes,
+    Codeblock,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -466,8 +467,43 @@ export default () => {
         {
             cmp: Userswich,
             name:"Userswich",
+        },
+        {
+            cmp: Cendas,
+            name:"Cendas",
+        },
+        {
+            cmp: Imgjpg,
+            name:"Imgjpg",
+        },
+        {
+            cmp: Zip,
+            name:"Zip",
+        },
+        {
+            cmp: Updatetime,
+            name:"Updatetime",
+        },
+        {
+            cmp: Reply,
+            name:"Reply",
+        },
+        {
+            cmp: Stars,
+            name:"Stars",
+        },
+        {
+            cmp: Exits,
+            name:"Exits",
+        },
+        {
+            cmp: Codes,
+            name:"Codes",
         }, 
-       ,
+        {
+            cmp: Codeblock,
+            name:"Codeblock",
+        },
     ];
     const iconClick = (name: string) => {
         copyText(`<${name}/>`);
@@ -513,6 +549,7 @@ import {
     Unlock, Save, Message, Play, Panetop, Panedown, Paneleft, Paneright, Login, Logout,
     Menufold, Menuunfold, Borderbottom, Borderhorizontal, Borderlnner, Bordersolid,
     Borderleft, Borderight, Bordertop, Borderverticle, Empty,Github,Image,Posit,
+    Settings,Bellfiled,Bulb,Replys,Star,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -627,6 +664,26 @@ export default () => {
         {
             cmp: Posit,
             name:"Posit",
+        },
+        {
+            cmp: Settings,
+            name:"Settings",
+        },
+        {
+            cmp: Bellfiled,
+            name:"Bellfiled",
+        },
+        {
+            cmp: Bulb,
+            name:"Bulb",
+        },
+        {
+            cmp: Replys,
+            name:"Replys",
+        },
+        {
+            cmp: Star,
+            name:"Star",
         },
     ]
     const iconClick = (name: string) => {
