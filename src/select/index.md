@@ -14,10 +14,10 @@ export default () => {
     const handleChange = (value: any) => {
         console.log(`selected ${value}`);
     };
-    return (<div style={{display: "flex"}}>
+    return (<React.Fragment>
         <Select
-            style={{width: 150}}
             onChange={handleChange}
+            style={{width: 150}}
             options={[
                 {value: 'jack', label: 'Jack'},
                 {value: 'lucy', label: 'Lucy'},
@@ -36,8 +36,8 @@ export default () => {
 
         <Select
             defaultValue='jack'
-            style={{width: 150}}
             onChange={handleChange}
+            style={{width: 150}}
             options={[
                 {value: 'jack', label: 'Jack'},
                 {value: 'disabled', label: 'Disabled', disabled: true},
@@ -55,7 +55,7 @@ export default () => {
                 {value: 'ayong', label: 'ayong'},
             ]}
         />
-    </div>)
+    </React.Fragment>)
 };
 
   ```
@@ -121,6 +121,8 @@ export default () => {
     };
     return (<div style={{display: 'flex'}}>
         <Select
+            search
+            mode='multiple'
             defaultValue={['lucy', 'jack']}
             style={{width: '300px'}}
             onChange={handleChange}
@@ -139,7 +141,8 @@ export default () => {
         />
         <span>&nbsp;&nbsp;&nbsp;</span>
         <Select
-            collapseTags
+            mode='tag'
+            search
             defaultValue={['lucy', 'jack']}
             style={{width: 300}}
             onChange={handleChange}
@@ -175,7 +178,8 @@ export default () => {
     return (<React.Fragment>
         <Select
             search
-            defaultValue='lucy'
+            mode='tag'
+            defaultValue={['lucy']}
             style={{width: 300}}
             onChange={handleChange}
             options={[

@@ -233,3 +233,7 @@ export default () => {
 | name    | 文件名                       | string | 1.0 |
 | status  | 上传状态，不同状态展示颜色也会有所不同 error | string | 1.0 |
 | uid     | 唯一标识符，不设置时会自动生成           | number | 1.0 |
+
+
+
+
