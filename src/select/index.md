@@ -156,7 +156,6 @@ export default () => {
         <span>&nbsp;&nbsp;&nbsp;</span>
         <Select
             mode='tag'
-            search
             defaultValue={['lucy', 'jack']}
             style={{width: 300}}
             onChange={handleChange}
