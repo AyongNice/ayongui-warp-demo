@@ -3,6 +3,21 @@
 
 
 
+```tsx  hideCode=true inline=true
+import {usePrefersColor} from 'dumi';
+import React, {useEffect} from 'react';
+import {setThemeVariables} from "ayongUI";
+import {ModeTheme} from '../../globe/theme.ts'
+
+export default ({children}) => {
+    // color 为当前应用的主题色，dark or light
+    const [color] = usePrefersColor();
+    useEffect(() => {
+        setThemeVariables(new ModeTheme()[color])
+    }, [color])
+
+};
+```
 
 
 ### 基本用法
@@ -121,7 +136,6 @@ export default () => {
     };
     return (<div style={{display: 'flex'}}>
         <Select
-            search
             mode='multiple'
             defaultValue={['lucy', 'jack']}
             style={{width: '300px'}}
@@ -195,6 +209,27 @@ export default () => {
                 {value: 'disabled', label: 'Disabled', disabled: true},
             ]}
         />
+
+      <span>&nbsp;&nbsp;&nbsp;</span>
+      
+      <Select
+        search
+        defaultValue='lucy'
+        style={{width: 300}}
+        onChange={handleChange}
+        options={[
+          {value: 'jack', label: 'Jack'},
+          {value: 'lucy', label: 'Lucy'},
+          {value: 'Yiminghe', label: 'yiminghe'},
+          {value: 'ayong', label: 'ayong'},
+          {value: 'ui-com', label: 'ui-com'},
+          {value: 'ayong5', label: 'ayong5'},
+          {value: 'ayong1', label: 'ayong1'},
+          {value: 'ayong2', label: 'ayong2'},
+          {value: 'ayong3', label: 'ayon3'},
+          {value: 'disabled', label: 'Disabled', disabled: true},
+        ]}
+      />
     </React.Fragment>)
 };
 
