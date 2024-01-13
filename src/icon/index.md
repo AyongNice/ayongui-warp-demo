@@ -21,7 +21,7 @@ import {
     Addusers,Userdelete,Paper,Support,Loading,Lock,Letter,Messages,Poweroff,Printer,Flushed,
     Rest,Sweep,Soundoff,Sound,Close,Laments,Rounlament,Question,Quesround,Disc,Disike,Expand,
     Ellipsis,Exprot,Fileimg,Userswich,Cendas,Imgjpg,Zip,Updatetime,Reply,Stars,Exits,Codes,
-    Codeblock,
+    Codeblock,Bookmarks,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -504,6 +504,10 @@ export default () => {
             cmp: Codeblock,
             name:"Codeblock",
         },
+        {
+            cmp: Bookmarks,
+            name:"Bookmarks",
+        },
     ];
     const iconClick = (name: string) => {
         copyText(`<${name}/>`);
@@ -549,7 +553,7 @@ import {
     Unlock, Save, Message, Play, Panetop, Panedown, Paneleft, Paneright, Login, Logout,
     Menufold, Menuunfold, Borderbottom, Borderhorizontal, Borderlnner, Bordersolid,
     Borderleft, Borderight, Bordertop, Borderverticle, Empty,Github,Image,Posit,
-    Settings,Bellfiled,Bulb,Replys,Star,
+    Settings,Bellfiled,Bulb,Replys,Star,Bookmark,User,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -684,6 +688,14 @@ export default () => {
         {
             cmp: Star,
             name:"Star",
+        },
+        {
+            cmp: Bookmark,
+            name:"Bookmark",
+        },
+        {
+            cmp: User,
+            name:"User",
         },
     ]
     const iconClick = (name: string) => {
