@@ -21,7 +21,7 @@ import {
     Addusers,Userdelete,Paper,Support,Loading,Lock,Letter,Messages,Poweroff,Printer,Flushed,
     Rest,Sweep,Soundoff,Sound,Close,Laments,Rounlament,Question,Quesround,Disc,Disike,Expand,
     Ellipsis,Exprot,Fileimg,Userswich,Cendas,Imgjpg,Zip,Updatetime,Reply,Stars,Exits,Codes,
-    Codeblock,Bookmarks,
+    Codeblock,Bookmarks,Sunny,Moon,Laughing,Posits,Skin,Handoff,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -507,6 +507,30 @@ export default () => {
         {
             cmp: Bookmarks,
             name:"Bookmarks",
+        }, 
+        {
+            cmp: Sunny,
+            name:"Sunny",
+        },
+        {
+            cmp: Moon,
+            name:"Moon",
+        },
+        {
+            cmp: Laughing,
+            name:"Laughing",
+        }, 
+        {
+            cmp: Posits,
+            name:"Posits",
+        },
+        {
+            cmp: Skin,
+            name:"Skin",
+        },
+        {
+            cmp: Handoff,
+            name:"Handoff",
         },
     ];
     const iconClick = (name: string) => {
@@ -553,7 +577,7 @@ import {
     Unlock, Save, Message, Play, Panetop, Panedown, Paneleft, Paneright, Login, Logout,
     Menufold, Menuunfold, Borderbottom, Borderhorizontal, Borderlnner, Bordersolid,
     Borderleft, Borderight, Bordertop, Borderverticle, Empty,Github,Image,Posit,
-    Settings,Bellfiled,Bulb,Replys,Star,Bookmark,User,
+    Settings,Bellfiled,Bulb,Replys,Star,Bookmark,User,Addser,Switchusers,Handsolid,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -696,6 +720,18 @@ export default () => {
         {
             cmp: User,
             name:"User",
+        },
+        {
+            cmp: Addser,
+            name:"Addser",
+        },
+        {
+            cmp: Switchusers,
+            name:"Switchusers",
+        },
+        {
+            cmp: Handsolid,
+            name:"Handsolid",
         },
     ]
     const iconClick = (name: string) => {
