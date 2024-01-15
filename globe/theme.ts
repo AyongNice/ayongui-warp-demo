@@ -6,7 +6,9 @@ export function ModeTheme() {
     'ayong-font-color': '#fff',
     'ayong-light': '#fff',
     'ayong-font-dark': '#222731',
-    'ayong-primary-grey': '#f0f4fd',
+    'ayong-plaster-grey': '#d3d5dc',
+    'ayong-premium-grey': '#ededed',
+    'ayong-primary-grey': '#a8c0fb',
   }
   this.dark = {
     themeBulue: '#53728b',
@@ -15,8 +17,11 @@ export function ModeTheme() {
     'ayong-font-color': '#4067b6',
     'ayong-light': '#44444a',
     'ayong-font-dark': '#c9c9cb',
-    'ayong-primary-grey': '#818184',
+    'ayong-primary-grey': '#a8c0fb',
     'ayong-grey-crescent': '#85465f',
+    'ayong-plaster-grey': '#6c6d71',
+    'ayong-premium-grey': '#ababab',
+    'ayong-primary-grey': '#959595',
   }
   this.undefined = this.light
 }
