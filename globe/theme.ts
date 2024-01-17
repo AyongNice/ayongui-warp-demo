@@ -8,7 +8,7 @@ export function ModeTheme() {
     'ayong-font-dark': '#222731',
     'ayong-plaster-grey': '#d3d5dc',
     'ayong-premium-grey': '#ededed',
-    'ayong-primary-grey': '#a8c0fb',
+    'ayong-primary-grey': '#e4ecff',
   }
   this.dark = {
     themeBulue: '#53728b',
