@@ -21,7 +21,8 @@ import {
     Addusers,Userdelete,Paper,Support,Loading,Lock,Letter,Messages,Poweroff,Printer,Flushed,
     Rest,Sweep,Soundoff,Sound,Close,Laments,Rounlament,Question,Quesround,Disc,Disike,Expand,
     Ellipsis,Exprot,Fileimg,Userswich,Cendas,Imgjpg,Zip,Updatetime,Reply,Stars,Exits,Codes,
-    Codeblock,Bookmarks,Sunny,Moon,Laughing,Posits,Skin,Handoff,Top,Left,Facright,
+    Codeblock,Bookmarks,Sunny,Moon,Laughing,Posits,Skin,Handoff,Top,Left,Facright,Highlight,
+    Bgcolor,Plus,Minus,Return,Forwards,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -544,6 +545,30 @@ export default () => {
             cmp: Handoff,
             name:"Handoff",
         },
+        {
+            cmp: Highlight,
+            name:"Highlight",
+        }, 
+        {
+            cmp: Bgcolor,
+            name:"Bgcolor",
+        }, 
+        {
+            cmp: Plus,
+            name:"Plus",
+        },
+        {
+            cmp: Minus,
+            name:"Minus",
+        }, 
+        {
+            cmp: Return,
+            name:"Return",
+        }, 
+        {
+            cmp: Forwards,
+            name:"Forwards",
+        }
     ];
     const iconClick = (name: string) => {
         copyText(`<${name}/>`);
@@ -590,6 +615,7 @@ import {
     Menufold, Menuunfold, Borderbottom, Borderhorizontal, Borderlnner, Bordersolid,
     Borderleft, Borderight, Bordertop, Borderverticle, Empty,Github,Image,Posit,
     Settings,Bellfiled,Bulb,Replys,Star,Bookmark,User,Addser,Switchusers,Handsolid,
+    Bell,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -744,6 +770,10 @@ export default () => {
         {
             cmp: Handsolid,
             name:"Handsolid",
+        },
+        {
+            cmp: Bell,
+            name:"Bell",
         },
     ]
     const iconClick = (name: string) => {
