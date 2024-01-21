@@ -21,7 +21,7 @@ import {
     Addusers,Userdelete,Paper,Support,Loading,Lock,Letter,Messages,Poweroff,Printer,Flushed,
     Rest,Sweep,Soundoff,Sound,Close,Laments,Rounlament,Question,Quesround,Disc,Disike,Expand,
     Ellipsis,Exprot,Fileimg,Userswich,Cendas,Imgjpg,Zip,Updatetime,Reply,Stars,Exits,Codes,
-    Codeblock,Bookmarks,Sunny,Moon,Laughing,Posits,Skin,Handoff,
+    Codeblock,Bookmarks,Sunny,Moon,Laughing,Posits,Skin,Handoff,Top,Left,Facright,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -203,7 +203,7 @@ export default () => {
         {
             cmp: Unlock,
             name: "Unlock",
-        }, 
+        },
         {
             cmp: Lock,
             name: "Lock",
@@ -289,6 +289,18 @@ export default () => {
             name: "Under",
         },
         {
+            cmp: Top,
+            name: "Top",
+        },
+        {
+            cmp: Left,
+            name: "Left",
+        },
+        {
+            cmp: Facright,
+            name: "Facright",
+        },
+        {
             cmp: Nocontent,
             name: "Nocontent",
         },
@@ -367,7 +379,7 @@ export default () => {
         {
             cmp: Addusers,
             name:"Addusers",
-        }, 
+        },
         {
             cmp: Userdelete,
             name:"Userdelete",
@@ -387,7 +399,7 @@ export default () => {
         {
             cmp: Letter,
             name:"Letter",
-        },   
+        },
         {
             cmp: Messages,
             name:"Messages",
@@ -395,7 +407,7 @@ export default () => {
         {
             cmp: Poweroff,
             name:"Poweroff",
-        },  
+        },
         {
             cmp: Printer,
             name:"Printer",
@@ -407,7 +419,7 @@ export default () => {
         {
             cmp: Rest,
             name:"Rest",
-        },  
+        },
         {
             cmp: Sweep,
             name:"Sweep",
@@ -423,11 +435,11 @@ export default () => {
         {
             cmp: Close,
             name:"Close",
-        }, 
+        },
         {
             cmp: Laments,
             name:"Laments",
-        }, 
+        },
         {
             cmp: Rounlament,
             name:"Rounlament",
@@ -435,7 +447,7 @@ export default () => {
         {
             cmp: Question,
             name:"Question",
-        }, 
+        },
         {
             cmp: Quesround,
             name:"Quesround",
@@ -447,7 +459,7 @@ export default () => {
         {
             cmp: Disike,
             name:"Disike",
-        }, 
+        },
         {
             cmp: Expand,
             name:"Expand",
@@ -463,7 +475,7 @@ export default () => {
         {
             cmp: Fileimg,
             name:"Fileimg",
-        }, 
+        },
         {
             cmp: Userswich,
             name:"Userswich",
@@ -499,7 +511,7 @@ export default () => {
         {
             cmp: Codes,
             name:"Codes",
-        }, 
+        },
         {
             cmp: Codeblock,
             name:"Codeblock",
@@ -507,7 +519,7 @@ export default () => {
         {
             cmp: Bookmarks,
             name:"Bookmarks",
-        }, 
+        },
         {
             cmp: Sunny,
             name:"Sunny",
@@ -519,7 +531,7 @@ export default () => {
         {
             cmp: Laughing,
             name:"Laughing",
-        }, 
+        },
         {
             cmp: Posits,
             name:"Posits",
