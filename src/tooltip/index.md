@@ -52,9 +52,16 @@ export default () => {
     const popupN=()=>(<span style={{color:'red',fontSize:'20px'}}>我劝天公重抖擞,不拘一格降人才</span>)
 
     return <div style={{display: "flex", justifyContent: 'space-around'}}>
-        <Tooltip placement="top" popup={popupN}>
+        <Tooltip placement="top" popup={popupN} >
               <Button >top</Button>
         </Tooltip >
     </div>
 }
 ```
+
+
+| 属性名   | 说明                                        | 类型    | 默认值  | 版本 |
+| -------- | ------------------------------------------- | ------ | ------- | ---- |
+| placement  | tooltip弹出位置topLeft / top / topRight / bottomLeft / bottom/ bottomRight / leftTop / left / leftBottom/ rightTop / right/ rightBottom                         | string | top | 1.0  |
+| popup  | 弹出框内容                              | string/HTMLElement | '' | 1.0  |
+<!-- | trigger     | tooltip激活方式hover/click | array | ['hover'] | 1.0  | -->
