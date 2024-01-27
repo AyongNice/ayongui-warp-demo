@@ -40,3 +40,22 @@ export default () => {
     </div>
 }
 ```
+
+
+### 日期范围选择
+
+```tsx
+import {RangePicker} from 'ayongUI';
+
+export default () => {
+    const onChange = (date, dateString) => {
+        // console.log(date, dateString);
+    };
+    return <div style={{display: "flex", justifyContent: 'space-around'}}>
+        <RangePicker onChange={onChange}/>
+    </div>
+}
+```
+
+
+```
