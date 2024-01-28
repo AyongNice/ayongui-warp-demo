@@ -53,6 +53,7 @@ export default () => {
     };
     return <div style={{display: "flex", justifyContent: 'space-around'}}>
         <RangePicker onChange={onChange}/>
+        <RangePicker onChange={onChange} showTime/>
     </div>
 }
 ```
