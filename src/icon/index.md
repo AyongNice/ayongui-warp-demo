@@ -615,7 +615,7 @@ import {
     Menufold, Menuunfold, Borderbottom, Borderhorizontal, Borderlnner, Bordersolid,
     Borderleft, Borderight, Bordertop, Borderverticle, Empty,Github,Image,Posit,
     Settings,Bellfiled,Bulb,Replys,Star,Bookmark,User,Addser,Switchusers,Handsolid,
-    Bell,
+    Bell,Questions,Uploadss,Deletes,Thumb,Stepon,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -774,6 +774,26 @@ export default () => {
         {
             cmp: Bell,
             name:"Bell",
+        },
+        {
+            cmp: Questions,
+            name:"Questions",
+        },
+        {
+            cmp: Uploadss,
+            name:"Uploadss",
+        },
+        {
+            cmp: Deletes,
+            name:"Deletes",
+        },
+        {
+            cmp: Thumb,
+            name:"Thumb",
+        },
+        {
+            cmp: Stepon,
+            name:"Stepon",
         },
     ]
     const iconClick = (name: string) => {
