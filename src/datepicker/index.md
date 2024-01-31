@@ -32,6 +32,7 @@ export default () => {
     };
     return <div style={{display: "flex", justifyContent: 'space-around'}}>
         <DatePicker onChange={onChange}/>
+        <DatePicker onChange={onChange} showTime/>
         <DatePicker onChange={onChange} picker="week"/>
         <DatePicker onChange={onChange} picker="month"/>
         <DatePicker onChange={onChange} picker="quarter"/>
