@@ -22,7 +22,7 @@ import {
     Rest,Sweep,Soundoff,Sound,Close,Laments,Rounlament,Question,Quesround,Disc,Disike,Expand,
     Ellipsis,Exprot,Fileimg,Userswich,Cendas,Imgjpg,Zip,Updatetime,Reply,Stars,Exits,Codes,
     Codeblock,Bookmarks,Sunny,Moon,Laughing,Posits,Skin,Handoff,Top,Left,Facright,Highlight,
-    Bgcolor,Plus,Minus,Return,Forwards,
+    Bgcolor,Plus,Minus,Return,Forwards,Open,Openoff,Key,Addfile,Deletefile,Warning,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -568,7 +568,31 @@ export default () => {
         {
             cmp: Forwards,
             name:"Forwards",
-        }
+        },
+        {
+            cmp: Open,
+            name:"Open",
+        },
+        {
+            cmp: Openoff,
+            name:"Openoff",
+        }, 
+        {
+            cmp: Key,
+            name:"Key",
+        },
+        {
+            cmp: Addfile,
+            name:"Addfile",
+        },
+        {
+            cmp: Deletefile,
+            name:"Deletefile",
+        }, 
+        {
+            cmp: Warning,
+            name:"Warning",
+        },
     ];
     const iconClick = (name: string) => {
         copyText(`<${name}/>`);
@@ -615,7 +639,7 @@ import {
     Menufold, Menuunfold, Borderbottom, Borderhorizontal, Borderlnner, Bordersolid,
     Borderleft, Borderight, Bordertop, Borderverticle, Empty,Github,Image,Posit,
     Settings,Bellfiled,Bulb,Replys,Star,Bookmark,User,Addser,Switchusers,Handsolid,
-    Bell,Questions,Uploadss,Deletes,Thumb,Stepon,
+    Bell,Questions,Uploadss,Deletes,Thumb,Stepon,Addsfile,Erasefile,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -794,6 +818,14 @@ export default () => {
         {
             cmp: Stepon,
             name:"Stepon",
+        },
+        {
+            cmp: Addsfile,
+            name:"Addsfile",
+        },
+        {
+            cmp: Erasefile,
+            name:"Erasefile",
         },
     ]
     const iconClick = (name: string) => {
