@@ -39,8 +39,9 @@ export default () => {
   </div>
 }
 ```
-### 配置默认值 || 父组件控制状态 value
-
+### 配置默认值 defaultValue || 父组件受控状态 value
+****需要注意！ 组件value 和 defaultValue 的数据格式需要 Date 格式****
+*温馨提示！父组件通过value直接控制日期组件时候， 日期组件在改变日期数据时候 不会单独触发onChange事件； 因为此时日期的数据的状态在父组件维护，所以也不会需要再次单独触发onChange事件；只有点击交互日期组件才会触发onChange事件*
 ```tsx
 import {DatePicker, Button} from 'ayongUI'
 import type {DatePickerProps} from 'ayongUI'
@@ -52,14 +53,18 @@ export default () => {
     };
     const [value, setValue] = useState(new Date('2024-11-15'))
     const onClick = () => {
-        //加加减减value的值，来控制DatePicker的状态值
-        setValue(new Date(value.getTime() + 1000 * 60 * 60 * 24))
-        console.log('父组件控制日期状态值',value);
+        /**
+         * 此代码用来模拟 子组件的时间 需要由父组件状态直接控制（ 数据模拟后端接口获取的动态数据）
+         * 需要注意！ 组件value 和 defaultValue 的数据格式需要 Date 格式
+         * 
+         */
+        setValue(new Date(value.getTime() + 1000 * 60 * 60 * 12))
+       
     }
     return <div style={{display: "flex", justifyContent: 'space-around'}}>
-        <DatePicker onChange={onChange} defaultValue={new Date('2024-11-15')}/>
+        <DatePicker onChange={onChange} showTime defaultValue={new Date('2024-11-08 21:39:59')}/>
         <Button onClick={onClick}>父组件控制日期状态值</Button>
-        <DatePicker value={value}/>
+        <DatePicker showTime value={value}/>
     </div>
 }
 ```
