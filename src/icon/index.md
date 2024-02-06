@@ -22,7 +22,8 @@ import {
     Rest,Sweep,Soundoff,Sound,Close,Laments,Rounlament,Question,Quesround,Disc,Disike,Expand,
     Ellipsis,Exprot,Fileimg,Userswich,Cendas,Imgjpg,Zip,Updatetime,Reply,Stars,Exits,Codes,
     Codeblock,Bookmarks,Sunny,Moon,Laughing,Posits,Skin,Handoff,Top,Left,Facright,Highlight,
-    Bgcolor,Plus,Minus,Return,Forwards,Open,Openoff,Key,Addfile,Deletefile,Warning,
+    Bgcolor,Plus,Minus,Return,Forwards,Open,Openoff,Key,Addfile,Deletefile,Warning,Carry,
+    Clear,Link,Wifi,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -593,6 +594,22 @@ export default () => {
             cmp: Warning,
             name:"Warning",
         },
+        {
+            cmp: Carry,
+            name:"Carry",
+        }, 
+        {
+            cmp: Clear,
+            name:"Clear",
+        },
+        {
+            cmp: Link,
+            name:"Link",
+        },
+        {
+            cmp: Wifi,
+            name:"Wifi",
+        },
     ];
     const iconClick = (name: string) => {
         copyText(`<${name}/>`);
@@ -639,7 +656,8 @@ import {
     Menufold, Menuunfold, Borderbottom, Borderhorizontal, Borderlnner, Bordersolid,
     Borderleft, Borderight, Bordertop, Borderverticle, Empty,Github,Image,Posit,
     Settings,Bellfiled,Bulb,Replys,Star,Bookmark,User,Addser,Switchusers,Handsolid,
-    Bell,Questions,Uploadss,Deletes,Thumb,Stepon,Addsfile,Erasefile,
+    Bell,Questions,Uploadss,Deletes,Thumb,Stepon,Addsfile,Erasefile,Mute,Sounds,
+    Begin,Timeout,Downloads,
 } from "ayongUI";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
@@ -826,6 +844,26 @@ export default () => {
         {
             cmp: Erasefile,
             name:"Erasefile",
+        },
+        {
+            cmp: Mute,
+            name:"Mute",
+        },
+        {
+            cmp: Sounds,
+            name:"Sounds",
+        },
+        {
+            cmp: Begin,
+            name:"Begin",
+        },
+        {
+            cmp: Timeout,
+            name:"Timeout",
+        },
+        {
+            cmp: Downloads,
+            name:"Downloads",
         },
     ]
     const iconClick = (name: string) => {
