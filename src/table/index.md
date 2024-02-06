@@ -156,7 +156,7 @@ const data = [
     },
 ];
 const App = () => (
-    <Table data={data} className={style.diyTable}>
+    <Table data={data} demo='jsx' className={style.diyTable}>
         <Column title="Age" dataIndex="age" key={1}/>
         <Column title="Address" dataIndex="address" key={2}/>
         <Column
@@ -289,7 +289,7 @@ const data: Item[] = [
     },
 ];
 const App = () =>
-    <Table data={data} className={style.diyTable}>
+    <Table data={data} demo='Group' className={style.diyTable}>
         <Column title='First Name' dataIndex='firstName' key={10}/>
         <ColumnGroup title='Name' key={666}>
             <Column title='Last Name' dataIndex='lastName' key={11}/>
