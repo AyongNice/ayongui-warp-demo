@@ -128,7 +128,7 @@ export default () => {
 
     };
     return <div style={{display: "flex", justifyContent: 'space-around'}}>
-        <RangePicker onChange={onChange}/>
+        <RangePicker onChange={onChange} disabled/>
         <RangePicker onChange={onChange} showTime/>
     </div>
 }
@@ -162,7 +162,7 @@ export default () => {
 
 | **属性名** | 说明                                                         | 默认值                           | 类型     | **支持版本** |
 | ---------- | ------------------------------------------------------------ | -------------------------------- | -------- | ------------ |
-| onChange   | 日期发生变化时候触发该事件[DayItem参数详解](*#DayItem*) 只有在picker为 week时候会有dateString参数 | (day:DayItem,dateString) => void | Function | 1.0          |
+| onChange   | 日期发生变化时候触发该事件[DayItem参数详解](#DayItem) 只有在picker为 week时候会有dateString参数 并且day为数据结构 | (day:DayItem,dateString) => void | Function | 1.0          |
 
 
 
@@ -170,9 +170,7 @@ export default () => {
 
 | **属性名** | 说明                                                         | 默认值                 | 类型     | **支持版本** |
 | ---------- | ------------------------------------------------------------ | ---------------------- | -------- | ------------ |
-|            |                                                              |                        |          |              |
 | onChange   | 日期发生变化时候触发该事件,<br/>方法接受数组参数 开始日期和结束日期 | (day:string[]) => void | Function | 1.0          |
-|            |                                                              |                        |          |              |
 
 <span id="DayItem">DayItem参数详解</span>
 
