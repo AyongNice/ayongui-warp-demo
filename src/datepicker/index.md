@@ -128,7 +128,7 @@ export default () => {
 
     };
     return <div style={{display: "flex", justifyContent: 'space-around'}}>
-        <RangePicker onChange={onChange} disabled/>
+        <RangePicker onChange={onChange}/>
         <RangePicker onChange={onChange} showTime/>
     </div>
 }
@@ -142,17 +142,17 @@ export default () => {
 
 
 
-| 属性名       | 说明                                                         | 默认值                  | 类型             | 支持版本 |
-| ------------ | ------------------------------------------------------------ | ----------------------- | ---------------- | -------- |
-| className    | 日期选择框的className 样式<br/> className名 必须是module类型的样式 否则无法覆盖组件样式 | -                       | string           |          |
-| picker       | 选择模式 day \| week \| month \|quarter \| year              | day                     | string           |          |
-| defaultValue | 日期默认值 详情使用见使用说明                                | -                       | Date             | 1.0      |
-| value        | 由父组件的状态控制日期组件显示,在value发生改变时 日期组件不会再次出发 onChange事件 | -                       | Date             | 1.0      |
-| onChange     | 日期发生变化时候触发该事件 [DayItem参数详解](*#DayItem*)     | (day:DayItem[]) => void | Function         | 1.0      |
-| onClear      | 点击清楚按钮触发                                             | () => void              | Function         | 1.0      |
-| footerRender | 底部自定义渲染                                               | null                    | Function \| null | 1.0      |
-| showTime     | 是否打开时分秒选择                                           | false                   | boolean          | 1.0      |
-| disabledTime | 禁止选择日期范围 传入方法返回 true 禁止选择 false 允许选择 详情详见代码实例 | () => false             | Function         | 1.0      |
+| 属性名                                           | 说明                                                         | 默认值      | 类型             | 支持版本 |
+| ------------------------------------------------ | ------------------------------------------------------------ | ----------- | ---------------- | -------- |
+| className                                        | 日期选择框的className 样式<br/> className名 必须是module类型的样式 否则无法覆盖组件样式 | -           | string           |          |
+| picker                                           | 选择模式 day \| week \| month \|quarter \| year              | day         | string           |          |
+| defaultValue                                     | 日期默认值 详情使用见使用说明                                | -           | Date             | 1.0      |
+| value                                            | 由父组件的状态控制日期组件显示,在value发生改变时 日期组件不会再次出发 onChange事件 | -           | Date             | 1.0      |
+| onClear                                          | 点击清楚按钮触发                                             | () => void  | Function         | 1.0      |
+| footerRender                                     | 底部自定义渲染                                               | null        | Function \| null | 1.0      |
+| showTime                                         | 是否打开时分秒选择                                           | false       | boolean          | 1.0      |
+| disabledTime                                     | 禁止选择日期范围 传入方法返回 true 禁止选择 false 允许选择 详情详见代码实例 | () => false | Function         | 1.0      |
+| &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; |                                                              |             |                  |          |
 
 
 
@@ -160,22 +160,23 @@ export default () => {
 
 ### RangePicker参数
 
-| **属性名** | 说明                                                         | 默认值                           | 类型     | **支持版本** |
-| ---------- | ------------------------------------------------------------ | -------------------------------- | -------- | ------------ |
-| onChange   | 日期发生变化时候触发该事件[DayItem参数详解](#DayItem) 只有在picker为 week时候会有dateString参数 并且day为数据结构 | (day:DayItem,dateString) => void | Function | 1.0          |
+| **属性名**         | 说明                                                         | 默认值 | 类型 | **支持版本** |
+| ------------------ | ------------------------------------------------------------ | ------ | ---- | ------------ |
+| onChange           | 日期发生变化时候触发该事件[DayItem参数详解](#DayItem)  day数据结构为字符类型数组<br/>只有在picker为 week时候会有dateString参数 |        |      |              |
+| &emsp;&emsp;&emsp; |                                                              |        |      |              |
 
 
 
 ### DatePicker参数
 
-| **属性名** | 说明                                                         | 默认值                 | 类型     | **支持版本** |
-| ---------- | ------------------------------------------------------------ | ---------------------- | -------- | ------------ |
-| onChange   | 日期发生变化时候触发该事件,<br/>方法接受数组参数 开始日期和结束日期 | (day:string[]) => void | Function | 1.0          |
+| **属性名** | 说明                                                         | 默认值                           | 类型     | **支持版本** |
+| ---------- | ------------------------------------------------------------ | -------------------------------- | -------- | ------------ |
+| onChange   | 日期发生变化时候触发该事件,<br/> [DayItem参数详解](#DayItem) 只有在picker为 week时候会有dateString参数  并且day数据结构为数组 | (day:DayItem,dateString) => void | Function | 1.0          |
 
 <span id="DayItem">DayItem参数详解</span>
 
 | 属性名           | 说明                              | 类型    | 版本 |
-| ---------------- | --------------------------------- | ------- | ---- |
+| ------- | --------------------------------- | ------- | ---- |
 | date             | 天数日期字符                      | number  | 1.0  |
 | comprehensive    | 日期类型对象                      | File    | 1.0  |
 | comprehensiveStr | 日期字符  例如 2024-02-03         | string  | 1.0  |
