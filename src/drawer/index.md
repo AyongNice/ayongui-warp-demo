@@ -4,6 +4,22 @@ order: 20
 
 # Drawer 抽屉
 
+```tsx  hideCode=true inline=true
+import {usePrefersColor} from 'dumi';
+import React, {useEffect} from 'react';
+import {setThemeVariables} from "ayongUI";
+import {ModeTheme} from '../../globe/theme.ts'
+
+export default () => {
+  // color 为当前应用的主题色，dark or light
+  const [color] = usePrefersColor();
+  useEffect(() => {
+    setThemeVariables(new ModeTheme()[color])
+  }, [color])
+
+};
+```
+
 ## 介绍
 
 抽屉组件，提供了抽屉弹出的方式展示内容。 通常用于在PC端操作按钮，出现的抽屉面板。
