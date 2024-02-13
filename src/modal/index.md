@@ -148,7 +148,11 @@ export default () => {
 
     return <div>
         <Button type="primary" onClick={() => Modal.info({
-            title: 'ceshi'
+            title: 'Modal.info',
+            style: {width: '50%', top: '100px'},
+            content: '这是直接通过组件的Modal.API进行调用...',
+            okText: '确认',
+            cancelText: '取消',
         })}>
             打开弹窗
         </Button>
