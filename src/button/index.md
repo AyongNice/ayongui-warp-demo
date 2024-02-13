@@ -18,17 +18,18 @@ import {Button, Message} from 'ayongUI';
 import style from "./index.module.less";
 
 export default () => {
-   
+
 
     return (
-        <React.Fragment>
-          <Button className={style.button}>默认类型</Button>
-          <Button className={style.button} type='dashed'>dashed-虚线按钮</Button>
-          <Button className={style.button} type='primary'>primary-主题按钮</Button>
-          <Button className={style.button} type='error'>dangerous-危险按钮</Button>
-          <Button className={style.button} type='warn'>warn-警告按钮</Button>
-          <Button className={style.button} type='safe'>safe-安全按钮</Button>
-        </React.Fragment>
+        <div style={{display: 'flex', justifyContent: 'space-around'}}>
+            <Button>默认类型</Button>
+            <Button type='primary' disabled>默认类型</Button>
+            <Button type='dashed'>dashed-虚线按钮</Button>
+            <Button type='primary'>primary-主题按钮</Button>
+            <Button type='error'>dangerous-危险按钮</Button>
+            <Button type='warn'>warn-警告按钮</Button>
+            <Button type='safe'>safe-安全按钮</Button>
+        </div>
     );
 };
 ```
@@ -56,7 +57,29 @@ export default () => {
     );
 };
 ```
+### 设置防抖 1000毫秒 + loading
 
+
+```tsx 
+
+import React from 'react';
+import {Button, Message} from 'ayongUI';
+import style from "./index.module.less";
+
+export default () => {
+    const onClick = () => {
+
+    };
+    return <React.Fragment>
+        <Button type='primary' onClick={onClick} style={{marginRight: '20px'}} time={1000}>
+            ayongUI
+        </Button>
+        <Button type='primary' loading>
+            loading
+        </Button>
+    </React.Fragment>;
+};
+```
 
 ### 自定义 className 样式
 
@@ -76,26 +99,7 @@ export default () => {
 };
 ```
 
-### 设置防抖 1000毫秒
 
-
-```tsx 
-
-import React from 'react';
-import {Button, Message} from 'ayongUI';
-import style from "./index.module.less";
-
-export default () => {
-    const onClick = () => {
-
-    };
-    return (
-        <Button type='primary' onClick={onClick} time={1000}>
-            small-ayongUI
-        </Button>
-    );
-};
-```
 
 | 属性名   | 说明                                        | 类型   | 默认值  | 版本 |
 | -------- | ------------------------------------------- | ------ | ------- | ---- |

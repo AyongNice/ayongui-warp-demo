@@ -34,39 +34,39 @@ import {Drawer, Button, Radio} from 'ayongUI'
 import DirectionSelector from './chebox.tsx'
 
 export default () => {
-  const [open, setOpen] = useState(false);
-  const [placement, setPlacement] = useState('right');
+    const [open, setOpen] = useState(false);
+    const [placement, setPlacement] = useState('right');
 
-  const showDrawer = () => {
-    setOpen(true);
-  };
-  const onClose = () => {
-    setOpen(() => false);
-  };
-  const onChange = (direction) => {
-    setPlacement(direction)
-  }
+    const showDrawer = () => {
+        setOpen(true);
+    };
+    const onClose = () => {
+        setOpen(() => false);
+    };
+    const onChange = (direction) => {
+        setPlacement(direction)
+    }
 
-  return <React.Fragment>
+    return <React.Fragment>
 
-    <Button type='primary' onClick={showDrawer}>Open</Button>
-    <Radio.Group onChange={onChange} value={placement}>
-      <Radio value="top">top</Radio>
-      <Radio value="bottom">bottom</Radio>
-      <Radio value="left">left</Radio>
-      <Radio value="right">right</Radio>
-    </Radio.Group>
-    <Drawer
-      title="ayongUI的抽屉组件"
-      open={open}
-      placement={placement}
-      onClose={onClose}
-    >
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-    </Drawer>
-  </React.Fragment>
+        <Button type='primary' onClick={showDrawer}>Open</Button>
+        <Radio.Group onChange={onChange} value={placement}>
+            <Radio value="top">top</Radio>
+            <Radio value="bottom">bottom</Radio>
+            <Radio value="left">left</Radio>
+            <Radio value="right">right</Radio>
+        </Radio.Group>
+        <Drawer
+            title="ayongUI的抽屉组件"
+            open={open}
+            placement={placement}
+            onClose={onClose}
+        >
+            <p>这是对话框内容...</p>
+            <p>这是对话框内容...</p>
+            <p>这是对话框内容...</p>
+        </Drawer>
+    </React.Fragment>
 }
 
 ```
@@ -81,51 +81,51 @@ import {useState, useRef, useEffect} from 'react'
 import {Drawer, Button, Radio} from 'ayongUI'
 
 export default () => {
-  const [open, setOpen] = useState(false);
-  const [placement, setPlacement] = useState('right');
-  const showDrawer = () => {
-    setOpen(true);
-  };
-  const onClose = () => {
-    setOpen(() => false);
-  };
-  const onChange = (direction) => {
-    setPlacement(direction)
-  }
+    const [open, setOpen] = useState(false);
+    const [placement, setPlacement] = useState('right');
+    const showDrawer = () => {
+        setOpen(true);
+    };
+    const onClose = () => {
+        setOpen(() => false);
+    };
+    const onChange = (direction) => {
+        setPlacement(direction)
+    }
 
-  return <div
-    style={{
-      position: 'relative',
-      overflow: 'hidden',
-      height: 200,
-      width: '500px',
-      background: '#00000005',
-      boxSizing: 'border-box',
-      padding: '15px'
-    }}>
+    return <div
+        style={{
+            position: 'relative',
+            overflow: 'hidden',
+            height: 200,
+            width: '500px',
+            background: '#00000005',
+            boxSizing: 'border-box',
+            padding: '15px'
+        }}>
 
-    <Button type='primary' onClick={showDrawer}>Open</Button>
-    <Radio.Group onChange={onChange} value={placement}>
-      <Radio value="top">top</Radio>
-      <Radio value="bottom">bottom</Radio>
-      <Radio value="left">left</Radio>
-      <Radio value="right">right</Radio>
-    </Radio.Group>
-    <Drawer
-      title="ayongUI的抽屉组件"
-      getContainer={false}
-      open={open}
-      placement={placement}
-      onClose={onClose}
-    >
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
+        <Button type='primary' onClick={showDrawer}>Open</Button>
+        <Radio.Group onChange={onChange} value={placement}>
+            <Radio value="top">top</Radio>
+            <Radio value="bottom">bottom</Radio>
+            <Radio value="left">left</Radio>
+            <Radio value="right">right</Radio>
+        </Radio.Group>
+        <Drawer
+            title="ayongUI的抽屉组件"
+            getContainer={false}
+            open={open}
+            placement={placement}
+            onClose={onClose}
+        >
+            <p>这是对话框内容...</p>
+            <p>这是对话框内容...</p>
+            <p>这是对话框内容...</p>
 
-    </Drawer>
+        </Drawer>
 
 
-  </div>
+    </div>
 }
 
 ```
@@ -236,9 +236,9 @@ export default () => {
       headerClassName={style.headerClassName}
       bodyClassName={style.bodyClassName}
     >
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
+      <p>这是对话框内容...</p>
+      <p>这是对话框内容...</p>
+      <p>这是对话框内容...</p>
     </Drawer>
   </React.Fragment>
 }
