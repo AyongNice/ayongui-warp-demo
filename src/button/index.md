@@ -23,7 +23,7 @@ export default () => {
     return (
         <div style={{display: 'flex', justifyContent: 'space-around'}}>
             <Button>默认类型</Button>
-            <Button type='primary' disabled>默认类型</Button>
+            <Button type='primary' disabled>禁用选择</Button>
             <Button type='dashed'>dashed-虚线按钮</Button>
             <Button type='primary'>primary-主题按钮</Button>
             <Button type='error'>dangerous-危险按钮</Button>

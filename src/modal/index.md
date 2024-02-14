@@ -146,17 +146,96 @@ import {Modal, Button, Close} from 'ayongUI'
 
 export default () => {
 
-    return <div>
-        <Button type="primary" onClick={() => Modal.info({
+    const info = () => {
+        Modal.info({
             title: 'Modal.info',
-            style: {width: '50%', top: '100px'},
+            style: {width: '30%'},
             content: '这是直接通过组件的Modal.API进行调用...',
             okText: '确认',
             cancelText: '取消',
-        })}>
-            打开弹窗
-        </Button>
+            maskClosable: false,
+            placement: 'center',
+            onOk: () => {
+                console.log('点击了OK')
+            },
+            onCancel: () => {
+                console.log('点击了取消')
 
+            },
+
+        })
+    }
+    const success = () => {
+        Modal.success({
+            title: 'Modal.success',
+            style: {width: '30%'},
+            content: '这是直接通过组件的Modal.API进行调用...',
+            okText: '确认',
+            cancelText: '取消',
+            maskClosable: false,
+            placement: 'center',
+            onOk: () => {
+                console.log('点击了OK')
+            },
+            onCancel: () => {
+                console.log('点击了取消')
+
+            },
+
+        })
+    }
+    const warning = () => {
+        Modal.warning({
+            title: 'Modal.warning',
+            style: {width: '30%'},
+            content: '这是直接通过组件的Modal.API进行调用...',
+            okText: '确认',
+            cancelText: '取消',
+            maskClosable: false,
+            placement: 'center',
+            onOk: () => {
+                console.log('点击了OK')
+            },
+            onCancel: () => {
+                console.log('点击了取消')
+
+            },
+
+        })
+    }
+    const error = () => {
+        Modal.error({
+            title: 'Modal.info',
+            style: {width: '30%'},
+            content: '这是直接通过组件的Modal.API进行调用...',
+            okText: '确认',
+            cancelText: '取消',
+            maskClosable: false,
+            placement: 'center',
+            onOk: () => {
+                console.log('点击了OK')
+            },
+            onCancel: () => {
+                console.log('点击了取消')
+
+            },
+
+        })
+    }
+
+    return <div style={{display: 'flex', justifyContent: "space-around"}}>
+        <Button type="primary" onClick={info}>
+            info
+        </Button>
+        <Button type="primary" onClick={success}>
+            success
+        </Button>
+        <Button type="primary" onClick={warning}>
+            warning
+        </Button>
+        <Button type="primary" onClick={error}>
+            error
+        </Button>
     </div>
 }
 ```
