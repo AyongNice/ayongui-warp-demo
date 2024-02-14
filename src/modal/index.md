@@ -239,3 +239,29 @@ export default () => {
     </div>
 }
 ```
+
+### 组件props参数
+
+| 属性名              | 说明                     | 默认值    | 类型                                        | 支持版本 |
+| -------------------| ------------------------| ---------| -------------------------------------------| -------- |
+| title             | 标题                     | -      | string                                     | 1.0 |
+| zIndex            | z-index                  | 999      | number                                     | 1.0 |
+| open              | 是否显示,API不需要      | false    | boolean                                    | 1.0 |
+| style              | 弹框样式                 | {width: '50%'} | React.CSSProperties         | 1.0 |
+| children | 使用JSX方式的插槽内容 | - | React.ReactNode | 1.0 |
+| bodyClassName     | 自定义类名               | -      | string                                     | 1.0 |
+| headerClassName   | 头部样式                 | -      | string                  | 1.0 |
+| type              | API调用弹框类型          | -        | 'info' \| 'success' \| 'warning' \| 'error' | 1.0 |
+| content            | API调用弹框内容          | -        | string                                     | 1.0 |
+| okText             | API调用弹框确定按钮文案    | -        | string                                     | 1.0 |
+| cancelText         | API调用弹框取消按钮文案    | -        | string                                     | 1.0 |
+| maskClosable      | 点击遮罩是否关闭,true可以关闭,false禁止关闭 | true     | boolean                                    | 1.0 |
+| placement         | 弹出位置                   | 'right'  | 'top'  \| ' cater'    | 1.0 |
+| mainRender        | 自定义对话框所有内容      | null    | () => React.ReactNode \|null               | 1.0 |
+| headerRender      | 自定义对话框头部内容      | null    | () => React.ReactNode \|null               | 1.0 |
+| closeIcon         | 自定义关闭按钮              | Wrongs 详情见icon组件 | React.ReactNode \| null                   | 1.0 |
+| footerRender       | 自定义底部渲染内容       | null    | () => React.ReactNode \|null               | 1.0 |
+| onOk | 点击确定按钮回调 | () =>void | Function | 1.0 |
+| onCancel | 点击取消按钮回调 | () =>void | Function | 1.0 |
+| onClose | 关闭回调 | () =>void | Function | 1.0 |
+
