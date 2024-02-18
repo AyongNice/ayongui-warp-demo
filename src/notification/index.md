@@ -150,12 +150,6 @@ export default () => {
         <Button type="primary" onClick={bottom}>
             bottom
         </Button>
-        <Button type="primary" onClick={left}>
-            left
-        </Button>
-        <Button type="primary" onClick={right}>
-            right
-        </Button>
     </div>
 }
 ```
