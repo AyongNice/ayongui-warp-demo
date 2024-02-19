@@ -14,7 +14,7 @@ export function ModeTheme() {
     themeBulue: '#53728b',
     themeWithe: '#b0b0b0',
     'ayong-grey-crescent': '#ff8cb8',
-    'ayong-font-color': '#4067b6',
+    'ayong-font-color': '#fafbfe',
     'ayong-light': '#44444a',
     'ayong-font-dark': '#c9c9cb',
     'ayong-primary-grey': '#a8c0fb',
