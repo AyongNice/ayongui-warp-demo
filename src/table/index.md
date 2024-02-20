@@ -1,4 +1,4 @@
-# Table
+# Table 表格
 
 ### 指定 data 和 columns数据基本写法
 

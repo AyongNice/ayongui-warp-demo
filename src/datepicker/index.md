@@ -2,7 +2,7 @@
 order: 20
 ---
 
-# DatePicker 日期选择框
+# DatePicker 日期选择
 
 ```tsx  hideCode=true inline=true
 import {usePrefersColor} from 'dumi';
