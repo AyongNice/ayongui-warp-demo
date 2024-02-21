@@ -25,19 +25,37 @@ export default () => {
 ### 组合使用
 
   ```tsx
+import {useState} from 'react'
 import {Checkbox} from 'ayongUI'
 import type {CheckboxProps} from 'ayongUI'
 
+const plainOptions = [{label: 'Apple', value: 'Apple'},
+    {label: 'Pear', value: 'Pear'},
+    {label: 'Orange', value: 'Orange', disabled: false}];
+const defaultCheckedList = [{label: 'Pear', value: 'Pear'}];
 export default () => {
-    const onChange = (res) => {
-        console.log(res);
+    const [checkedList, setCheckedList] = useState<CheckboxValueType[]>(defaultCheckedList);
+
+    const checkAll = plainOptions.length === checkedList.length;
+    const indeterminate = checkedList.length > 0 && checkedList.length < plainOptions.length;
+
+    const onChange = (list) => {
+        console.log('list', list)
+        setCheckedList(list);
     };
+
+    const onCheckAllChange: CheckboxProps['onChange'] = (checked) => {
+        console.log(checked)
+        setCheckedList(checked ? plainOptions : []);
+    };
+
     return <div>
-        <Checkbox.Group onChange={onChange}>
-            <Checkbox value='ayong'>ayong</Checkbox>
-            <Checkbox value='UI'>UI</Checkbox>
-            <Checkbox value='公众号'>公众号</Checkbox>
-        </Checkbox.Group>
+        <Checkbox indeterminate={indeterminate} onChange={onCheckAllChange} checked={checkAll}>
+            Check all
+        </Checkbox>
+        <Checkbox.Group onChange={onChange}
+                        value={checkedList}
+                        options={plainOptions}/>
     </div>
 }
 
