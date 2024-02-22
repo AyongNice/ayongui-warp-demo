@@ -29,9 +29,11 @@ import {useState} from 'react'
 import {Checkbox} from 'ayongUI'
 import type {CheckboxProps} from 'ayongUI'
 
-const plainOptions = [{label: 'Apple', value: 'Apple'},
+const plainOptions = [
+    {label: 'Apple', value: 'Apple'},
     {label: 'Pear', value: 'Pear'},
-    {label: 'Orange', value: 'Orange', disabled: false}];
+    {label: 'Orange', value: 'Orange', disabled: false}
+];
 const defaultCheckedList = [{label: 'Pear', value: 'Pear'}];
 export default () => {
     const [checkedList, setCheckedList] = useState<CheckboxValueType[]>(defaultCheckedList);
