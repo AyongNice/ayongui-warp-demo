@@ -20,7 +20,7 @@ export function ModeTheme() {
     'ayong-primary-grey': '#a8c0fb',
     'ayong-grey-crescent': '#85465f',
     'ayong-plaster-grey': '#6c6d71',
-    'ayong-premium-grey': '#ababab',
+    'ayong-premium-grey': '#dcdcdc',
     'ayong-primary-grey': '#959595',
   }
   this.undefined = this.light

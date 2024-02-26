@@ -440,6 +440,93 @@ const App = () => (
 )
 export default App;
 ```
+### 多条选择
+
+```tsx
+
+import React, {useState} from 'react';
+import {Table, Minusround, Plusround, Radio} from 'ayongUI';
+import style from './index.module.less';
+
+const Column = Table.Column;
+const data = [
+    {
+        key: '1',
+        age: 32,
+        name: 'John Brown',
+        address: 'New York No. 1 Lake Park',
+        tags: ['nice', 'developer'],
+    },
+    {
+        key: '2',
+        age: 42,
+        name: 'Jim Green',
+        address: 'London No. 1 Lake Park',
+        tags: ['loser'],
+    },
+    {
+        key: '3',
+        age: 32,
+        name: 'Joe Black',
+        address: 'Sydney No. 1 Lake Park',
+        tags: ['cool', 'teacher'],
+    },
+];
+const columns = [
+    {
+        title: '姓名',
+        dataIndex: 'name',
+        key: 'name',
+    },
+    {
+        title: '年龄',
+        dataIndex: 'age',
+        key: 'age',
+        defaultSortOrder: 'ascend',
+    },
+    {
+        title: '住址',
+        dataIndex: 'address',
+        key: 'address',
+    },
+];
+
+const App = () => {
+
+    const [selectionType, setSelectionType] = useState<'checkbox' | 'radio'>('checkbox');
+    const rowSelection = {
+        onChange: (selectedRowKeys: React.Key[], selectedRows: DataType[]) => {
+            console.log(`selectedRowKeys:  `, selectedRowKeys);
+        },
+        getCheckboxProps: (record: DataType) => ({
+            disabled: record.name === 'John Brown', // Column configuration not to be checked
+            name: record.name,
+        }),
+    };
+
+    return <React.Fragment>
+        <Radio.Group
+            onChange={(value) => {
+                setSelectionType(value);
+            }}
+            value={selectionType}
+        >
+            <Radio value="checkbox">Checkbox</Radio>
+            <Radio value="radio">radio</Radio>
+        </Radio.Group>
+        <Table className={style.diyTable}
+               rowSelection={{
+                   type: selectionType,
+                   ...rowSelection,
+               }}
+               columns={columns}
+               data={data}
+        />
+    </React.Fragment>
+
+}
+export default App;
+```
 ### 自定义展开/折叠按钮
 ```tsx
 

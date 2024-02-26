@@ -78,6 +78,7 @@ export default () => {
 
     const onChange = (list) => {
         setCheckedList(list);
+   
     };
 
     const onCheckAllChange: CheckboxProps['onChange'] = (checked) => {
