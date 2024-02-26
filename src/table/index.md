@@ -506,7 +506,8 @@ const App = () => {
 
     return <React.Fragment>
         <Radio.Group
-            onChange={(value) => {
+            onChange={value => {
+                console.log(value)
                 setSelectionType(value);
             }}
             value={selectionType}
