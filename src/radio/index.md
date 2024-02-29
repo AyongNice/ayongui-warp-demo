@@ -26,8 +26,10 @@ export default () => {
   const [value, setValue] = useState('apple')
   const onChange = (date) => {
     setValue(date)
+    console.log('onChange~~',date)
   };
   return <div style={{display: 'flex', justifyContent: 'space-around'}}>
+    {/*{value}*/}
     <Radio value="alone" checked={true} onChange={onChange}>单个使用</Radio>
     <Radio value="banana" disabled checked={false} onChange={onChange}>禁用</Radio>
     <Radio value="select" disabled checked={true} onChange={onChange}>默认选中+禁用</Radio>
@@ -45,8 +47,10 @@ export default () => {
   const [value, setValue] = useState('apple')
   const onChange = (date) => {
     setValue(date)
+    console.log('onChange~~',date)
   };
   return <div>
+  
     <Radio.Group onChange={onChange} value={value}>
       <Radio value="apple">A</Radio>
       <Radio value="banana">B</Radio>

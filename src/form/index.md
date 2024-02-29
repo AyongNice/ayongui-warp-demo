@@ -23,23 +23,24 @@ import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
 import {useState} from "react";
 
 export default () => {
-    const [open, setOpen] = useState(false);
-    const onClose = (date) => {
-        setOpen(false)
-    };
 
     const [formLayout, setTextAlign] = useState('right')
     const onChange = (date) => {
         setTextAlign(date)
     };
+
+    const submit = (formData) => {
+        console.log('submit~~~~', formData)
+    }
     return <div style={{width: '588px'}}>
         <Radio.Group style={{marginBottom: '20px'}} onChange={onChange} value={formLayout}>
             <Radio.Button value="left">靠左对齐</Radio.Button>
             <Radio.Button value="center">剧中对齐</Radio.Button>
             <Radio.Button value="right">靠右对齐</Radio.Button>
             <Radio.Button value="vertical">上下布局</Radio.Button>
+            <Radio.Button value="inline">左右布局</Radio.Button>
         </Radio.Group>
-        <Form formLayout={formLayout}>
+        <Form formLayout={formLayout} submit={submit}>
             <Form.Item
                 label="账户"
                 name="username"
@@ -68,8 +69,54 @@ export default () => {
             >
                 <Radio/>
             </Form.Item>
+            <Form.Item wrapperCol={{offset: 8, span: 16}}>
+                <Button type="primary" htmlType="submit">
+                    Submit
+                </Button>
+            </Form.Item>
         </Form>
+
+
     </div>
 
 }
+```
+
+```tsx
+import React, {useState, useEffect, useRef, useLayoutEffect} from 'react';
+
+const ExampleComponent = () => {
+    const [count, setCount] = useState(0);
+    const prevCountRef = useRef(null);
+
+    useEffect(() => {
+        // 在每次渲染前，将当前 count 值存储到 prevCountRef 中
+        prevCountRef.current = count;
+        console.log(+new Date())
+    });
+    useEffect(() => {
+        // 在每次渲染前，将当前 count 值存储到 prevCountRef 中
+        console.log('useEffect')
+
+    }, []);
+    useLayoutEffect(() => {
+        // 在每次渲染前，将当前 count 值存储到 prevCountRef 中
+        console.log('useLayoutEffect')
+    }, []);
+
+    const handleIncrement = () => {
+        setCount(prevCount => prevCount + 1);
+    };
+
+    return (
+        <div>
+            <p>Current Count: {count}</p>
+            <p>Previous Count: {prevCountRef.current !== null ? prevCountRef.current : 'N/A'}</p>
+            <button onClick={handleIncrement}>Increment</button>
+        </div>
+    );
+};
+
+export default ExampleComponent;
+
 ```
