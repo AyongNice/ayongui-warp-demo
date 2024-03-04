@@ -24,23 +24,33 @@ import {useState} from "react";
 
 export default () => {
 
-    const [formLayout, setTextAlign] = useState('right')
-    const onChange = (date) => {
-        setTextAlign(date)
+    const [formLayout, setFormLayout] = useState('right')
+    const onValuesChange = ({layout}) => {
+        setFormLayout(layout)
     };
 
     const submit = (formData) => {
         console.log('submit~~~~', formData)
     }
     return <div style={{width: '588px'}}>
-        <Radio.Group style={{marginBottom: '20px'}} onChange={onChange} value={formLayout}>
-            <Radio.Button value="left">靠左对齐</Radio.Button>
-            <Radio.Button value="center">剧中对齐</Radio.Button>
-            <Radio.Button value="right">靠右对齐</Radio.Button>
-            <Radio.Button value="vertical">上下布局</Radio.Button>
-            <Radio.Button value="inline">左右布局</Radio.Button>
-        </Radio.Group>
-        <Form formLayout={formLayout} submit={submit}>
+
+        <Form formLayout={formLayout}
+              onValuesChange={onValuesChange}
+              submit={submit}
+        >
+            <Form.Item
+                label="布局"
+                name="layout"
+                rules={[{required: true, message: 'Please input your username!'}]}
+            >
+                <Radio.Group>
+                    <Radio.Button value="left">靠左对齐</Radio.Button>
+                    <Radio.Button value="center">剧中对齐</Radio.Button>
+                    <Radio.Button value="right">靠右对齐</Radio.Button>
+                    <Radio.Button value="vertical">上下布局</Radio.Button>
+                    <Radio.Button value="inline">左右布局</Radio.Button>
+                </Radio.Group>
+            </Form.Item>
             <Form.Item
                 label="账户"
                 name="username"
@@ -55,6 +65,7 @@ export default () => {
             >
                 <Input/>
             </Form.Item>
+
             <Form.Item
                 label="附件上传"
                 name="file"
