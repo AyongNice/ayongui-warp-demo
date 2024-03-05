@@ -24,7 +24,8 @@ import {useState} from "react";
 
 export default () => {
 
-    const [formLayout, setFormLayout] = useState('right')
+    const [formLayout, setFormLayout] = useState('right');
+    const [componentDisabled, setComponentDisabled] = useState(false);
     const onValuesChange = ({layout}) => {
         setFormLayout(layout)
     };
@@ -33,15 +34,20 @@ export default () => {
         console.log('submit~~~~', formData)
     }
     return <div style={{width: '588px'}}>
-
+        <Radio
+            checked={componentDisabled}
+            onChange={(checked) => setComponentDisabled(checked)}
+        >
+            Form 禁用
+        </Radio>
         <Form formLayout={formLayout}
+              disabled={componentDisabled}
               onValuesChange={onValuesChange}
               submit={submit}
         >
             <Form.Item
                 label="布局"
                 name="layout"
-                rules={[{required: true, message: 'Please input your username!'}]}
             >
                 <Radio.Group>
                     <Radio.Button value="left">靠左对齐</Radio.Button>
@@ -54,7 +60,8 @@ export default () => {
             <Form.Item
                 label="账户"
                 name="username"
-                rules={[{required: true, message: 'Please input your username!'}]}
+                rules={[{required: true, message: 'Please input your username!'},{ maxLength: 2, message: '111111'}]}
+
             >
                 <Input/>
             </Form.Item>
@@ -93,41 +100,33 @@ export default () => {
 }
 ```
 
+### 字段监听 hook useWatch
+useWatch 允许你监听字段变化，同时仅当该字段变化时重新渲染
 ```tsx
 import React, {useState, useEffect, useRef, useLayoutEffect} from 'react';
+import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
 
-const ExampleComponent = () => {
-    const [count, setCount] = useState(0);
-    const prevCountRef = useRef(null);
+export default () => {
+    // const [form] = Form.useForm<{ name: string; age: number }>();
+    const nameValue = Form.useWatch('name');
 
-    useEffect(() => {
-        // 在每次渲染前，将当前 count 值存储到 prevCountRef 中
-        prevCountRef.current = count;
-        console.log(+new Date())
-    });
-    useEffect(() => {
-        // 在每次渲染前，将当前 count 值存储到 prevCountRef 中
-        console.log('useEffect')
-
-    }, []);
-    useLayoutEffect(() => {
-        // 在每次渲染前，将当前 count 值存储到 prevCountRef 中
-        console.log('useLayoutEffect')
-    }, []);
-
-    const handleIncrement = () => {
-        setCount(prevCount => prevCount + 1);
-    };
+    const customValue = Form.useWatch((values) => `name: ${values.name || ''}`);
 
     return (
-        <div>
-            <p>Current Count: {count}</p>
-            <p>Previous Count: {prevCountRef.current !== null ? prevCountRef.current : 'N/A'}</p>
-            <button onClick={handleIncrement}>Increment</button>
-        </div>
+        <>
+            <Form layout="vertical">
+                <Form.Item name="name" label="Name (Watch to trigger rerender)">
+                    <Input/>
+                </Form.Item>
+                <Form.Item name="age" label="Age (Not Watch)">
+                    <Input/>
+                </Form.Item>
+            </Form>
+
+            <div>Name Value: {nameValue}</div>
+            <div>Custom Value: {customValue}</div>
+        </>
     );
 };
-
-export default ExampleComponent;
 
 ```
