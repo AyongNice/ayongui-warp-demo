@@ -27,6 +27,7 @@ export default () => {
     const [formLayout, setFormLayout] = useState('right');
     const [componentDisabled, setComponentDisabled] = useState(false);
     const onValuesChange = ({layout}) => {
+        console.log('layout~~~~', layout)
         setFormLayout(layout)
     };
 
@@ -60,7 +61,10 @@ export default () => {
             <Form.Item
                 label="账户"
                 name="username"
-                rules={[{required: true, message: 'Please input your username!'},{ maxLength: 2, message: '111111'}]}
+                rules={[{required: true, message: 'Please input your username!'}, {
+                    maxLength: 2,
+                    message: '超出最大长度显示'
+                }]}
 
             >
                 <Input/>
@@ -76,9 +80,10 @@ export default () => {
             <Form.Item
                 label="附件上传"
                 name="file"
+                style={{height: '80px'}}
                 rules={[{required: true, message: 'Please input your username!'}]}
             >
-                <Upload/>
+                <Upload maxCount={2}/>
             </Form.Item>
             <Form.Item
                 label="是否跨越"
@@ -96,6 +101,61 @@ export default () => {
 
 
     </div>
+
+}
+```
+
+### 表单验证
+
+```tsx
+import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
+import {useState} from "react";
+
+export default () => {
+
+
+    const onFinishFailed = (values: any) => {
+        console.log(values);
+    };
+    const submit = (formData) => {
+        console.log('submit~~~~', formData)
+    }
+    return <Form
+        onFinishFailed={onFinishFailed}
+        submit={submit}
+    >
+        <Form.Item
+            label="账户"
+            name="username"
+            rules={[{required: true, message: 'Please input your username!'}, {
+                maxLength: 2,
+                message: '超出最大长度显示'
+            }]}
+
+        >
+            <Input/>
+        </Form.Item>
+        <Form.Item
+            label="密码"
+            name="password"
+            rules={[{required: true, message: 'Please input your username!'}]}
+        >
+            <Input/>
+        </Form.Item>
+
+        <Form.Item
+            label="是否跨越"
+            name="cors"
+            rules={[{required: true, message: 'Please input your username!'}]}
+        >
+            <Radio/>
+        </Form.Item>
+        <Form.Item wrapperCol={{offset: 8, span: 16}}>
+            <Button type="primary" htmlType="submit">
+                Submit
+            </Button>
+        </Form.Item>
+    </Form>
 
 }
 ```
