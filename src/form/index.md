@@ -27,7 +27,6 @@ export default () => {
     const [formLayout, setFormLayout] = useState('right');
     const [componentDisabled, setComponentDisabled] = useState(false);
     const onValuesChange = ({layout}) => {
-        console.log('layout~~~~', layout)
         setFormLayout(layout)
     };
 
@@ -96,6 +95,7 @@ export default () => {
                 <Button type="primary" htmlType="submit">
                     Submit
                 </Button>
+
             </Form.Item>
         </Form>
 
@@ -103,6 +103,7 @@ export default () => {
     </div>
 
 }
+
 ```
 
 ### 表单验证
@@ -112,7 +113,7 @@ import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
 import {useState} from "react";
 
 export default () => {
-
+    const [form] = Form.useForm();
 
     const onFinishFailed = (values: any) => {
         console.log(values);
@@ -120,7 +121,12 @@ export default () => {
     const submit = (formData) => {
         console.log('submit~~~~', formData)
     }
+    const onReset = () => {
+        form.resetFields();
+    };
     return <Form
+        form={form}
+        initialValues={{username: 'ayong'}}
         onFinishFailed={onFinishFailed}
         submit={submit}
     >
@@ -154,39 +160,66 @@ export default () => {
             <Button type="primary" htmlType="submit">
                 Submit
             </Button>
+            <Button onClick={onReset}>
+                Reset
+            </Button>
         </Form.Item>
     </Form>
 
 }
 ```
 
-### 字段监听 hook useWatch
-useWatch 允许你监听字段变化，同时仅当该字段变化时重新渲染
-```tsx
-import React, {useState, useEffect, useRef, useLayoutEffect} from 'react';
-import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
+[//]: # (### 字段监听 hook useWatch)
 
-export default () => {
-    // const [form] = Form.useForm<{ name: string; age: number }>();
-    const nameValue = Form.useWatch('name');
+[//]: # (useWatch 允许你监听字段变化，同时仅当该字段变化时重新渲染)
 
-    const customValue = Form.useWatch((values) => `name: ${values.name || ''}`);
+[//]: # (```tsx)
 
-    return (
-        <>
-            <Form layout="vertical">
-                <Form.Item name="name" label="Name (Watch to trigger rerender)">
-                    <Input/>
-                </Form.Item>
-                <Form.Item name="age" label="Age (Not Watch)">
-                    <Input/>
-                </Form.Item>
-            </Form>
+[//]: # (import React, {useState, useEffect, useRef, useLayoutEffect} from 'react';)
 
-            <div>Name Value: {nameValue}</div>
-            <div>Custom Value: {customValue}</div>
-        </>
-    );
-};
+[//]: # (import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI')
 
-```
+[//]: # ()
+[//]: # (export default &#40;&#41; => {)
+
+[//]: # (    // const [form] = Form.useForm<{ name: string; age: number }>&#40;&#41;;)
+
+[//]: # (    const nameValue = Form.useWatch&#40;'name'&#41;;)
+
+[//]: # ()
+[//]: # (    const customValue = Form.useWatch&#40;&#40;values&#41; => `name: ${values.name || ''}`&#41;;)
+
+[//]: # ()
+[//]: # (    return &#40;)
+
+[//]: # (        <>)
+
+[//]: # (            <Form layout="vertical">)
+
+[//]: # (                <Form.Item name="name" label="Name &#40;Watch to trigger rerender&#41;">)
+
+[//]: # (                    <Input/>)
+
+[//]: # (                </Form.Item>)
+
+[//]: # (                <Form.Item name="age" label="Age &#40;Not Watch&#41;">)
+
+[//]: # (                    <Input/>)
+
+[//]: # (                </Form.Item>)
+
+[//]: # (            </Form>)
+
+[//]: # ()
+[//]: # (            <div>Name Value: {nameValue}</div>)
+
+[//]: # (            <div>Custom Value: {customValue}</div>)
+
+[//]: # (        </>)
+
+[//]: # (    &#41;;)
+
+[//]: # (};)
+
+[//]: # ()
+[//]: # (```)
