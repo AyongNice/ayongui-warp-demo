@@ -16,95 +16,172 @@ export default () => {
 };
 ```
 
-### 基本使用
+[//]: # (### 基本使用)
 
-```tsx
-import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
-import {useState} from "react";
+[//]: # ()
+[//]: # (```tsx)
 
-export default () => {
+[//]: # (import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI')
 
-    const [formLayout, setFormLayout] = useState('right');
-    const [componentDisabled, setComponentDisabled] = useState(false);
-    const onValuesChange = ({layout}) => {
-        setFormLayout(layout)
-    };
+[//]: # (import {useState} from "react";)
 
-    const submit = (formData) => {
-        console.log('submit~~~~', formData)
-    }
-    return <div style={{width: '588px'}}>
-        <Radio
-            checked={componentDisabled}
-            onChange={(checked) => setComponentDisabled(checked)}
-        >
-            Form 禁用
-        </Radio>
-        <Form formLayout={formLayout}
-              disabled={componentDisabled}
-              onValuesChange={onValuesChange}
-              submit={submit}
-        >
-            <Form.Item
-                label="布局"
-                name="layout"
-            >
-                <Radio.Group>
-                    <Radio.Button value="left">靠左对齐</Radio.Button>
-                    <Radio.Button value="center">剧中对齐</Radio.Button>
-                    <Radio.Button value="right">靠右对齐</Radio.Button>
-                    <Radio.Button value="vertical">上下布局</Radio.Button>
-                    <Radio.Button value="inline">左右布局</Radio.Button>
-                </Radio.Group>
-            </Form.Item>
-            <Form.Item
-                label="账户"
-                name="username"
-                rules={[{required: true, message: 'Please input your username!'}, {
-                    maxLength: 2,
-                    message: '超出最大长度显示'
-                }]}
+[//]: # ()
+[//]: # (export default &#40;&#41; => {)
 
-            >
-                <Input/>
-            </Form.Item>
-            <Form.Item
-                label="密码"
-                name="password"
-                rules={[{required: true, message: 'Please input your username!'}]}
-            >
-                <Input/>
-            </Form.Item>
+[//]: # ()
+[//]: # (    const [formLayout, setFormLayout] = useState&#40;'right'&#41;;)
 
-            <Form.Item
-                label="附件上传"
-                name="file"
-                style={{height: '80px'}}
-                rules={[{required: true, message: 'Please input your username!'}]}
-            >
-                <Upload maxCount={2}/>
-            </Form.Item>
-            <Form.Item
-                label="是否跨越"
-                name="cors"
-                rules={[{required: true, message: 'Please input your username!'}]}
-            >
-                <Radio/>
-            </Form.Item>
-            <Form.Item wrapperCol={{offset: 8, span: 16}}>
-                <Button type="primary" htmlType="submit">
-                    Submit
-                </Button>
+[//]: # (    const [componentDisabled, setComponentDisabled] = useState&#40;false&#41;;)
 
-            </Form.Item>
-        </Form>
+[//]: # (    const onValuesChange = &#40;{layout}&#41; => {)
 
+[//]: # (        setFormLayout&#40;layout&#41;)
 
-    </div>
+[//]: # (    };)
 
-}
+[//]: # ()
+[//]: # (    const submit = &#40;formData&#41; => {)
 
-```
+[//]: # (        console.log&#40;'submit~~~~', formData&#41;)
+
+[//]: # (    })
+
+[//]: # (    return <div style={{width: '588px'}}>)
+
+[//]: # (        <Radio)
+
+[//]: # (            checked={componentDisabled})
+
+[//]: # (            onChange={&#40;checked&#41; => setComponentDisabled&#40;checked&#41;})
+
+[//]: # (        >)
+
+[//]: # (            Form 禁用)
+
+[//]: # (        </Radio>)
+
+[//]: # (        <Form formLayout={formLayout})
+
+[//]: # (              disabled={componentDisabled})
+
+[//]: # (              onValuesChange={onValuesChange})
+
+[//]: # (              submit={submit})
+
+[//]: # (        >)
+
+[//]: # (            <Form.Item)
+
+[//]: # (                label="布局")
+
+[//]: # (                name="layout")
+
+[//]: # (            >)
+
+[//]: # (                <Radio.Group>)
+
+[//]: # (                    <Radio.Button value="left">靠左对齐</Radio.Button>)
+
+[//]: # (                    <Radio.Button value="center">剧中对齐</Radio.Button>)
+
+[//]: # (                    <Radio.Button value="right">靠右对齐</Radio.Button>)
+
+[//]: # (                    <Radio.Button value="vertical">上下布局</Radio.Button>)
+
+[//]: # (                    <Radio.Button value="inline">左右布局</Radio.Button>)
+
+[//]: # (                </Radio.Group>)
+
+[//]: # (            </Form.Item>)
+
+[//]: # (            <Form.Item)
+
+[//]: # (                label="账户")
+
+[//]: # (                name="username")
+
+[//]: # (                rules={[{required: true, message: 'Please input your username!'}, {)
+
+[//]: # (                    maxLength: 2,)
+
+[//]: # (                    message: '超出最大长度显示')
+
+[//]: # (                }]})
+
+[//]: # ()
+[//]: # (            >)
+
+[//]: # (                <Input/>)
+
+[//]: # (            </Form.Item>)
+
+[//]: # (            <Form.Item)
+
+[//]: # (                label="密码")
+
+[//]: # (                name="password")
+
+[//]: # (                rules={[{required: true, message: 'Please input your username!'}]})
+
+[//]: # (            >)
+
+[//]: # (                <Input/>)
+
+[//]: # (            </Form.Item>)
+
+[//]: # ()
+[//]: # (            <Form.Item)
+
+[//]: # (                label="附件上传")
+
+[//]: # (                name="file")
+
+[//]: # (                style={{height: '80px'}})
+
+[//]: # (                rules={[{required: true, message: 'Please input your username!'}]})
+
+[//]: # (            >)
+
+[//]: # (                <Upload maxCount={2}/>)
+
+[//]: # (            </Form.Item>)
+
+[//]: # (            <Form.Item)
+
+[//]: # (                label="是否跨越")
+
+[//]: # (                name="cors")
+
+[//]: # (                rules={[{required: true, message: 'Please input your username!'}]})
+
+[//]: # (            >)
+
+[//]: # (                <Radio/>)
+
+[//]: # (            </Form.Item>)
+
+[//]: # (            <Form.Item wrapperCol={{offset: 8, span: 16}}>)
+
+[//]: # (                <Button type="primary" htmlType="submit">)
+
+[//]: # (                    Submit)
+
+[//]: # (                </Button>)
+
+[//]: # ()
+[//]: # (            </Form.Item>)
+
+[//]: # (        </Form>)
+
+[//]: # ()
+[//]: # ()
+[//]: # (    </div>)
+
+[//]: # ()
+[//]: # (})
+
+[//]: # ()
+[//]: # (```)
 
 ### 表单验证
 
@@ -130,32 +207,55 @@ export default () => {
         onFinishFailed={onFinishFailed}
         submit={submit}
     >
-        <Form.Item
-            label="账户"
-            name="username"
-            rules={[{required: true, message: 'Please input your username!'}, {
-                maxLength: 2,
-                message: '超出最大长度显示'
-            }]}
 
-        >
-            <Input/>
-        </Form.Item>
-        <Form.Item
-            label="密码"
-            name="password"
-            rules={[{required: true, message: 'Please input your username!'}]}
-        >
-            <Input/>
-        </Form.Item>
+      <Form.Item
+        label="自定义校验"
+        name="diy"
+        rules={[
+          {
+            validator: async (_, names) => {
+              if (!names || names.length < 2) {
+                return Promise.reject(new Error('At least 2 passengers'));
+              }
+            }
+          },
 
-        <Form.Item
-            label="是否跨越"
-            name="cors"
-            rules={[{required: true, message: 'Please input your username!'}]}
-        >
-            <Radio/>
-        </Form.Item>
+        ]}>
+        <Input/>
+      </Form.Item>
+      
+        {/*<Form.Item*/}
+        {/*    label="账户"*/}
+        {/*    name="username"*/}
+        {/*    rules={[*/}
+        {/*        {required: true, message: 'Please input your username!'},*/}
+        {/*        {*/}
+        {/*            maxLength: 5,*/}
+        {/*            message: '超出最大长度显示'*/}
+        {/*        }*/}
+        {/*    ]}*/}
+        
+        {/*>*/}
+        {/*    <Input/>*/}
+        {/*</Form.Item>*/}
+
+
+
+        {/*<Form.Item*/}
+        {/*    label="密码"*/}
+        {/*    name="password"*/}
+        {/*    rules={[{required: true, message: 'Please input your password!'}]}*/}
+        {/*>*/}
+        {/*    <Input/>*/}
+        {/*</Form.Item>*/}
+        
+        {/*<Form.Item*/}
+        {/*    label="是否跨越"*/}
+        {/*    name="cors"*/}
+        {/*    rules={[{required: true, message: 'Please input your cors!'}]}*/}
+        {/*>*/}
+        {/*    <Radio/>*/}
+        {/*</Form.Item>*/}
         <Form.Item wrapperCol={{offset: 8, span: 16}}>
             <Button type="primary" htmlType="submit">
                 Submit
