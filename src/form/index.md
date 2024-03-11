@@ -208,61 +208,71 @@ export default () => {
         submit={submit}
     >
 
-      <Form.Item
-        label="自定义校验"
-        name="diy"
-        rules={[
-          {
-            validator: async (_, names) => {
-              if (!names || names.length < 2) {
-                return Promise.reject(new Error('At least 2 passengers'));
-              }
-            }
-          },
+        <Form.Item
+            label="自定义校验"
+            name="diy"
+            rules={[
+                {
+                    validator: (name, value) => {
+                        const regex = /^(https?:\/\/)/i;
+                        if (!regex.test(value)) {
+                            return Promise.reject('请输入正确的http 或者https协议的url');
+                        }
+                        return Promise.resolve();
+                    }
+                },
 
-        ]}>
-        <Input/>
-      </Form.Item>
-      
-        {/*<Form.Item*/}
-        {/*    label="账户"*/}
-        {/*    name="username"*/}
-        {/*    rules={[*/}
-        {/*        {required: true, message: 'Please input your username!'},*/}
-        {/*        {*/}
-        {/*            maxLength: 5,*/}
-        {/*            message: '超出最大长度显示'*/}
-        {/*        }*/}
-        {/*    ]}*/}
-        
-        {/*>*/}
-        {/*    <Input/>*/}
-        {/*</Form.Item>*/}
+            ]}>
+            <Input/>
+        </Form.Item>
 
+        <Form.Item
+            label="账户"
+            name="username"
+            rules={[
+                {required: true, message: 'Please input your username!'},
+                {
+                    maxLength: 7,
+                    message: '超出最大长度显示'
+                }
+            ]}
 
+        >
+            <Input/>
+        </Form.Item>
+        <Form.Item
+            label="密码"
+            name="password"
+            rules={[{required: true, message: 'Please input your password!'}]}
+        >
+            <Input/>
+        </Form.Item>
 
-        {/*<Form.Item*/}
-        {/*    label="密码"*/}
-        {/*    name="password"*/}
-        {/*    rules={[{required: true, message: 'Please input your password!'}]}*/}
-        {/*>*/}
-        {/*    <Input/>*/}
-        {/*</Form.Item>*/}
-        
-        {/*<Form.Item*/}
-        {/*    label="是否跨越"*/}
-        {/*    name="cors"*/}
-        {/*    rules={[{required: true, message: 'Please input your cors!'}]}*/}
-        {/*>*/}
-        {/*    <Radio/>*/}
-        {/*</Form.Item>*/}
+        <Form.Item
+            label="是否跨越"
+            name="cors"
+            rules={[{required: true, message: 'Please input your cors!'}]}
+        >
+            <Radio/>
+        </Form.Item>
         <Form.Item wrapperCol={{offset: 8, span: 16}}>
             <Button type="primary" htmlType="submit">
-                Submit
+                提交
             </Button>
             <Button onClick={onReset}>
-                Reset
+                重置
             </Button>
+          
+            <Button
+                onClick={() => form.setFieldsValue({
+                    cors: true,
+                    password: '12345678',
+                    username: 'ayongUI',
+                    diy: 'http://192.168.33.52:3001/ayonguidocs/components/form'
+                })}>
+                填充
+            </Button>
+
         </Form.Item>
     </Form>
 
