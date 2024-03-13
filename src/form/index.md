@@ -183,10 +183,161 @@ export default () => {
 [//]: # ()
 [//]: # (```)
 
+
+
 ### 表单验证
 
+[//]: # (```tsx)
+
+[//]: # (import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI')
+
+[//]: # (import {useState} from "react";)
+
+[//]: # ()
+[//]: # (export default &#40;&#41; => {)
+
+[//]: # (    const [form] = Form.useForm&#40;&#41;;)
+
+[//]: # ()
+[//]: # (    const onFinishFailed = &#40;values: any&#41; => {)
+
+[//]: # (        console.log&#40;values&#41;;)
+
+[//]: # (    };)
+
+[//]: # (    const submit = &#40;formData&#41; => {)
+
+[//]: # (        console.log&#40;'submit~~~~', formData&#41;)
+
+[//]: # (    })
+
+[//]: # (  )
+[//]: # (    return <Form)
+
+[//]: # (        form={form})
+
+[//]: # (        initialValues={{username: 'ayong'}})
+
+[//]: # (        onFinishFailed={onFinishFailed})
+
+[//]: # (        submit={submit})
+
+[//]: # (    >)
+
+[//]: # ()
+[//]: # (        <Form.Item)
+
+[//]: # (            label="自定义校验")
+
+[//]: # (            name="diy")
+
+[//]: # (            rules={[)
+
+[//]: # (                {)
+
+[//]: # (                    validator: &#40;name, value&#41; => {)
+
+[//]: # (                        const regex = /^&#40;https?:\/\/&#41;/i;)
+
+[//]: # (                        if &#40;!regex.test&#40;value&#41;&#41; {)
+
+[//]: # (                            return Promise.reject&#40;'请输入正确的http 或者https协议的url'&#41;;)
+
+[//]: # (                        })
+
+[//]: # (                        return Promise.resolve&#40;&#41;;)
+
+[//]: # (                    })
+
+[//]: # (                },)
+
+[//]: # ()
+[//]: # (            ]}>)
+
+[//]: # (            <Input/>)
+
+[//]: # (        </Form.Item>)
+
+[//]: # ()
+[//]: # (        <Form.Item)
+
+[//]: # (            label="账户")
+
+[//]: # (            name="username")
+
+[//]: # (            rules={[)
+
+[//]: # (                {required: true, message: 'Please input your username!'},)
+
+[//]: # (                {)
+
+[//]: # (                    maxLength: 7,)
+
+[//]: # (                    message: '超出最大长度显示')
+
+[//]: # (                })
+
+[//]: # (            ]})
+
+[//]: # ()
+[//]: # (        >)
+
+[//]: # (            <Input/>)
+
+[//]: # (        </Form.Item>)
+
+[//]: # (        <Form.Item)
+
+[//]: # (            label="密码")
+
+[//]: # (            name="password")
+
+[//]: # (            rules={[{required: true, message: 'Please input your password!'}]})
+
+[//]: # (        >)
+
+[//]: # (            <Input/>)
+
+[//]: # (        </Form.Item>)
+
+[//]: # ()
+[//]: # (        <Form.Item)
+
+[//]: # (            label="是否跨越")
+
+[//]: # (            name="cors")
+
+[//]: # (            rules={[{required: true, message: 'Please input your cors!'}]})
+
+[//]: # (        >)
+
+[//]: # (            <Radio/>)
+
+[//]: # (        </Form.Item>)
+
+[//]: # (        <Form.Item wrapperCol={{offset: 8, span: 16}}>)
+
+[//]: # (            <Button type="primary" htmlType="submit">)
+
+[//]: # (                提交)
+
+[//]: # (            </Button>)
+
+[//]: # ()
+[//]: # (        </Form.Item>)
+
+[//]: # (    </Form>)
+
+[//]: # ()
+[//]: # (})
+
+[//]: # (```)
+
+### 表单方法调用
+
+
 ```tsx
-import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
+import {Button, Form, Input, Select} from 'ayongUI'
 import {useState} from "react";
 
 export default () => {
@@ -203,58 +354,60 @@ export default () => {
     };
     return <Form
         form={form}
-        initialValues={{username: 'ayong'}}
+        labelWidth={'150px'}
         onFinishFailed={onFinishFailed}
         submit={submit}
     >
+        {/*<Form.Item*/}
+        {/*    label="账户"*/}
+        {/*    name="username"*/}
+        {/*    rules={[*/}
+        {/*        {required: true, message: 'Please input your username!'},*/}
+        {/*    ]}*/}
+
+        {/*>*/}
+        {/*    <Input/>*/}
+        {/*</Form.Item>*/}
+
+        {/*<Form.Item*/}
+        {/*    label="密码"*/}
+        {/*    name="password"*/}
+        {/*    rules={[{required: true, message: 'Please input your password!'}]}*/}
+        {/*>*/}
+        {/*    <Input/>*/}
+        {/*</Form.Item>*/}
 
         <Form.Item
-            label="自定义校验"
-            name="diy"
-            rules={[
-                {
-                    validator: (name, value) => {
-                        const regex = /^(https?:\/\/)/i;
-                        if (!regex.test(value)) {
-                            return Promise.reject('请输入正确的http 或者https协议的url');
-                        }
-                        return Promise.resolve();
-                    }
-                },
-
-            ]}>
-            <Input/>
-        </Form.Item>
-
-        <Form.Item
-            label="账户"
-            name="username"
-            rules={[
-                {required: true, message: 'Please input your username!'},
-                {
-                    maxLength: 7,
-                    message: '超出最大长度显示'
-                }
-            ]}
-
-        >
-            <Input/>
-        </Form.Item>
-        <Form.Item
-            label="密码"
-            name="password"
+            label="身份绑定模式"
+            name="mode"
             rules={[{required: true, message: 'Please input your password!'}]}
         >
-            <Input/>
+            <Select
+                style={{width: 150}}
+                options={[
+                    {value: 'noto', label: '不绑定'},
+                    {value: 'Phone', label: '手机号'},
+                    {value: 'Mailbox', label: '邮箱'},
+                    {value: 'Google', label: 'Google账号'},
+                ]}
+            />
+
         </Form.Item>
 
         <Form.Item
-            label="是否跨越"
-            name="cors"
-            rules={[{required: true, message: 'Please input your cors!'}]}
+            isWarp
         >
-            <Radio/>
+            {({getFieldValue}) => {
+                return getFieldValue('mode') === 'Phone' ?
+
+                    <Form.Item name="Phone" label="Phone" rules={[{required: true}]}>
+                        <Input/>
+                    </Form.Item> : null
+            }}
+
         </Form.Item>
+
+
         <Form.Item wrapperCol={{offset: 8, span: 16}}>
             <Button type="primary" htmlType="submit">
                 提交
@@ -262,13 +415,10 @@ export default () => {
             <Button onClick={onReset}>
                 重置
             </Button>
-          
+
             <Button
                 onClick={() => form.setFieldsValue({
-                    cors: true,
-                    password: '12345678',
-                    username: 'ayongUI',
-                    diy: 'http://192.168.33.52:3001/ayonguidocs/components/form'
+                    mode: 'Phone',
                 })}>
                 填充
             </Button>
