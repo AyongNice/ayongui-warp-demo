@@ -397,10 +397,15 @@ export default () => {
         <Form.Item
             isWarp
         >
-            {({getFieldValue}) => {
+            {({getFieldValue, props}) => {
+
+                console.log(getFieldValue('mode'))
                 return getFieldValue('mode') === 'Phone' ?
 
-                    <Form.Item name="Phone" label="Phone" rules={[{required: true}]}>
+                    <Form.Item  {...props} name="Phone" label="手机号"
+                                rules={[
+                                    {required: true, message: 'required'},
+                                ]}>
                         <Input/>
                     </Form.Item> : null
             }}
