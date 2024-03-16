@@ -446,10 +446,12 @@ export default App;
 
 import React, {useState} from 'react';
 import {Table, Minusround, Plusround, Radio} from 'ayongUI';
+
+import type {DataItem, Column} from 'ayongUI';
 import style from './index.module.less';
 
 const Column = Table.Column;
-const data = [
+const data: DataItem = [
     {
         key: '1',
         age: 32,
@@ -472,7 +474,7 @@ const data = [
         tags: ['cool', 'teacher'],
     },
 ];
-const columns = [
+const columns: Column = [
     {
         title: '姓名',
         dataIndex: 'name',
@@ -495,10 +497,10 @@ const App = () => {
 
     const [selectionType, setSelectionType] = useState<'checkbox' | 'radio'>('checkbox');
     const rowSelection = {
-        onChange: (selectedRowKeys: React.Key[], selectedRows: DataType[]) => {
-            console.log(`selectedRowKeys:  `, selectedRowKeys);
+        onChange: (selectList: DataItem[]) => {
+            console.log(`selectList:  `, selectList);
         },
-        getCheckboxProps: (record: DataType) => ({
+        getCheckboxProps: (record: DataItem) => ({
             disabled: record.name === 'John Brown', // Column configuration not to be checked
             name: record.name,
         }),
@@ -598,24 +600,28 @@ export default App;
 ```
 ## Porps 介绍
 
-| 属性名       | 说明                                      | 类型                                          | 默认值 | 版本 |
-| ------------ | ----------------------------------------- | --------------------------------------------- | ------ | ---- |
+| 属性名       | 说明                                      | 类型                                            | 默认值 | 版本 |
+| ------------ | ----------------------------------------- |-----------------------------------------------| ------ | ---- |
 | data         | 数据类型参照示例代码                      | DataItem[]                                    | -      | 1.0  |
 | columns      | 列数据 数据类型参照示例代码               | Column[]                                      | -      | 1.0  |
 | className    | 样式类名                                  | string                                        | -      | 1.0  |
 | draggable    | 是否可拖拽                                | boolean                                       | false  | 1.0  |
 | onDdragAfter | 拖拽后的回调,接受拖拽后的新行数据、列数据 | (data: DataItem[], column: Column[]) => void; | -      | 1.0  |
-| expandable   | 扩展展开设置                              | 详情见Expandable类型介绍                      | -      | 1.0  |
+| expandable   | 扩展展开设置                              |   [expandable参数详解](#expandable)                            | -      | 1.0  |
+| rowSelection | 表格选择 多选、 单选                      |  [rowSelection参数详解](#rowSelection)                          | -      | 1.0  |
 
-## expandable 展开功能参数 介绍
+<span id="expandable">**expandable参数详解**</span>
+ 
 
-| 属性名            | 说明                                                         | 类型                                    | 默认值 | 版本 |
-| ----------------- | ------------------------------------------------------------ | --------------------------------------- | ------ | ---- |
-| expandedRowRender | 展开的行内容,可接受当前行的数据item,使用方式见代码示例       | (item:DataItem) => React.FC             | -      | 1.0  |
-| expandedRowKeys   | 具有展开的行的下标索引, 使用方式见代码示例                   | string[]                                | -      | 1.0  |
+| 属性名            | 说明                                            | 类型                                    | 默认值 | 版本 |
+| ----------------- |-----------------------------------------------| --------------------------------------- | ------ | ---- |
+| expandedRowRender | 展开的行内容,可接受当前行的数据item,使用方式见代码示例                | (item:DataItem) => React.FC             | -      | 1.0  |
+| expandedRowKeys   | 具有展开的行的下标索引, 使用方式见代码示例                        | string[]                                | -      | 1.0  |
 | onExpandChange    | 只有使用默认展开图标才有此参数!点击展开的回调,接受当前行数据的索引下标 与 当前展开状态 | (index: number, state: boolean) => void | -      | 1.0  |
-| expandIcon        | 自定义展开的图标,接收 expandIconProps 参数,详见下方讲解      | (props: expandIconProps) => ReactNode;  | -      | 1.0  |
-## expandIconProps 自定义展开icon参数 介绍
+| expandIcon        | 自定义展开的图标,接收 [expandIconProps参数详解](#expandIconProps)   参数,详见下方讲解        | (props: expandIconProps) => ReactNode;  | -      | 1.0  |
+
+
+<span id="expandIconProps">**expandIconProps参数详解**</span>
 
 | 属性名   | 说明                                         | 类型                     | 默认值 | 版本 |
 | -------- | -------------------------------------------- | ------------------------ | ------ | ---- |
@@ -623,3 +629,12 @@ export default App;
 | record   | 当前展开下标                                 | number                   | -      | 1.0  |
 | onExpand | 自定义展开icon! 必传字段用于动态改变icon状态 | (record: number) => void | -      | 1.0  |
 
+
+
+<span id="rowSelection">**rowSelection参数详解**</span>
+
+| 属性名           | 说明                                            | 类型                        | 默认值   | 版本 |
+| ---------------- | ----------------------------------------------- | --------------------------- | -------- | ---- |
+| type             | 选择模式中  checkbox 多选。radio 单选           | string                      | checkbox | 1.0  |
+| onChange         | 选择变化触发函数,方法参数 选中的列表            | (selectedRowKeys:daItme[])  | -        | 1.0  |
+| getCheckboxProps | 方法返回值选框为每个默认参数 record为当前行数据 | (record: DataType) => Props | -        | 1.0  |

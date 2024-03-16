@@ -187,9 +187,209 @@ export default () => {
 
 ### 表单验证
 
+[//]: # (```tsx)
+
+[//]: # ()
+[//]: # (import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI')
+
+[//]: # ()
+[//]: # (import {useState} from "react";)
+
+[//]: # ()
+[//]: # ()
+[//]: # (export default &#40;&#41; => {)
+
+[//]: # ()
+[//]: # (    const [form] = Form.useForm&#40;&#41;;)
+
+[//]: # ()
+[//]: # ()
+[//]: # (    const onFinishFailed = &#40;values: any&#41; => {)
+
+[//]: # ()
+[//]: # (        console.log&#40;values&#41;;)
+
+[//]: # ()
+[//]: # (    };)
+
+[//]: # ()
+[//]: # (    const submit = &#40;formData&#41; => {)
+
+[//]: # ()
+[//]: # (        console.log&#40;'submit~~~~', formData&#41;)
+
+[//]: # ()
+[//]: # (    })
+
+[//]: # ()
+[//]: # ()
+[//]: # (    return <Form)
+
+[//]: # ()
+[//]: # (        form={form})
+
+[//]: # ()
+[//]: # (        initialValues={{username: 'ayong'}})
+
+[//]: # ()
+[//]: # (        onFinishFailed={onFinishFailed})
+
+[//]: # ()
+[//]: # (        submit={submit})
+
+[//]: # ()
+[//]: # (    >)
+
+[//]: # ()
+[//]: # (        <Form.Item)
+
+[//]: # ()
+[//]: # (            label="普通校验")
+
+[//]: # ()
+[//]: # (            name="password")
+
+[//]: # ()
+[//]: # (            rules={[{required: true, message: 'Please input your password!'}]})
+
+[//]: # ()
+[//]: # (        >)
+
+[//]: # ()
+[//]: # (            <Input/>)
+
+[//]: # ()
+[//]: # (        </Form.Item>)
+
+[//]: # ()
+[//]: # (        <Form.Item)
+
+[//]: # (            label="失焦时候验证")
+
+[//]: # (            name="blur")
+
+[//]: # (            rules={[)
+
+[//]: # ()
+[//]: # (                {required: true, message: 'Please input your username!'},)
+
+[//]: # (                {)
+
+[//]: # (                    maxLength: 7,)
+
+[//]: # (                    message: '超出最大长度7',)
+
+[//]: # (                })
+
+[//]: # ()
+[//]: # (            ]})
+
+[//]: # ()
+[//]: # ()
+[//]: # (        >)
+
+[//]: # ()
+[//]: # (            <Input/>)
+
+[//]: # ()
+[//]: # (        </Form.Item>)
+
+[//]: # ()
+[//]: # (        <Form.Item)
+
+[//]: # ()
+[//]: # (            label="自定义校验")
+
+[//]: # ()
+[//]: # (            name="diy")
+
+[//]: # ()
+[//]: # (            rules={[)
+
+[//]: # ()
+[//]: # (                {)
+
+[//]: # (                    trigger: 'blur',)
+
+[//]: # (                    validator: &#40;name, value&#41; => {)
+
+[//]: # (                        const regex = /^&#40;https?:\/\/&#41;/i;)
+
+[//]: # ()
+[//]: # (                        if &#40;!regex.test&#40;value&#41;&#41; {)
+
+[//]: # (                            return Promise.reject&#40;'请输入正确的http 或者https协议的url'&#41;;)
+
+[//]: # (                        })
+
+[//]: # (                        return Promise.resolve&#40;&#41;;)
+
+[//]: # ()
+[//]: # (                    })
+
+[//]: # ()
+[//]: # (                },)
+
+[//]: # ()
+[//]: # ()
+[//]: # (            ]}>)
+
+[//]: # ()
+[//]: # (            <Input/>)
+
+[//]: # ()
+[//]: # (        </Form.Item>)
+
+[//]: # ()
+[//]: # (     )
+[//]: # ()
+[//]: # (        <Form.Item)
+
+[//]: # ()
+[//]: # (            label="是否跨域")
+
+[//]: # ()
+[//]: # (            name="cors")
+
+[//]: # ()
+[//]: # (            rules={[{required: true, message: 'Please input your cors!'}]})
+
+[//]: # ()
+[//]: # (        >)
+
+[//]: # (            <Radio/>)
+
+[//]: # ()
+[//]: # (        </Form.Item>)
+
+[//]: # ()
+[//]: # (        <Form.Item>)
+
+[//]: # (            <Button type="primary" htmlType="submit">)
+
+[//]: # (                提交)
+
+[//]: # (            </Button>)
+
+[//]: # (        </Form.Item>)
+
+[//]: # ()
+[//]: # (    </Form>)
+
+[//]: # ()
+[//]: # ()
+[//]: # (})
+
+[//]: # ()
+[//]: # (```)
+
+### 表单方法调用
+
+**⚠️在使用 动态方法创建  Form.Item 内嵌套自身时候, 最外层Form.Item 必传 isWarp参数, 方法内接收 props参数 必须回传给内部嵌套的Form.Item**
+
 ```tsx
 
-import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
+import {Button, Form, Input, Select} from 'ayongUI'
 
 import {useState} from "react";
 
@@ -211,12 +411,17 @@ export default () => {
 
     }
 
+    const onReset = () => {
+
+        form.resetFields();
+
+    };
 
     return <Form
 
         form={form}
 
-        initialValues={{username: 'ayong'}}
+        labelWidth={'150px'}
 
         onFinishFailed={onFinishFailed}
 
@@ -226,29 +431,13 @@ export default () => {
 
         <Form.Item
 
-            label="普通校验"
+            label="账户"
 
-            name="password"
+            name="username"
 
-            rules={[{required: true, message: 'Please input your password!'}]}
-
-        >
-
-            <Input/>
-
-        </Form.Item>
-
-        <Form.Item
-            label="失焦时候验证"
-            name="blur"
             rules={[
 
                 {required: true, message: 'Please input your username!'},
-                {
-                    maxLength: 7,
-                    message: '超出最大长度7',
-                    trigger: 'blur'
-                }
 
             ]}
 
@@ -261,32 +450,13 @@ export default () => {
 
         <Form.Item
 
-            label="自定义校验"
+            label="密码"
 
-            name="diy"
+            name="password"
 
-            rules={[
+            rules={[{required: true, message: 'Please input your password!'}]}
 
-                {
-                    trigger: 'blur',
-                    validator: (name, value) => {
-
-                        const regex = /^(https?:\/\/)/i;
-
-                        if (!regex.test(value)) {
-
-                            return Promise.reject('请输入正确的http 或者https协议的url');
-
-                        }
-
-                        return Promise.resolve();
-
-                    }
-
-                },
-
-
-            ]}>
+        >
 
             <Input/>
 
@@ -295,21 +465,96 @@ export default () => {
 
         <Form.Item
 
-            label="是否跨越"
+            label="身份绑定模式"
 
-            name="cors"
+            name="mode"
 
-            rules={[{required: true, message: 'Please input your cors!'}]}
+            rules={[{required: true, message: 'Please input your password!'}]}
 
         >
-            <Radio/>
+
+            <Select
+
+                style={{width: 150}}
+
+                options={[
+
+                    {value: 'noto', label: '不绑定'},
+
+                    {value: 'Phone', label: '手机号'},
+
+                    {value: 'Mailbox', label: '邮箱'},
+
+                    {value: 'Google', label: 'Google账号'},
+
+                ]}
+
+            />
+
 
         </Form.Item>
 
-        <Form.Item>
+
+        <Form.Item
+
+            isWarp
+
+        >
+
+            {({getFieldValue, props, ref}) => {
+
+                return getFieldValue('mode') === 'Phone' ?
+
+
+                    <Form.Item  {...props} ref={ref} name="phone" label="手机号"
+
+                                rules={[
+
+                                    {required: true, message: 'required'},
+
+                                    {maxLength: 2, message: 'maxLength'}
+
+                                ]}>
+
+                        <Input/>
+
+                    </Form.Item> : null
+
+            }}
+
+
+        </Form.Item>
+
+
+
+        <Form.Item wrapperCol={{offset: 8, span: 16}}>
+
             <Button type="primary" htmlType="submit">
+
                 提交
+
             </Button>
+
+            <Button onClick={onReset}>
+
+                重置
+
+            </Button>
+
+
+            <Button
+
+                onClick={() => form.setFieldsValue({
+
+                    mode: 'Phone',
+
+                })}>
+
+                填充
+
+            </Button>
+
+
         </Form.Item>
 
     </Form>
@@ -318,187 +563,6 @@ export default () => {
 }
 
 ```
-
-### 表单方法调用
-
-**⚠️在使用 动态方法创建  Form.Item 内嵌套自身时候, 最外层Form.Item 必传 isWarp参数, 方法内接收 props参数 必须回传给内部嵌套的Form.Item**
-
-[//]: # (```tsx)
-
-[//]: # (import {Button, Form, Input, Select} from 'ayongUI')
-
-[//]: # (import {useState} from "react";)
-
-[//]: # ()
-[//]: # (export default &#40;&#41; => {)
-
-[//]: # (    const [form] = Form.useForm&#40;&#41;;)
-
-[//]: # ()
-[//]: # (    const onFinishFailed = &#40;values: any&#41; => {)
-
-[//]: # (        console.log&#40;values&#41;;)
-
-[//]: # (    };)
-
-[//]: # (    const submit = &#40;formData&#41; => {)
-
-[//]: # (        console.log&#40;'submit~~~~', formData&#41;)
-
-[//]: # (    })
-
-[//]: # (    const onReset = &#40;&#41; => {)
-
-[//]: # (        form.resetFields&#40;&#41;;)
-
-[//]: # (    };)
-
-[//]: # (    return <Form)
-
-[//]: # (        form={form})
-
-[//]: # (        labelWidth={'150px'})
-
-[//]: # (        onFinishFailed={onFinishFailed})
-
-[//]: # (        submit={submit})
-
-[//]: # (    >)
-
-[//]: # (        <Form.Item)
-
-[//]: # (            label="账户")
-
-[//]: # (            name="username")
-
-[//]: # (            rules={[)
-
-[//]: # (                {required: true, message: 'Please input your username!'},)
-
-[//]: # (            ]})
-
-[//]: # ()
-[//]: # (        >)
-
-[//]: # (            <Input/>)
-
-[//]: # (        </Form.Item>)
-
-[//]: # (        <Form.Item)
-
-[//]: # (            label="密码")
-
-[//]: # (            name="password")
-
-[//]: # (            rules={[{required: true, message: 'Please input your password!'}]})
-
-[//]: # (        >)
-
-[//]: # (            <Input/>)
-
-[//]: # (        </Form.Item>)
-
-[//]: # ()
-[//]: # (        <Form.Item)
-
-[//]: # (            label="身份绑定模式")
-
-[//]: # (            name="mode")
-
-[//]: # (            rules={[{required: true, message: 'Please input your password!'}]})
-
-[//]: # (        >)
-
-[//]: # (            <Select)
-
-[//]: # (                style={{width: 150}})
-
-[//]: # (                options={[)
-
-[//]: # (                    {value: 'noto', label: '不绑定'},)
-
-[//]: # (                    {value: 'Phone', label: '手机号'},)
-
-[//]: # (                    {value: 'Mailbox', label: '邮箱'},)
-
-[//]: # (                    {value: 'Google', label: 'Google账号'},)
-
-[//]: # (                ]})
-
-[//]: # (            />)
-
-[//]: # ()
-[//]: # (        </Form.Item>)
-
-[//]: # ()
-[//]: # (        <Form.Item)
-
-[//]: # (            isWarp)
-
-[//]: # (        >)
-
-[//]: # (            {&#40;{getFieldValue, props, ref}&#41; => {)
-
-[//]: # (                return getFieldValue&#40;'mode'&#41; === 'Phone' ?)
-
-[//]: # ()
-[//]: # (                    <Form.Item  {...props} ref={ref} name="phone" label="手机号")
-
-[//]: # (                                rules={[)
-
-[//]: # (                                    {required: true, message: 'required'},)
-
-[//]: # (                                    {maxLength: 2, message: 'maxLength'})
-
-[//]: # (                                ]}>)
-
-[//]: # (                        <Input/>)
-
-[//]: # (                    </Form.Item> : null)
-
-[//]: # (            }})
-
-[//]: # ()
-[//]: # (        </Form.Item>)
-
-[//]: # ()
-[//]: # ()
-[//]: # (        <Form.Item wrapperCol={{offset: 8, span: 16}}>)
-
-[//]: # (            <Button type="primary" htmlType="submit">)
-
-[//]: # (                提交)
-
-[//]: # (            </Button>)
-
-[//]: # (            <Button onClick={onReset}>)
-
-[//]: # (                重置)
-
-[//]: # (            </Button>)
-
-[//]: # ()
-[//]: # (            <Button)
-
-[//]: # (                onClick={&#40;&#41; => form.setFieldsValue&#40;{)
-
-[//]: # (                    mode: 'Phone',)
-
-[//]: # (                }&#41;}>)
-
-[//]: # (                填充)
-
-[//]: # (            </Button>)
-
-[//]: # ()
-[//]: # (        </Form.Item>)
-
-[//]: # (    </Form>)
-
-[//]: # ()
-[//]: # (})
-
-[//]: # (```)
 
 ### 表单大小
 
@@ -635,3 +699,84 @@ export default () => {
 
 [//]: # ()
 [//]: # (```)
+
+
+### 表单字段内部属性嵌套
+
+```tsx
+
+import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
+
+import {useState} from "react";
+
+
+export default () => {
+
+    const [form] = Form.useForm();
+
+
+    const onFinishFailed = (values: any) => {
+
+        console.log(values);
+
+    };
+
+    const submit = (formData) => {
+
+        console.log('submit~~~~', formData)
+
+    }
+
+
+    return <Form
+        form={form}
+        onFinishFailed={onFinishFailed}
+        submit={submit}
+    >
+        <Form.Item
+            label="name"
+            name={['user', 'name']}
+            rules={[{required: true, message: 'Please input your username!'}]}
+
+        >
+            <Input/>
+
+        </Form.Item>
+        <Form.Item
+            label="phone"
+            name={['user', 'phone']}
+        >
+            <Input/>
+
+        </Form.Item>
+
+        <Form.Item>
+            <Button type="primary" htmlType="submit">
+                提交
+            </Button>
+
+            <Button onClick={() => form.resetFields()}>
+
+                重置
+
+            </Button>
+
+            <Button
+
+                onClick={() => form.setFieldsValue({
+
+                    user: {name: 'ayong', phone: '123456'}
+
+                })}>
+
+                填充
+
+            </Button>
+        </Form.Item>
+
+    </Form>
+
+
+}
+
+```
