@@ -909,178 +909,103 @@ export default () => {
 
 ### 使用自定义或第三方 表单控件
 
-[//]: # ()
-[//]: # (自定义或第三方的表单控件，也可以与 Form 组件一起使用。只要该组件遵循以下的约定：)
+自定义或第三方的表单控件，也可以与 Form 组件一起使用。只要该组件遵循以下的约定：
 
-[//]: # ()
-[//]: # (1. 控件需要接收   `value`  属性。)
-
-[//]: # (2. 控件需要接收 `onChange` 事件。)
-
-[//]: # ()
-[//]: # (```tsx)
-
-[//]: # ()
-[//]: # (import {Modal, Button, Form, Input, Upload, Radio, Select} from 'ayongUI')
-
-[//]: # ()
-[//]: # (import React, {useState} from "react";)
-
-[//]: # ()
-[//]: # (const PriceInput: React.FC<PriceInputProps> = &#40;{value = {}, onChange}&#41; => {)
-
-[//]: # (    const [number, setNumber] = useState&#40;0&#41;;)
-
-[//]: # (    const [currency, setCurrency] = useState<Currency>&#40;'rmb'&#41;;)
-
-[//]: # ()
-[//]: # (    const triggerChange = &#40;changedValue: { number?: number; currency?: Currency }&#41; => {)
-
-[//]: # (        onChange&#40;{...value, number, currency, ...changedValue}&#41;;)
-
-[//]: # (    };)
-
-[//]: # ()
-[//]: # (    const onNumberChange = &#40;value: string&#41; => {)
-
-[//]: # (        const newNumber = parseInt&#40;value || '0', 10&#41;;)
-
-[//]: # (        if &#40;Number.isNaN&#40;newNumber&#41;&#41; {)
-
-[//]: # (            return;)
-
-[//]: # (        })
-
-[//]: # ()
-[//]: # (        triggerChange&#40;{number: newNumber}&#41;;)
-
-[//]: # (    };)
-
-[//]: # ()
-[//]: # (    const onCurrencyChange = &#40;newCurrency: Currency&#41; => {)
-
-[//]: # (        triggerChange&#40;{currency: newCurrency}&#41;;)
-
-[//]: # (    };)
-
-[//]: # ()
-[//]: # (    return &#40;)
-
-[//]: # (        <div style={{display: 'flex', alignItems: 'center'}}>)
-
-[//]: # (            <Input)
-
-[//]: # (                type="text")
-
-[//]: # (                value={value.number || number})
-
-[//]: # (                onChange={onNumberChange})
-
-[//]: # (                style={{width: 100, marginRight: 8}})
-
-[//]: # (            />)
-
-[//]: # (            <Select)
-
-[//]: # (                value={value.currency || currency})
-
-[//]: # (                style={{width: 100}})
-
-[//]: # (                onChange={onCurrencyChange})
-
-[//]: # (                options={[)
-
-[//]: # (                    {value: 'usd', label: 'USD'},)
-
-[//]: # (                    {value: 'eur', label: 'EUR'},)
-
-[//]: # (                ]})
-
-[//]: # (            />)
-
-[//]: # (        </div>)
-
-[//]: # (    &#41;;)
-
-[//]: # (};)
-
-[//]: # ()
-[//]: # ()
-[//]: # (export default &#40;&#41; => {)
-
-[//]: # ()
-[//]: # (    const [form] = Form.useForm&#40;&#41;;)
-
-[//]: # ()
-[//]: # ()
-[//]: # (    const onFinishFailed = &#40;values: any&#41; => {)
-
-[//]: # ()
-[//]: # (        console.log&#40;values&#41;;)
-
-[//]: # ()
-[//]: # (    };)
-
-[//]: # ()
-[//]: # (    const submit = &#40;formData&#41; => {)
-
-[//]: # ()
-[//]: # (        console.log&#40;'submit~~~~', formData&#41;)
-
-[//]: # ()
-[//]: # (    })
-
-[//]: # ()
-[//]: # ()
-[//]: # (    return <Form)
-
-[//]: # (        form={form})
-
-[//]: # (        onFinishFailed={onFinishFailed})
-
-[//]: # (        submit={submit})
-
-[//]: # (    >)
-
-[//]: # (        <Form.Item)
-
-[//]: # (            label="count")
-
-[//]: # (            name='count')
-
-[//]: # (            rules={[{required: true, message: 'Please input your username!'}]})
-
-[//]: # ()
-[//]: # (        >)
-
-[//]: # (            <PriceInput/>)
-
-[//]: # ()
-[//]: # (        </Form.Item>)
-
-[//]: # ()
-[//]: # (        <Form.Item>)
-
-[//]: # (            <Button type="primary" htmlType="submit">)
-
-[//]: # (                提交)
-
-[//]: # (            </Button>)
-
-[//]: # (        </Form.Item>)
-
-[//]: # ()
-[//]: # (    </Form>)
-
-[//]: # ()
-[//]: # ()
-[//]: # (})
-
-[//]: # ()
-[//]: # (```)
-
-
+1. 控件需要接收   `value`  属性。
+2. 控件需要接收 `onChange` 事件。
 
 ```tsx
 
+import {Modal, Button, Form, Input, Upload, Radio, Select} from 'ayongUI'
+
+import React, {useState} from "react";
+
+const PriceInput: React.FC<PriceInputProps> = ({value = {}, onChange}) => {
+    const [number, setNumber] = useState(0);
+    const [currency, setCurrency] = useState<Currency>('rmb');
+
+    const triggerChange = (changedValue: { number?: number; currency?: Currency }) => {
+        onChange({...value, number, currency, ...changedValue});
+    };
+
+    const onNumberChange = (value: string) => {
+        const newNumber = parseInt(value || '0', 10);
+        if (Number.isNaN(newNumber)) {
+            return;
+        }
+
+        triggerChange({number: newNumber});
+    };
+
+    const onCurrencyChange = (newCurrency: Currency) => {
+        triggerChange({currency: newCurrency});
+    };
+
+    return (
+        <div style={{display: 'flex', alignItems: 'center'}}>
+            <Input
+                type="text"
+                value={value.number || number}
+                onChange={onNumberChange}
+                style={{width: 100, marginRight: 8}}
+            />
+            <Select
+                value={value.currency || currency}
+                style={{width: 100}}
+                onChange={onCurrencyChange}
+                options={[
+                    {value: 'usd', label: 'USD'},
+                    {value: 'eur', label: 'EUR'},
+                ]}
+            />
+        </div>
+    );
+};
+
+
+export default () => {
+
+    const [form] = Form.useForm();
+
+
+    const onFinishFailed = (values: any) => {
+
+        console.log(values);
+
+    };
+
+    const submit = (formData) => {
+
+        console.log('submit~~~~', formData)
+
+    }
+
+
+    return <Form
+        form={form}
+        onFinishFailed={onFinishFailed}
+        submit={submit}
+    >
+        <Form.Item
+            label="count"
+            name='count'
+            rules={[{required: true, message: 'Please input your username!'}]}
+
+        >
+            <PriceInput/>
+
+        </Form.Item>
+
+        <Form.Item>
+            <Button type="primary" htmlType="submit">
+                提交
+            </Button>
+        </Form.Item>
+
+    </Form>
+
+
+}
+
 ```
+
