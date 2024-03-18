@@ -1460,6 +1460,7 @@ export default () => {
         try {
             const formData = form.submit();
             const roleList = form2.getFieldValue('roleList');
+
             form2.setFieldsValue({roleList: [...roleList, formData]});
             onClose()
         } catch (e) {
@@ -1535,8 +1536,6 @@ export default () => {
             >
                 {({getFieldValue, props, ref}) => {
                     const roleList = getFieldValue('roleList') || [];
-
-                    console.log('roleList', roleList)
                     return <div>
                         {roleList.map((item, index) => {
                             return <Input key={index} value={item?.account} disabled/>
