@@ -455,517 +455,517 @@ export default () => {
 **⚠️在使用 动态方法创建 Form.Item 内嵌套自身时候, 最外层Form.Item 必传 isWarp参数, 方法内接收 props参数
 必须回传给内部嵌套的Form.Item**
 
-[//]: # (```tsx)
+```tsx
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (import {Button, Form, Input, Select} from 'ayongUI')
 
-[//]: # ()
 
-[//]: # ()
+import {Button, Form, Input, Select} from 'ayongUI'
 
-[//]: # (import {useState} from "react";)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (export default &#40;&#41; => {)
+import {useState} from "react";
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (  const [form] = Form.useForm&#40;&#41;;)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (  const onFinishFailed = &#40;values: any&#41; => {)
+export default () => {
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    console.log&#40;values&#41;;)
 
-[//]: # ()
 
-[//]: # ()
+  const [form] = Form.useForm();
 
-[//]: # (  };)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (  const submit = &#40;formData&#41; => {)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    console.log&#40;'submit~~~~', formData&#41;)
+  const onFinishFailed = (values: any) => {
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (  })
 
-[//]: # ()
 
-[//]: # ()
+    console.log(values);
 
-[//]: # (  const onReset = &#40;&#41; => {)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    form.resetFields&#40;&#41;;)
 
-[//]: # ()
+  };
 
-[//]: # ()
 
-[//]: # (  };)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (  return <Form)
+  const submit = (formData) => {
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    form={form})
 
-[//]: # ()
 
-[//]: # ()
+    console.log('submit~~~~', formData)
 
-[//]: # (    labelWidth={'150px'})
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    onFinishFailed={onFinishFailed})
 
-[//]: # ()
+  }
 
-[//]: # ()
 
-[//]: # (    onSubmit={submit})
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (  >)
+  const onReset = () => {
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    <Form.Item)
 
-[//]: # ()
 
-[//]: # ()
+    form.resetFields();
 
-[//]: # (      label="账户")
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      name="username")
 
-[//]: # ()
+  };
 
-[//]: # ()
 
-[//]: # (      rules={[)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (        {required: true, message: 'Please input your username!'},)
+  return <Form
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      ]})
 
-[//]: # ()
 
-[//]: # ()
+    form={form}
 
-[//]: # ()
 
-[//]: # (    >)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      <Input/>)
+    labelWidth={'150px'}
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    </Form.Item>)
 
-[//]: # ()
 
-[//]: # ()
+    onFinishFailed={onFinishFailed}
 
-[//]: # (    <Form.Item)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      label="密码")
 
-[//]: # ()
+    onSubmit={submit}
 
-[//]: # ()
 
-[//]: # (      name="password")
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      rules={[{required: true, message: 'Please input your password!'}]})
+  >
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    >)
 
-[//]: # ()
 
-[//]: # ()
+    <Form.Item
 
-[//]: # (      <Input/>)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    </Form.Item>)
 
-[//]: # ()
+      label="账户"
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    <Form.Item)
 
-[//]: # ()
 
-[//]: # ()
+      name="username"
 
-[//]: # (      label="身份绑定模式")
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      name="mode")
 
-[//]: # ()
+      rules={[
 
-[//]: # ()
 
-[//]: # (      rules={[{required: true, message: 'Please input your password!'}]})
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    >)
+        {required: true, message: 'Please input your username!'},
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      <Select)
 
-[//]: # ()
 
-[//]: # ()
+      ]}
 
-[//]: # (        style={{width: 150}})
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (        options={[)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (          {value: 'noto', label: '不绑定'},)
+    >
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (          {value: 'Phone', label: '手机号'},)
 
-[//]: # ()
 
-[//]: # ()
+      <Input/>
 
-[//]: # (          {value: 'Mailbox', label: '邮箱'},)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (          {value: 'Google', label: 'Google账号'},)
 
-[//]: # ()
+    </Form.Item>
 
-[//]: # ()
 
-[//]: # (        ]})
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      />)
+    <Form.Item
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    </Form.Item>)
 
-[//]: # ()
+      label="密码"
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    <Form.Item)
 
-[//]: # ()
 
-[//]: # ()
+      name="password"
 
-[//]: # (      isWarp)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    >)
 
-[//]: # ()
+      rules={[{required: true, message: 'Please input your password!'}]}
 
-[//]: # ()
 
-[//]: # (      {&#40;{getFieldValue, props, ref}&#41; => {)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (        return getFieldValue&#40;'mode'&#41; === 'Phone' ?)
+    >
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (          <Form.Item  {...props} ref={ref} name="phone" label="手机号")
 
-[//]: # ()
+      <Input/>
 
-[//]: # ()
 
-[//]: # (                      rules={[)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (                        {required: true, message: 'required'},)
+    </Form.Item>
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (                        {maxLength: 2, message: 'maxLength'})
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (                      ]}>)
 
-[//]: # ()
+    <Form.Item
 
-[//]: # ()
 
-[//]: # (            <Input/>)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (          </Form.Item> : null)
+      label="身份绑定模式"
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      }})
 
-[//]: # ()
 
-[//]: # ()
+      name="mode"
 
-[//]: # ()
 
-[//]: # (    </Form.Item>)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # ()
+      rules={[{required: true, message: 'Please input your password!'}]}
 
-[//]: # (    <Form.Item wrapperCol={{offset: 8, span: 16}}>)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      <Button type="primary" htmlType="submit">)
 
-[//]: # ()
+    >
 
-[//]: # ()
 
-[//]: # (        提交)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      </Button>)
+      <Select
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      <Button onClick={onReset}>)
 
-[//]: # ()
 
-[//]: # ()
+        style={{width: 150}}
 
-[//]: # (        重置)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      </Button>)
 
-[//]: # ()
+        options={[
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      <Button)
 
-[//]: # ()
 
-[//]: # ()
+          {value: 'noto', label: '不绑定'},
 
-[//]: # (        onClick={&#40;&#41; => form.setFieldsValue&#40;{)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (          mode: 'Phone',)
 
-[//]: # ()
+          {value: 'Phone', label: '手机号'},
 
-[//]: # ()
 
-[//]: # (        }&#41;}>)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (        填充)
+          {value: 'Mailbox', label: '邮箱'},
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (      </Button>)
 
-[//]: # ()
 
-[//]: # ()
+          {value: 'Google', label: 'Google账号'},
 
-[//]: # ()
 
-[//]: # (    </Form.Item>)
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (  </Form>)
+        ]}
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (})
 
-[//]: # ()
+      />
 
-[//]: # ()
 
-[//]: # (```)
+
+
+
+
+
+    </Form.Item>
+
+
+
+
+
+
+
+    <Form.Item
+
+
+
+
+
+      isWarp
+
+
+
+
+
+    >
+
+
+
+
+
+      {({getFieldValue, props, ref}) => {
+
+
+
+
+
+        return getFieldValue('mode') === 'Phone' ?
+
+
+
+
+
+
+
+          <Form.Item  {...props} ref={ref} name="phone" label="手机号"
+
+
+
+
+
+                      rules={[
+
+
+
+
+
+                        {required: true, message: 'required'},
+
+
+
+
+
+                        {maxLength: 2, message: 'maxLength'}
+
+
+
+
+
+                      ]}>
+
+
+
+
+
+            <Input/>
+
+
+
+
+
+          </Form.Item> : null
+
+
+
+
+
+      }}
+
+
+
+
+
+
+
+    </Form.Item>
+
+
+
+
+
+
+
+    <Form.Item wrapperCol={{offset: 8, span: 16}}>
+
+
+
+
+
+      <Button type="primary" htmlType="submit">
+
+
+
+
+
+        提交
+
+
+
+
+
+      </Button>
+
+
+
+
+
+      <Button onClick={onReset}>
+
+
+
+
+
+        重置
+
+
+
+
+
+      </Button>
+
+
+
+
+
+
+
+      <Button
+
+
+
+
+
+        onClick={() => form.setFieldsValue({
+
+
+
+
+
+          mode: 'Phone',
+
+
+
+
+
+        })}>
+
+
+
+
+
+        填充
+
+
+
+
+
+      </Button>
+
+
+
+
+
+
+
+    </Form.Item>
+
+
+
+
+
+  </Form>
+
+
+
+
+
+
+
+}
+
+
+
+
+
+```
 
 ### 表单大小
 
@@ -1119,129 +1119,129 @@ export default () => {
 
 如果你的表单 数据结构需要 字段属性嵌套, 你可以使用 Form.Item 的 name 为数组来实现
 
-[//]: # (```tsx)
+```tsx
 
-[//]: # ()
 
-[//]: # (import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI')
 
-[//]: # ()
+import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
 
-[//]: # (import {useState} from "react";)
 
-[//]: # ()
 
-[//]: # ()
+import {useState} from "react";
 
-[//]: # (export default &#40;&#41; => {)
 
-[//]: # ()
 
-[//]: # (    const [form] = Form.useForm&#40;&#41;;)
 
-[//]: # ()
 
-[//]: # ()
+export default () => {
 
-[//]: # (    const onFinishFailed = &#40;values: any&#41; => {)
 
-[//]: # ()
 
-[//]: # (        console.log&#40;values&#41;;)
+    const [form] = Form.useForm();
 
-[//]: # ()
 
-[//]: # (    };)
 
-[//]: # ()
 
-[//]: # (    const submit = &#40;formData&#41; => {)
 
-[//]: # ()
+    const onFinishFailed = (values: any) => {
 
-[//]: # (        console.log&#40;'submit~~~~', formData&#41;)
 
-[//]: # ()
 
-[//]: # (    })
+        console.log(values);
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    return <Form)
+    };
 
-[//]: # (        form={form})
 
-[//]: # (        onFinishFailed={onFinishFailed})
 
-[//]: # (        onSubmit={submit})
+    const submit = (formData) => {
 
-[//]: # (    >)
 
-[//]: # (        <Form.Item)
 
-[//]: # (            label="name")
+        console.log('submit~~~~', formData)
 
-[//]: # (            name={['user', 'name']})
 
-[//]: # (            rules={[{required: true, message: 'Please input your username!'}]})
 
-[//]: # ()
+    }
 
-[//]: # (        >)
 
-[//]: # (            <Input/>)
 
-[//]: # ()
 
-[//]: # (        </Form.Item>)
 
-[//]: # (        <Form.Item)
+    return <Form
 
-[//]: # (            label="phone")
+        form={form}
 
-[//]: # (            name={['user', 'phone']})
+        onFinishFailed={onFinishFailed}
 
-[//]: # (        >)
+        onSubmit={submit}
 
-[//]: # (            <Input/>)
+    >
 
-[//]: # ()
+        <Form.Item
 
-[//]: # (        </Form.Item>)
+            label="name"
 
-[//]: # ()
+            name={['user', 'name']}
 
-[//]: # (        <Form.Item>)
+            rules={[{required: true, message: 'Please input your username!'}]}
 
-[//]: # (          )
 
-[//]: # (            <Button type="primary" htmlType="submit">)
 
-[//]: # (                提交)
+        >
 
-[//]: # (            </Button>)
+            <Input/>
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (        </Form.Item>)
+        </Form.Item>
 
-[//]: # ()
+        <Form.Item
 
-[//]: # (    </Form>)
+            label="phone"
 
-[//]: # ()
+            name={['user', 'phone']}
 
-[//]: # ()
+        >
 
-[//]: # (})
+            <Input/>
 
-[//]: # ()
 
-[//]: # (```)
+
+        </Form.Item>
+
+
+
+        <Form.Item>
+
+          
+
+            <Button type="primary" htmlType="submit">
+
+                提交
+
+            </Button>
+
+
+
+
+
+        </Form.Item>
+
+
+
+    </Form>
+
+
+
+
+
+}
+
+
+
+```
 
 ### 使用自定义或第三方 表单控件
 
@@ -1674,48 +1674,47 @@ export default () => {
 
 import {Modal, Button, Form, Input, Upload, Radio, Select} from 'ayongUI'
 
-  export default  () => (
-    <Form
-      name="dynamic_form_nest_item"
-      onFinish={onFinish}
-      style={{ maxWidth: 600 }}
-      autoComplete="off"
-    >
-      {/*<Form.List name="users">*/}
-      {/*  {(fields, { add, remove }) => (*/}
-      {/*    <>*/}
-      {/*      {fields.map(({ key, name, ...restField }) => (*/}
-      {/*        <Space key={key} style={{ display: 'flex', marginBottom: 8 }} align="baseline">*/}
-      {/*          <Form.Item*/}
-      {/*            {...restField}*/}
-      {/*            name={[name, 'first']}*/}
-      {/*            rules={[{ required: true, message: 'Missing first name' }]}*/}
-      {/*          >*/}
-      {/*            <Input placeholder="First Name" />*/}
-      {/*          </Form.Item>*/}
-      {/*          <Form.Item*/}
-      {/*            {...restField}*/}
-      {/*            name={[name, 'last']}*/}
-      {/*            rules={[{ required: true, message: 'Missing last name' }]}*/}
-      {/*          >*/}
-      {/*            <Input placeholder="Last Name" />*/}
-      {/*          </Form.Item>*/}
-      {/*          <MinusCircleOutlined onClick={() => remove(name)} />*/}
-      {/*        </Space>*/}
-      {/*      ))}*/}
-      {/*      <Form.Item>*/}
-      {/*        <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>*/}
-      {/*          Add field*/}
-      {/*        </Button>*/}
-      {/*      </Form.Item>*/}
-      {/*    </>*/}
-      {/*  )}*/}
-      {/*</Form.List>*/}
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
-  );
+  export default  () => {
+
+      const onFinish = () => {
+
+      }
+
+      return <Form
+          onFinish={onFinish}
+      >
+          <Form.List name="users">
+              {
+                  (fields, { add, remove })=>{
+                      console.log(fields)
+                     return <>
+                        {fields.map(({ key, name, ...restField },index) => (
+                            <Form.Item
+                                key={index}
+                              {...restField}
+                              name={'first'}
+                              rules={[{ required: true, message: 'Missing first name' }]}
+                            >
+                              <Input placeholder="First Name" />
+                                </Form.Item>
+                        
+                        ))}
+                        <Form.Item>
+                          <Button type="dashed" onClick={() => add()} >
+                            Add field
+                          </Button>
+                        </Form.Item>
+                      </>
+                  }
+              }
+           
+          </Form.List>
+          
+          <Form.Item>
+              <Button type="primary" htmlType="submit">
+                  Submit
+              </Button>
+          </Form.Item>
+      </Form>
+  };
 ```
