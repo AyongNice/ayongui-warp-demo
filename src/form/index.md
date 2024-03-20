@@ -1809,6 +1809,7 @@ export default () => {
                             return <div style={{display: 'flex', alignItems: 'baseline'}} key={key}>
                                 <Form.Item
                                     {...props}
+                                    index={index}
                                     name={'name'}
                                     label="姓名"
                                     rules={[{required: true, message: 'Missing first name'}]}
@@ -1816,14 +1817,15 @@ export default () => {
                                     <Input placeholder="First Name"/>
                                 </Form.Item>
         
-                                {/*<Form.Item*/}
-                                {/*    {...props}*/}
-                                {/*    name={'account'}*/}
-                                {/*    label="账号"*/}
-                                {/*    rules={[{required: true, message: 'Missing first name'}]}*/}
-                                {/*>*/}
-                                {/*    <Input placeholder="First Name"/>*/}
-                                {/*</Form.Item>*/}
+                                <Form.Item
+                                    {...props}
+                                    index={index}
+                                    name={'account'}
+                                    label="账号"
+                                    rules={[{required: true, message: 'Missing first name'}]}
+                                >
+                                    <Input placeholder="First Name"/>
+                                </Form.Item>
                                 <Close style={{padding: '10px 10px 0px 12px', cursor: 'pointer'}}
                                        onClick={() => remove(key)}/>
                             </div>
