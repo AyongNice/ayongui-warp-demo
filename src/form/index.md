@@ -7,18 +7,16 @@ import {setThemeVariables} from "ayongUI";
 import {ModeTheme} from '../../globe/theme.ts'
 
 export default () => {
-  // color 为当前应用的主题色，dark or light
-  const [color] = usePrefersColor();
-  useEffect(() => {
-    setThemeVariables(new ModeTheme()[color])
-  }, [color])
+    // color 为当前应用的主题色，dark or light
+    const [color] = usePrefersColor();
+    useEffect(() => {
+        setThemeVariables(new ModeTheme()[color])
+    }, [color])
 
 };
 ```
 
 ### 基本使用
-
-
 
 ```tsx
 
@@ -27,9 +25,7 @@ import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
 import {useState} from "react";
 
 
-
 export default () => {
-
 
 
     const [formLayout, setFormLayout] = useState('right');
@@ -41,7 +37,6 @@ export default () => {
         setFormLayout(layout)
 
     };
-
 
 
     const submit = (formData) => {
@@ -113,7 +108,6 @@ export default () => {
                 }]}
 
 
-
             >
 
                 <Input/>
@@ -133,7 +127,6 @@ export default () => {
                 <Input/>
 
             </Form.Item>
-
 
 
             <Form.Item
@@ -175,17 +168,12 @@ export default () => {
                 </Button>
 
 
-
             </Form.Item>
 
         </Form>
 
 
-
-
-
     </div>
-
 
 
 }
@@ -203,165 +191,61 @@ export default () => {
 import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
 
 
-
 import {useState} from "react";
-
-
-
 
 
 export default () => {
 
 
-
     const [form] = Form.useForm();
 
-
-
-
-
     const onFinishFailed = (values: any) => {
-
-
-
         console.log(values);
-
-
-
     };
 
-
-
     const submit = (formData) => {
-
-
-
         console.log('submit~~~~', formData)
-
-
 
     }
 
-
-
-
-
     return <Form
-
-
-
         form={form}
-
-
-
         initialValues={{username: 'ayong'}}
-
-
-
         onFinishFailed={onFinishFailed}
-
-
-
         onSubmit={submit}
-
-
-
     >
-
-
-
         <Form.Item
-
-
-
             label="普通校验"
-
-
-
             name="password"
-
-
-
             rules={[{required: true, message: 'Please input your password!'}]}
-
-
-
         >
-
-
-
             <Input/>
-
-
-
         </Form.Item>
 
-
-
         <Form.Item
-
             label="失焦时候验证"
-
             name="blur"
-
             rules={[
-
-
-
                 {required: true, message: 'Please input your username!'},
-
                 {
-
                     maxLength: 7,
-
                     message: '超出最大长度7',
-
                 }
-
-
-
             ]}
-
-
-
-
-
         >
-
-
-
             <Input/>
-
-
-
         </Form.Item>
 
-
-
         <Form.Item
-
-
-
             label="自定义校验"
-
-
-
             name="diy"
-
-
-
             rules={[
-
-
-
                 {
-
                     trigger: 'blur',
 
                     validator: (name, value) => {
 
                         const regex = /^(https?:\/\/)/i;
-
 
 
                         if (!regex.test(value)) {
@@ -373,47 +257,31 @@ export default () => {
                         return Promise.resolve();
 
 
-
                     }
-
 
 
                 },
 
 
-
-
-
             ]}>
-
 
 
             <Input/>
 
 
-
         </Form.Item>
-
-
-
-     
-
 
 
         <Form.Item
 
 
-
             label="是否跨域"
-
 
 
             name="cors"
 
 
-
             rules={[{required: true, message: 'Please input your cors!'}]}
-
 
 
         >
@@ -421,9 +289,7 @@ export default () => {
             <Radio/>
 
 
-
         </Form.Item>
-
 
 
         <Form.Item>
@@ -437,11 +303,7 @@ export default () => {
         </Form.Item>
 
 
-
     </Form>
-
-
-
 
 
 }
@@ -451,9 +313,8 @@ export default () => {
 ```
 
 ### 表单方法调用
-
-**⚠️在使用 动态方法创建 Form.Item 内嵌套自身时候, 最外层Form.Item 必传 isWarp参数, 方法内接收 props参数
-必须回传给内部嵌套的Form.Item**
+<span id="porpsRef"></span>
+**⚠️在使用 动态方法创建 Form.Item 内嵌套自身时候, 最外层Form.Item 必传 isWarp参数, 方法内接收 props参数 必须回传给内部嵌套的Form.Item**
 
 ```tsx
 import {Button, Form, Input, Select} from 'ayongUI'
@@ -528,14 +389,14 @@ export default () => {
         </Form.Item>
 
         <Form.Item>
-            <Button type="primary"    className={uiStyle.but} htmlType="submit">
+            <Button type="primary" className={uiStyle.but} htmlType="submit">
                 提交
             </Button>
             <Button className={uiStyle.but} onClick={onReset}>
                 重置
             </Button>
             <Button
-             
+
                 onClick={() => form.setFieldsValue({
                     mode: 'Phone',
                 })}>
@@ -559,9 +420,7 @@ import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
 import {useState} from "react";
 
 
-
 export default () => {
-
 
 
     const [size, setSize] = useState('middle');
@@ -573,7 +432,6 @@ export default () => {
     };
 
 
-
     const submit = (formData) => {
 
         console.log('submit~~~~', formData)
@@ -583,7 +441,6 @@ export default () => {
     return <div style={{width: '588px'}}>
 
 
-
         <Form
 
             size={size}
@@ -591,7 +448,6 @@ export default () => {
             onSubmit={submit}
 
             onValuesChange={onValuesChange}
-
 
 
         >
@@ -641,7 +497,6 @@ export default () => {
             </Form.Item>
 
 
-
             <Form.Item
 
                 label="附件上传"
@@ -650,7 +505,6 @@ export default () => {
 
                 style={{height: '80px'}}
 
-           
 
             >
 
@@ -679,17 +533,12 @@ export default () => {
                 </Button>
 
 
-
             </Form.Item>
 
         </Form>
 
 
-
-
-
     </div>
-
 
 
 }
@@ -710,57 +559,31 @@ export default () => {
 import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
 
 
-
-
 import {useState} from "react";
-
-
-
-
 
 
 export default () => {
 
 
-
-
     const [form] = Form.useForm();
-
-
-
-
 
 
     const onFinishFailed = (values: any) => {
 
 
-
-
         console.log(values);
-
-
 
 
     };
 
 
-
-
     const submit = (formData) => {
-
-
 
 
         console.log('submit~~~~', formData)
 
 
-
-
     }
-
-
-
-
 
 
     return <Form
@@ -790,14 +613,10 @@ export default () => {
             rules={[{required: true, message: 'Please input your username!'}]}
 
 
-
-
         >
 
 
             <Input/>
-
-
 
 
         </Form.Item>
@@ -818,17 +637,11 @@ export default () => {
             <Input/>
 
 
-
-
         </Form.Item>
-
-
 
 
         <Form.Item>
 
-
-          
 
             <Button type="primary" htmlType="submit">
 
@@ -839,20 +652,10 @@ export default () => {
             </Button>
 
 
-
-
-
-
         </Form.Item>
 
 
-
-
     </Form>
-
-
-
-
 
 
 }
@@ -876,9 +679,7 @@ export default () => {
 import {Modal, Button, Form, Input, Upload, Radio, Select} from 'ayongUI'
 
 
-
 import React, {useState} from "react";
-
 
 
 const PriceInput: React.FC<PriceInputProps> = ({value = {}, onChange}) => {
@@ -888,13 +689,11 @@ const PriceInput: React.FC<PriceInputProps> = ({value = {}, onChange}) => {
     const [currency, setCurrency] = useState<Currency>('rmb');
 
 
-
     const triggerChange = (changedValue: { number?: number; currency?: Currency }) => {
 
         onChange({...value, number, currency, ...changedValue});
 
     };
-
 
 
     const onNumberChange = (value: string) => {
@@ -908,11 +707,9 @@ const PriceInput: React.FC<PriceInputProps> = ({value = {}, onChange}) => {
         }
 
 
-
         triggerChange({number: newNumber});
 
     };
-
 
 
     const onCurrencyChange = (newCurrency: Currency) => {
@@ -920,7 +717,6 @@ const PriceInput: React.FC<PriceInputProps> = ({value = {}, onChange}) => {
         triggerChange({currency: newCurrency});
 
     };
-
 
 
     return (
@@ -964,27 +760,19 @@ const PriceInput: React.FC<PriceInputProps> = ({value = {}, onChange}) => {
 };
 
 
-
-
-
 export default () => {
-
 
 
     const [form] = Form.useForm();
 
 
-
-
-
     const onFinishFailed = (values: any) => {
-      console.log('onFinishFailed',values);
+        console.log('onFinishFailed', values);
     };
 
 
-
     const submit = (formData) => {
-      console.log('submit~~~~', formData)
+        console.log('submit~~~~', formData)
     }
 
     return <Form
@@ -1004,7 +792,7 @@ export default () => {
         <Form.Item>
             <Button type="primary" htmlType="submit">提交</Button>
         </Form.Item>
-      
+
     </Form>
 
 }
@@ -1013,7 +801,8 @@ export default () => {
 
 ```
 
-### 多表单联动 
+### 多表单联动
+
 页面中如果需要多个表单 且有关联 那么你可以 这样使用
 
 ```tsx
@@ -1105,7 +894,7 @@ export default () => {
                 label="名单列表"
                 name='roleList'
             >
-                {({getFieldValue, props, ref}) => {
+                {({getFieldValue}) => {
                     const roleList = getFieldValue('roleList') || [];
                     return <div>
                         {roleList.map((item, index) => {
@@ -1143,7 +932,6 @@ export default () => {
 
 ```
 
-
 ### 动态增减嵌套字段
 
 ```tsx
@@ -1176,7 +964,7 @@ export default () => {
                                 >
                                     <Input placeholder="First Name"/>
                                 </Form.Item>
-        
+
                                 <Form.Item
                                     {...props}
                                     index={index}
@@ -1186,19 +974,19 @@ export default () => {
                                 >
                                     <Input placeholder="First Name"/>
                                 </Form.Item>
-                                <Close style={{padding: '10px 10px 0px 12px', cursor: 'pointer',width: '30px'}}
+                                <Close style={{padding: '10px 10px 0px 12px', cursor: 'pointer', width: '30px'}}
                                        onClick={() => remove(key)}/>
                             </div>
                         })}
-                            <Form.Item>
-                                <Button type="dashed" onClick={() => add()}>
-                                    Add field
-                                </Button>
-                            </Form.Item>
+                        <Form.Item>
+                            <Button type="dashed" onClick={() => add()}>
+                                Add field
+                            </Button>
+                        </Form.Item>
                     </>
                 }
             }
-        
+
         </Form.List>
 
         <Form.Item>
@@ -1210,33 +998,75 @@ export default () => {
 };
 ```
 
+## Form Porps 介绍
 
-## Porps 介绍
-| 属性名              | 说明                     | 默认值    | 类型                                        | 支持版本 |
-| -------------------| ------------------------| ---------| -------------------------------------------| -------- |
-| name               | 表单名称                 |           | string                                      |  1.0        |
-| size               | 表单尺寸                 | 'middle' | 'small' | 'middle' | 'large'              |   1.0         | 
-| style              | 表单的样式               |           | React.CSSProperties                        |  1.0          |
-| labelWidth         | 标签的宽度               | '100px'  | string                                      |   1.0         |
-| form               | 表单实例对象             | {}        | any                                         |   1.0         |
-| children           | 表单子元素               |           | React.ReactNode                             |  1.0          |
-| initialValues      | 初始值对象               | {}        | { [key: string]: any }                     |   1.0         |
-| autoComplete       | 自动完成属性             |           | string                                      |   1.0         |
-| errorInfo          | 表单校验错误信息         |           | { errorFields: { name: string; errors: string }[] } |   1.0         |
-| disabled           | 是否禁用                 | false     | boolean                                     |   1.0         |
-| formLayout         | 表单布局方式             | 'right'   | 'left' | 'right' | 'vertical'             |   1.0         |
-| onSubmit           | 表单提交时的回调函数     | () => {}  | () => void                                  |  1.0          |
-| onFinish           | 表单完成时的回调函数     | () => {}  | () => void                                  |  1.0          |
-| onFinishFailed     | 表单完成失败时的回调函数 | () => {}  | () => void                                  |  1.0          |
-| onValuesChange     | 表单值变化时的回调函数   | () => {}  | () => void                                  |  1.0          |
+| 属性名				| 说明									| 默认值	| 类型													| 支持版本	|
+| -------------------	| ------------------------				| ---------	| -------------------------------------------			| --------	|
+| name					| 表单名称								|			| string												|  1.0		|
+| size               | 表单尺寸                 | 'middle'				| 'small'								| 'middle'	| 'large'												|   1.0		|
+| style					| 表单的样式							|			| React.CSSProperties									|  1.0		|
+| labelWidth			| 标签的宽度							| '100px'	| string												|   1.0		|
+| form					| 表单实例对象   [form方法详解](#form)	| {}		| any													|   1.0		|
+| children				| 表单子元素							|			| React.ReactNode										|  1.0		|
+| initialValues			| 初始值对象							| {}		| { [key: string]: any }								|   1.0		|
+| autoComplete			| 自动完成属性							|			| string												|   1.0		|
+| errorInfo				| 表单校验错误信息						|			| { errorFields: { name: string; errors: string }[] }	|   1.0		|
+| disabled				| 是否禁用								| false		| boolean												|   1.0		|
+| formLayout         | 表单布局方式             | 'right'				| 'left'								| 'right'	| 'vertical'											|   1.0		|
+| onSubmit				| 表单提交时的回调函数					| () => {}	| () => void											|  1.0		|
+| onFinish				| 表单完成时的回调函数					| () => {}	| () => void											|  1.0		|
+| onFinishFailed		| 表单完成失败时的回调函数				| () => {}	| () => void											|  1.0		|
+| onValuesChange		| 表单值变化时的回调函数				| () => {}	| () => void											|  1.0		|
 
+
+## Itme Porps 介绍
+| 属性名      | 说明                                                                              | 默认值    | 类型                           | 支持版本 |
+|----------|---------------------------------------------------------------------------------| ---------|------------------------------| -------- |
+| label    | 标签文本                                                                            |          | string                       | 1.0      |
+| name     | 表单项名称,类型为数组时候表单属性会进行嵌套                                                          |          | string                       | string[]                                  | 1.0      |
+| style    | 自定义样式                                                                           |          | React.CSSProperties          | 1.0      |
+| form     | 表单实例对象                                                                          |          | any                          | 1.0      |
+| isWarp   | 是否包裹子元素,Item嵌套自身时候 该参数必传                                                        |          | boolean                      | 1.0      |
+| rules    | 表单校验规则数组                                                                        |          | Rules[]  [Rules参数详解](#Rules) | 1.0      |
+| children | 子元素 当children自定义渲染函数时候 函数接收的props, ref /n 必须回传给Item组件自身， [使用方式见代码示例](#porpsRef) |          | React.ReactNode              | 1.0      |
+| index    | 在Form.list 组件中使用必传该参数，为当前元素索引                                                   |          | number                       | 1.0      |
+
+
+ ## List Porps 介绍
+| 属性名        | 说明                 | 默认值    | 类型       | 支持版本 |
+| -------------|--------------------| ---------|----------|------|
+| name         | 表单数据list集合对应的属性key |          | string   | -    | 1.0      |
+| children         | list自定义渲染函数  [children参数详解](#children)       |          | Funtcion | -    | 1.0      |
+
+
+
+<span id="children">**children 函数参数详解**</span>
+
+| 属性名								       | 说明					             | 类型	                  | 默认值| 版本	|
+|-------------------|---------------------|----------------------| ------| ----	|
+| fields								    | 循环渲染的list数据	        | boolean              | -	| 1.0	|
+| add							        | 用于调用添加数据	           | () => void           | -	| 1.0	|
+| remove								 | 用户删除数据,方法入参数	为key	  | (key:string) => void | -	| 1.0	|
+| key								 | 子元素循环渲染的 唯一 key     | string               | -	| 1.0	|
+| props								 | 用于将props 传递给 Itme组件 | Object               | -	| 1.0	|
+
+
+<span id="Rules">**Rules参数详解**</span>
+
+| 属性名								| 说明					| 类型	| 默认值| 版本	|
+| --------								| --------------------------------------------| ------------------------| ------| ----	|
+| required								| 是否必传 true必传		| boolean| -	| 1.0	|
+| message								| 校验不同的文案提示	| string| -	| 1.0	|
+| maxLength								| 最大长度限制			| number| -	| 1.0	|
+| validator								| 自定义校验函数 接收name属性和只属性，返回Promise.reject验证失败，返回Promise.resolve验证通过| (name:string, value:any) => Promise| -	| 1.0	|
+| trigger	| 校验时机  'change'	\| 'blur'\| 'submit' 默认 change	| string| -	| 1.0	|
 
 <span id="form">**form方法介绍**</span>
-| 方法名          | 说明                     | 参数类型                   | 返回值类型      | 支持版本 |
-| -------------- | ------------------------| --------------------------| ---------------| -------- |
-| getFieldValue  | 获取表单字段值            | (key:string)  =>string                  | string            |      1.0      |
-| setFieldsValue | 设置表单字段值            | { [key: string]: any }    | -            |          |
-| submit         | 提交表单                 | -                         | 返回当前formData表单数据            |          |
-| resetFields    | 重置表单字段值为初始值    | -                     | -             |          |
-| verify    | 验证表单    | 无                        | 无             |          |
+| 方法名		| 说明						| 参数类型					| 返回值类型				| 支持版本	|
+| --------------| ------------------------	| --------------------------| ---------------			| --------	|
+| getFieldValue	| 获取表单字段值			| (key:string)  =>string	| string					|      1.0	|
+| setFieldsValue| 设置表单字段值			| { [key: string]: any }	| -							|    1.0	|
+| submit		| 提交表单					| ()=>void					| 返回当前formData表单数据	|      1.0	|
+| resetFields	| 重置表单字段值为初始值	| -							| -							|   1.0		|
+| verify		| 验证表单					|()=>void					| 无						|       1.0	|
 
