@@ -18,1347 +18,849 @@ export default () => {
 
 ### 基本使用
 
-[//]: # ()
 
-[//]: # (```tsx)
 
-[//]: # (import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI')
+```tsx
 
-[//]: # (import {useState} from "react";)
+import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
 
-[//]: # ()
+import {useState} from "react";
 
-[//]: # (export default &#40;&#41; => {)
 
-[//]: # ()
 
-[//]: # (    const [formLayout, setFormLayout] = useState&#40;'right'&#41;;)
+export default () => {
 
-[//]: # (    const [componentDisabled, setComponentDisabled] = useState&#40;false&#41;;)
 
-[//]: # (    const onValuesChange = &#40;{layout}&#41; => {)
 
-[//]: # (        setFormLayout&#40;layout&#41;)
+    const [formLayout, setFormLayout] = useState('right');
 
-[//]: # (    };)
+    const [componentDisabled, setComponentDisabled] = useState(false);
 
-[//]: # ()
+    const onValuesChange = ({layout}) => {
 
-[//]: # (    const submit = &#40;formData&#41; => {)
+        setFormLayout(layout)
 
-[//]: # (        console.log&#40;'submit~~~~', formData&#41;)
+    };
 
-[//]: # (    })
 
-[//]: # (    return <div style={{width: '588px'}}>)
 
-[//]: # (        <Radio)
+    const submit = (formData) => {
 
-[//]: # (            checked={componentDisabled})
+        console.log('submit~~~~', formData)
 
-[//]: # (            onChange={&#40;checked&#41; => setComponentDisabled&#40;checked&#41;})
+    }
 
-[//]: # (        >)
+    return <div style={{width: '588px'}}>
 
-[//]: # (            Form 禁用)
+        <Radio
 
-[//]: # (        </Radio>)
+            checked={componentDisabled}
 
-[//]: # (        <Form formLayout={formLayout})
+            onChange={(checked) => setComponentDisabled(checked)}
 
-[//]: # (              disabled={componentDisabled})
+        >
 
-[//]: # (              onValuesChange={onValuesChange})
+            Form 禁用
 
-[//]: # (              onSubmit={submit})
+        </Radio>
 
-[//]: # (        >)
+        <Form formLayout={formLayout}
 
-[//]: # (            <Form.Item)
+              disabled={componentDisabled}
 
-[//]: # (                label="布局")
+              onValuesChange={onValuesChange}
 
-[//]: # (                name="layout")
+              onSubmit={submit}
 
-[//]: # (            >)
+        >
 
-[//]: # (                <Radio.Group>)
+            <Form.Item
 
-[//]: # (                    <Radio.Button value="left">靠左对齐</Radio.Button>)
+                label="布局"
 
-[//]: # (                    <Radio.Button value="center">剧中对齐</Radio.Button>)
+                name="layout"
 
-[//]: # (                    <Radio.Button value="right">靠右对齐</Radio.Button>)
+            >
 
-[//]: # (                    <Radio.Button value="vertical">上下布局</Radio.Button>)
+                <Radio.Group>
 
-[//]: # (                    <Radio.Button value="inline">左右布局</Radio.Button>)
+                    <Radio.Button value="left">靠左对齐</Radio.Button>
 
-[//]: # (                </Radio.Group>)
+                    <Radio.Button value="center">剧中对齐</Radio.Button>
 
-[//]: # (            </Form.Item>)
+                    <Radio.Button value="right">靠右对齐</Radio.Button>
 
-[//]: # (            <Form.Item)
+                    <Radio.Button value="vertical">上下布局</Radio.Button>
 
-[//]: # (                label="账户")
+                    <Radio.Button value="inline">左右布局</Radio.Button>
 
-[//]: # (                name="username")
+                </Radio.Group>
 
-[//]: # (                rules={[{required: true, message: 'Please input your username!'}, {)
+            </Form.Item>
 
-[//]: # (                    maxLength: 2,)
+            <Form.Item
 
-[//]: # (                    message: '超出最大长度显示')
+                label="账户"
 
-[//]: # (                }]})
+                name="username"
 
-[//]: # ()
+                rules={[{required: true, message: 'Please input your username!'}, {
 
-[//]: # (            >)
+                    maxLength: 2,
 
-[//]: # (                <Input/>)
+                    message: '超出最大长度显示'
 
-[//]: # (            </Form.Item>)
+                }]}
 
-[//]: # (            <Form.Item)
 
-[//]: # (                label="密码")
 
-[//]: # (                name="password")
+            >
 
-[//]: # (                rules={[{required: true, message: 'Please input your username!'}]})
+                <Input/>
 
-[//]: # (            >)
+            </Form.Item>
 
-[//]: # (                <Input/>)
+            <Form.Item
 
-[//]: # (            </Form.Item>)
+                label="密码"
 
-[//]: # ()
+                name="password"
 
-[//]: # (            <Form.Item)
+                rules={[{required: true, message: 'Please input your username!'}]}
 
-[//]: # (                label="附件上传")
+            >
 
-[//]: # (                name="file")
+                <Input/>
 
-[//]: # (                style={{height: '80px'}})
+            </Form.Item>
 
-[//]: # (                rules={[{required: true, message: 'Please input your username!'}]})
 
-[//]: # (            >)
 
-[//]: # (                <Upload maxCount={2}/>)
+            <Form.Item
 
-[//]: # (            </Form.Item>)
+                label="附件上传"
 
-[//]: # (            <Form.Item)
+                name="file"
 
-[//]: # (                label="是否跨越")
+                style={{height: '80px'}}
 
-[//]: # (                name="cors")
+                rules={[{required: true, message: 'Please input your username!'}]}
 
-[//]: # (                rules={[{required: true, message: 'Please input your username!'}]})
+            >
 
-[//]: # (            >)
+                <Upload maxCount={2}/>
 
-[//]: # (                <Radio/>)
+            </Form.Item>
 
-[//]: # (            </Form.Item>)
+            <Form.Item
 
-[//]: # (            <Form.Item wrapperCol={{offset: 8, span: 16}}>)
+                label="是否跨越"
 
-[//]: # (                <Button type="primary" htmlType="submit">)
+                name="cors"
 
-[//]: # (                    Submit)
+                rules={[{required: true, message: 'Please input your username!'}]}
 
-[//]: # (                </Button>)
+            >
 
-[//]: # ()
+                <Radio/>
 
-[//]: # (            </Form.Item>)
+            </Form.Item>
 
-[//]: # (        </Form>)
+            <Form.Item wrapperCol={{offset: 8, span: 16}}>
 
-[//]: # ()
+                <Button type="primary" htmlType="submit">
 
-[//]: # ()
+                    Submit
 
-[//]: # (    </div>)
+                </Button>
 
-[//]: # ()
 
-[//]: # (})
 
-[//]: # ()
+            </Form.Item>
 
-[//]: # (```)
+        </Form>
+
+
+
+
+
+    </div>
+
+
+
+}
+
+
+
+```
 
 ### 表单验证
 
-[//]: # (```tsx)
+```tsx
 
-[//]: # ()
 
-[//]: # (import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI')
 
-[//]: # ()
+import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
 
-[//]: # (import {useState} from "react";)
 
-[//]: # ()
 
-[//]: # ()
+import {useState} from "react";
 
-[//]: # (export default &#40;&#41; => {)
 
-[//]: # ()
 
-[//]: # (    const [form] = Form.useForm&#40;&#41;;)
 
-[//]: # ()
 
-[//]: # ()
+export default () => {
 
-[//]: # (    const onFinishFailed = &#40;values: any&#41; => {)
 
-[//]: # ()
 
-[//]: # (        console.log&#40;values&#41;;)
+    const [form] = Form.useForm();
 
-[//]: # ()
 
-[//]: # (    };)
 
-[//]: # ()
 
-[//]: # (    const submit = &#40;formData&#41; => {)
 
-[//]: # ()
+    const onFinishFailed = (values: any) => {
 
-[//]: # (        console.log&#40;'submit~~~~', formData&#41;)
 
-[//]: # ()
 
-[//]: # (    })
+        console.log(values);
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    return <Form)
+    };
 
-[//]: # ()
 
-[//]: # (        form={form})
 
-[//]: # ()
+    const submit = (formData) => {
 
-[//]: # (        initialValues={{username: 'ayong'}})
 
-[//]: # ()
 
-[//]: # (        onFinishFailed={onFinishFailed})
+        console.log('submit~~~~', formData)
 
-[//]: # ()
 
-[//]: # (        onSubmit={submit})
 
-[//]: # ()
+    }
 
-[//]: # (    >)
 
-[//]: # ()
 
-[//]: # (        <Form.Item)
 
-[//]: # ()
 
-[//]: # (            label="普通校验")
+    return <Form
 
-[//]: # ()
 
-[//]: # (            name="password")
 
-[//]: # ()
+        form={form}
 
-[//]: # (            rules={[{required: true, message: 'Please input your password!'}]})
 
-[//]: # ()
 
-[//]: # (        >)
+        initialValues={{username: 'ayong'}}
 
-[//]: # ()
 
-[//]: # (            <Input/>)
 
-[//]: # ()
+        onFinishFailed={onFinishFailed}
 
-[//]: # (        </Form.Item>)
 
-[//]: # ()
 
-[//]: # (        <Form.Item)
+        onSubmit={submit}
 
-[//]: # (            label="失焦时候验证")
 
-[//]: # (            name="blur")
 
-[//]: # (            rules={[)
+    >
 
-[//]: # ()
 
-[//]: # (                {required: true, message: 'Please input your username!'},)
 
-[//]: # (                {)
+        <Form.Item
 
-[//]: # (                    maxLength: 7,)
 
-[//]: # (                    message: '超出最大长度7',)
 
-[//]: # (                })
+            label="普通校验"
 
-[//]: # ()
 
-[//]: # (            ]})
 
-[//]: # ()
+            name="password"
 
-[//]: # ()
 
-[//]: # (        >)
 
-[//]: # ()
+            rules={[{required: true, message: 'Please input your password!'}]}
 
-[//]: # (            <Input/>)
 
-[//]: # ()
 
-[//]: # (        </Form.Item>)
+        >
 
-[//]: # ()
 
-[//]: # (        <Form.Item)
 
-[//]: # ()
+            <Input/>
 
-[//]: # (            label="自定义校验")
 
-[//]: # ()
 
-[//]: # (            name="diy")
+        </Form.Item>
 
-[//]: # ()
 
-[//]: # (            rules={[)
 
-[//]: # ()
+        <Form.Item
 
-[//]: # (                {)
+            label="失焦时候验证"
 
-[//]: # (                    trigger: 'blur',)
+            name="blur"
 
-[//]: # (                    validator: &#40;name, value&#41; => {)
+            rules={[
 
-[//]: # (                        const regex = /^&#40;https?:\/\/&#41;/i;)
 
-[//]: # ()
 
-[//]: # (                        if &#40;!regex.test&#40;value&#41;&#41; {)
+                {required: true, message: 'Please input your username!'},
 
-[//]: # (                            return Promise.reject&#40;'请输入正确的http 或者https协议的url'&#41;;)
+                {
 
-[//]: # (                        })
+                    maxLength: 7,
 
-[//]: # (                        return Promise.resolve&#40;&#41;;)
+                    message: '超出最大长度7',
 
-[//]: # ()
+                }
 
-[//]: # (                    })
 
-[//]: # ()
 
-[//]: # (                },)
+            ]}
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (            ]}>)
 
-[//]: # ()
 
-[//]: # (            <Input/>)
+        >
 
-[//]: # ()
 
-[//]: # (        </Form.Item>)
 
-[//]: # ()
+            <Input/>
 
-[//]: # (     )
 
-[//]: # ()
 
-[//]: # (        <Form.Item)
+        </Form.Item>
 
-[//]: # ()
 
-[//]: # (            label="是否跨域")
 
-[//]: # ()
+        <Form.Item
 
-[//]: # (            name="cors")
 
-[//]: # ()
 
-[//]: # (            rules={[{required: true, message: 'Please input your cors!'}]})
+            label="自定义校验"
 
-[//]: # ()
 
-[//]: # (        >)
 
-[//]: # (            <Radio/>)
+            name="diy"
 
-[//]: # ()
 
-[//]: # (        </Form.Item>)
 
-[//]: # ()
+            rules={[
 
-[//]: # (        <Form.Item>)
 
-[//]: # (            <Button type="primary" htmlType="submit">)
 
-[//]: # (                提交)
+                {
 
-[//]: # (            </Button>)
+                    trigger: 'blur',
 
-[//]: # (        </Form.Item>)
+                    validator: (name, value) => {
 
-[//]: # ()
+                        const regex = /^(https?:\/\/)/i;
 
-[//]: # (    </Form>)
 
-[//]: # ()
 
-[//]: # ()
+                        if (!regex.test(value)) {
 
-[//]: # (})
+                            return Promise.reject('请输入正确的http 或者https协议的url');
 
-[//]: # ()
+                        }
 
-[//]: # (```)
+                        return Promise.resolve();
+
+
+
+                    }
+
+
+
+                },
+
+
+
+
+
+            ]}>
+
+
+
+            <Input/>
+
+
+
+        </Form.Item>
+
+
+
+     
+
+
+
+        <Form.Item
+
+
+
+            label="是否跨域"
+
+
+
+            name="cors"
+
+
+
+            rules={[{required: true, message: 'Please input your cors!'}]}
+
+
+
+        >
+
+            <Radio/>
+
+
+
+        </Form.Item>
+
+
+
+        <Form.Item>
+
+            <Button type="primary" htmlType="submit">
+
+                提交
+
+            </Button>
+
+        </Form.Item>
+
+
+
+    </Form>
+
+
+
+
+
+}
+
+
+
+```
 
 ### 表单方法调用
 
 **⚠️在使用 动态方法创建 Form.Item 内嵌套自身时候, 最外层Form.Item 必传 isWarp参数, 方法内接收 props参数
 必须回传给内部嵌套的Form.Item**
 
-[//]: # (```tsx)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (import {Button, Form, Input, Select} from 'ayongUI')
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (import {useState} from "react";)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (export default &#40;&#41; => {)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (  const [form] = Form.useForm&#40;&#41;;)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (  const onFinishFailed = &#40;values: any&#41; => {)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    console.log&#40;values&#41;;)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (  };)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (  const submit = &#40;formData&#41; => {)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    console.log&#40;'submit~~~~', formData&#41;)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (  })
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (  const onReset = &#40;&#41; => {)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    form.resetFields&#40;&#41;;)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (  };)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (  return <Form)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    form={form})
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    labelWidth={'150px'})
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    onFinishFailed={onFinishFailed})
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    onSubmit={submit})
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (  >)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    <Form.Item)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      label="账户")
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      name="username")
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      rules={[)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        {required: true, message: 'Please input your username!'},)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      ]})
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    >)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      <Input/>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    </Form.Item>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    <Form.Item)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      label="密码")
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      name="password")
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      rules={[{required: true, message: 'Please input your password!'}]})
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    >)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      <Input/>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    </Form.Item>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    <Form.Item)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      label="身份绑定模式")
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      name="mode")
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      rules={[{required: true, message: 'Please input your password!'}]})
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    >)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      <Select)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        style={{width: 150}})
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        options={[)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (          {value: 'noto', label: '不绑定'},)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (          {value: 'Phone', label: '手机号'},)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (          {value: 'Mailbox', label: '邮箱'},)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (          {value: 'Google', label: 'Google账号'},)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        ]})
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      />)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    </Form.Item>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    <Form.Item)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      isWarp)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    >)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      {&#40;{getFieldValue, props, ref}&#41; => {)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        return getFieldValue&#40;'mode'&#41; === 'Phone' ?)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (          <Form.Item  {...props} ref={ref} name="phone" label="手机号")
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (                      rules={[)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (                        {required: true, message: 'required'},)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (                        {maxLength: 2, message: 'maxLength'})
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (                      ]}>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (            <Input/>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (          </Form.Item> : null)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      }})
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    </Form.Item>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    <Form.Item wrapperCol={{offset: 8, span: 16}}>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      <Button type="primary" htmlType="submit">)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        提交)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      </Button>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      <Button onClick={onReset}>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        重置)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      </Button>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      <Button)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        onClick={&#40;&#41; => form.setFieldsValue&#40;{)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (          mode: 'Phone',)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        }&#41;}>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        填充)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (      </Button>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    </Form.Item>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (  </Form>)
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (})
-
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (```)
+```tsx
+import {Button, Form, Input, Select} from 'ayongUI'
+import {useState} from "react";
+
+import uiStyle from './index.module.less';
+
+export default () => {
+    const [form] = Form.useForm();
+    const onFinishFailed = (values: any) => {
+        console.log(values);
+    };
+    const submit = (formData) => {
+        console.log('submit~~~~', formData)
+    }
+    const onReset = () => {
+        form.resetFields();
+    };
+    return <Form
+        form={form}
+        labelWidth={'150px'}
+        onFinishFailed={onFinishFailed}
+        onSubmit={submit}
+    >
+        <Form.Item
+            label="账户"
+            name="username"
+            rules={[
+                {required: true, message: 'Please input your username!'},
+            ]}
+        >
+            <Input/>
+        </Form.Item>
+        <Form.Item
+            label="密码"
+            name="password"
+            rules={[{required: true, message: 'Please input your password!'}]}
+        >
+            <Input/>
+        </Form.Item>
+
+        <Form.Item
+            label="身份绑定模式"
+            name="mode"
+            rules={[{required: true, message: 'Please input your password!'}]}
+        >
+            <Select
+                style={{width: 150}}
+                options={[
+                    {value: 'noto', label: '不绑定'},
+                    {value: 'Phone', label: '手机号'},
+                    {value: 'Mailbox', label: '邮箱'},
+                    {value: 'Google', label: 'Google账号'},
+                ]}
+            />
+
+        </Form.Item>
+
+        <Form.Item
+            isWarp
+        >
+            {({getFieldValue, props, ref}) => {
+                return getFieldValue('mode') === 'Phone' ?
+                    <Form.Item  {...props} ref={ref} name="phone" label="手机号"
+                                rules={[
+                                    {required: true, message: 'required'},
+                                    {maxLength: 2, message: 'maxLength'}
+                                ]}>
+                        <Input/>
+                    </Form.Item> : null
+            }}
+        </Form.Item>
+
+        <Form.Item>
+            <Button type="primary"    className={uiStyle.but} htmlType="submit">
+                提交
+            </Button>
+            <Button className={uiStyle.but} onClick={onReset}>
+                重置
+            </Button>
+            <Button
+             
+                onClick={() => form.setFieldsValue({
+                    mode: 'Phone',
+                })}>
+                填充
+            </Button>
+
+        </Form.Item>
+
+    </Form>
+
+}
+
+```
 
 ### 表单大小
 
-[//]: # (```tsx)
+```tsx
 
-[//]: # (import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI')
+import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
 
-[//]: # (import {useState} from "react";)
+import {useState} from "react";
 
-[//]: # ()
 
-[//]: # (export default &#40;&#41; => {)
 
-[//]: # ()
+export default () => {
 
-[//]: # (    const [size, setSize] = useState&#40;'middle'&#41;;)
 
-[//]: # (    const onValuesChange = &#40;{size}&#41; => {)
 
-[//]: # (        setSize&#40;size&#41;)
+    const [size, setSize] = useState('middle');
 
-[//]: # (    };)
+    const onValuesChange = ({size}) => {
 
-[//]: # ()
+        setSize(size)
 
-[//]: # (    const submit = &#40;formData&#41; => {)
+    };
 
-[//]: # (        console.log&#40;'submit~~~~', formData&#41;)
 
-[//]: # (    })
 
-[//]: # (    return <div style={{width: '588px'}}>)
+    const submit = (formData) => {
 
-[//]: # ()
+        console.log('submit~~~~', formData)
 
-[//]: # (        <Form)
+    }
 
-[//]: # (            size={size})
+    return <div style={{width: '588px'}}>
 
-[//]: # (            onSubmit={submit})
 
-[//]: # (            onValuesChange={onValuesChange})
 
-[//]: # ()
+        <Form
 
-[//]: # (        >)
+            size={size}
 
-[//]: # (            <Form.Item)
+            onSubmit={submit}
 
-[//]: # (                label="大小")
+            onValuesChange={onValuesChange}
 
-[//]: # (                name="size")
 
-[//]: # (            >)
 
-[//]: # (                <Radio.Group>)
+        >
 
-[//]: # (                    <Radio.Button value="small">小</Radio.Button>)
+            <Form.Item
 
-[//]: # (                    <Radio.Button value="middle">中</Radio.Button>)
+                label="大小"
 
-[//]: # (                    <Radio.Button value="large">大</Radio.Button>)
+                name="size"
 
-[//]: # (                </Radio.Group>)
+            >
 
-[//]: # (            </Form.Item>)
+                <Radio.Group>
 
-[//]: # (            <Form.Item)
+                    <Radio.Button value="small">小</Radio.Button>
 
-[//]: # (                label="账户")
+                    <Radio.Button value="middle">中</Radio.Button>
 
-[//]: # (                name="username")
+                    <Radio.Button value="large">大</Radio.Button>
 
-[//]: # (            >)
+                </Radio.Group>
 
-[//]: # (                <Input/>)
+            </Form.Item>
 
-[//]: # (            </Form.Item>)
+            <Form.Item
 
-[//]: # (            <Form.Item)
+                label="账户"
 
-[//]: # (                label="密码")
+                name="username"
 
-[//]: # (                name="password")
+            >
 
-[//]: # (            >)
+                <Input/>
 
-[//]: # (                <Input/>)
+            </Form.Item>
 
-[//]: # (            </Form.Item>)
+            <Form.Item
 
-[//]: # ()
+                label="密码"
 
-[//]: # (            <Form.Item)
+                name="password"
 
-[//]: # (                label="附件上传")
+            >
 
-[//]: # (                name="file")
+                <Input/>
 
-[//]: # (                style={{height: '80px'}})
+            </Form.Item>
 
-[//]: # (           )
 
-[//]: # (            >)
 
-[//]: # (                <Upload maxCount={2}/>)
+            <Form.Item
 
-[//]: # (            </Form.Item>)
+                label="附件上传"
 
-[//]: # (            <Form.Item)
+                name="file"
 
-[//]: # (                label="是否跨越")
+                style={{height: '80px'}}
 
-[//]: # (                name="cors")
+           
 
-[//]: # (            >)
+            >
 
-[//]: # (                <Radio/>)
+                <Upload maxCount={2}/>
 
-[//]: # (            </Form.Item>)
+            </Form.Item>
 
-[//]: # (            <Form.Item wrapperCol={{offset: 8, span: 16}}>)
+            <Form.Item
 
-[//]: # (                <Button type="primary" htmlType="submit">)
+                label="是否跨越"
 
-[//]: # (                    Submit)
+                name="cors"
 
-[//]: # (                </Button>)
+            >
 
-[//]: # ()
+                <Radio/>
 
-[//]: # (            </Form.Item>)
+            </Form.Item>
 
-[//]: # (        </Form>)
+            <Form.Item wrapperCol={{offset: 8, span: 16}}>
 
-[//]: # ()
+                <Button type="primary" htmlType="submit">
 
-[//]: # ()
+                    Submit
 
-[//]: # (    </div>)
+                </Button>
 
-[//]: # ()
 
-[//]: # (})
 
-[//]: # ()
+            </Form.Item>
 
-[//]: # (```)
+        </Form>
+
+
+
+
+
+    </div>
+
+
+
+}
+
+
+
+```
 
 ### 表单 字段属性嵌套
 
 如果你的表单 数据结构需要 字段属性嵌套, 你可以使用 Form.Item 的 name 为数组来实现 ,其中 数组第一个元素为父级属性,往后为子级属性
 
-[//]: # (```tsx)
+```tsx
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI')
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (import {useState} from "react";)
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (export default &#40;&#41; => {)
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    const [form] = Form.useForm&#40;&#41;;)
+import {Modal, Button, Form, Input, Upload, Radio} from 'ayongUI'
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    const onFinishFailed = &#40;values: any&#41; => {)
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        console.log&#40;values&#41;;)
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    };)
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    const submit = &#40;formData&#41; => {)
+import {useState} from "react";
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        console.log&#40;'submit~~~~', formData&#41;)
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    })
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    return <Form)
 
-[//]: # ()
-[//]: # (        form={form})
 
-[//]: # ()
-[//]: # (        onFinishFailed={onFinishFailed})
 
-[//]: # ()
-[//]: # (        onSubmit={submit})
+export default () => {
 
-[//]: # ()
-[//]: # (    >)
 
-[//]: # ()
-[//]: # (        <Form.Item)
 
-[//]: # ()
-[//]: # (            label="name")
 
-[//]: # ()
-[//]: # (            name={['user', 'name']})
+    const [form] = Form.useForm();
 
-[//]: # ()
-[//]: # (            rules={[{required: true, message: 'Please input your username!'}]})
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        >)
 
-[//]: # ()
-[//]: # (            <Input/>)
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        </Form.Item>)
 
-[//]: # ()
-[//]: # (        <Form.Item)
 
-[//]: # ()
-[//]: # (            label="phone")
+    const onFinishFailed = (values: any) => {
 
-[//]: # ()
-[//]: # (            name={['user', 'phone']})
 
-[//]: # ()
-[//]: # (        >)
 
-[//]: # ()
-[//]: # (            <Input/>)
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        </Form.Item>)
+        console.log(values);
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        <Form.Item>)
 
-[//]: # ()
-[//]: # (          )
-[//]: # ()
-[//]: # (            <Button type="primary" htmlType="submit">)
 
-[//]: # ()
-[//]: # (                提交)
 
-[//]: # ()
-[//]: # (            </Button>)
+    };
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (        </Form.Item>)
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (    </Form>)
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (})
 
-[//]: # ()
-[//]: # ()
-[//]: # ()
-[//]: # (```)
+    const submit = (formData) => {
+
+
+
+
+        console.log('submit~~~~', formData)
+
+
+
+
+    }
+
+
+
+
+
+
+    return <Form
+
+
+        form={form}
+
+
+        onFinishFailed={onFinishFailed}
+
+
+        onSubmit={submit}
+
+
+    >
+
+
+        <Form.Item
+
+
+            label="name"
+
+
+            name={['user', 'name']}
+
+
+            rules={[{required: true, message: 'Please input your username!'}]}
+
+
+
+
+        >
+
+
+            <Input/>
+
+
+
+
+        </Form.Item>
+
+
+        <Form.Item
+
+
+            label="phone"
+
+
+            name={['user', 'phone']}
+
+
+        >
+
+
+            <Input/>
+
+
+
+
+        </Form.Item>
+
+
+
+
+        <Form.Item>
+
+
+          
+
+            <Button type="primary" htmlType="submit">
+
+
+                提交
+
+
+            </Button>
+
+
+
+
+
+
+        </Form.Item>
+
+
+
+
+    </Form>
+
+
+
+
+
+
+}
+
+
+
+
+```
 
 ### 使用自定义或第三方 表单控件
 
@@ -1367,421 +869,279 @@ export default () => {
 1. 控件需要接收   `value`  属性。
 2. 控件需要接收 `onChange` 事件。
 
-[//]: # (```tsx)
+```tsx
 
-[//]: # ()
 
-[//]: # (import {Modal, Button, Form, Input, Upload, Radio, Select} from 'ayongUI')
 
-[//]: # ()
+import {Modal, Button, Form, Input, Upload, Radio, Select} from 'ayongUI'
 
-[//]: # (import React, {useState} from "react";)
 
-[//]: # ()
 
-[//]: # (const PriceInput: React.FC<PriceInputProps> = &#40;{value = {}, onChange}&#41; => {)
+import React, {useState} from "react";
 
-[//]: # (    const [number, setNumber] = useState&#40;0&#41;;)
 
-[//]: # (    const [currency, setCurrency] = useState<Currency>&#40;'rmb'&#41;;)
 
-[//]: # ()
+const PriceInput: React.FC<PriceInputProps> = ({value = {}, onChange}) => {
 
-[//]: # (    const triggerChange = &#40;changedValue: { number?: number; currency?: Currency }&#41; => {)
+    const [number, setNumber] = useState(0);
 
-[//]: # (        onChange&#40;{...value, number, currency, ...changedValue}&#41;;)
+    const [currency, setCurrency] = useState<Currency>('rmb');
 
-[//]: # (    };)
 
-[//]: # ()
 
-[//]: # (    const onNumberChange = &#40;value: string&#41; => {)
+    const triggerChange = (changedValue: { number?: number; currency?: Currency }) => {
 
-[//]: # (        const newNumber = parseInt&#40;value || '0', 10&#41;;)
+        onChange({...value, number, currency, ...changedValue});
 
-[//]: # (        if &#40;Number.isNaN&#40;newNumber&#41;&#41; {)
+    };
 
-[//]: # (            return;)
 
-[//]: # (        })
 
-[//]: # ()
+    const onNumberChange = (value: string) => {
 
-[//]: # (        triggerChange&#40;{number: newNumber}&#41;;)
+        const newNumber = parseInt(value || '0', 10);
 
-[//]: # (    };)
+        if (Number.isNaN(newNumber)) {
 
-[//]: # ()
+            return;
 
-[//]: # (    const onCurrencyChange = &#40;newCurrency: Currency&#41; => {)
+        }
 
-[//]: # (        triggerChange&#40;{currency: newCurrency}&#41;;)
 
-[//]: # (    };)
 
-[//]: # ()
+        triggerChange({number: newNumber});
 
-[//]: # (    return &#40;)
+    };
 
-[//]: # (        <div style={{display: 'flex', alignItems: 'center'}}>)
 
-[//]: # (            <Input)
 
-[//]: # (                type="text")
+    const onCurrencyChange = (newCurrency: Currency) => {
 
-[//]: # (                value={value.number || number})
+        triggerChange({currency: newCurrency});
 
-[//]: # (                onChange={onNumberChange})
+    };
 
-[//]: # (                style={{width: 100, marginRight: 8}})
 
-[//]: # (            />)
 
-[//]: # (            <Select)
+    return (
 
-[//]: # (                value={value.currency || currency})
+        <div style={{display: 'flex', alignItems: 'center'}}>
 
-[//]: # (                style={{width: 100}})
+            <Input
 
-[//]: # (                onChange={onCurrencyChange})
+                type="text"
 
-[//]: # (                options={[)
+                value={value.number || number}
 
-[//]: # (                    {value: 'usd', label: 'USD'},)
+                onChange={onNumberChange}
 
-[//]: # (                    {value: 'eur', label: 'EUR'},)
+                style={{width: 100, marginRight: 8}}
 
-[//]: # (                ]})
+            />
 
-[//]: # (            />)
+            <Select
 
-[//]: # (        </div>)
+                value={value.currency || currency}
 
-[//]: # (    &#41;;)
+                style={{width: 100}}
 
-[//]: # (};)
+                onChange={onCurrencyChange}
 
-[//]: # ()
+                options={[
 
-[//]: # ()
+                    {value: 'usd', label: 'USD'},
 
-[//]: # (export default &#40;&#41; => {)
+                    {value: 'eur', label: 'EUR'},
 
-[//]: # ()
+                ]}
 
-[//]: # (    const [form] = Form.useForm&#40;&#41;;)
+            />
 
-[//]: # ()
+        </div>
 
-[//]: # ()
+    );
 
-[//]: # (    const onFinishFailed = &#40;values: any&#41; => {)
+};
 
-[//]: # ()
 
-[//]: # (        console.log&#40;values&#41;;)
 
-[//]: # ()
 
-[//]: # (    };)
 
-[//]: # ()
+export default () => {
 
-[//]: # (    const submit = &#40;formData&#41; => {)
 
-[//]: # ()
 
-[//]: # (        console.log&#40;'submit~~~~', formData&#41;)
+    const [form] = Form.useForm();
 
-[//]: # ()
 
-[//]: # (    })
 
-[//]: # ()
 
-[//]: # ()
 
-[//]: # (    return <Form)
+    const onFinishFailed = (values: any) => {
+      console.log('onFinishFailed',values);
+    };
 
-[//]: # (        form={form})
 
-[//]: # (        onFinishFailed={onFinishFailed})
 
-[//]: # (        onSubmit={submit})
+    const submit = (formData) => {
+      console.log('submit~~~~', formData)
+    }
 
-[//]: # (    >)
+    return <Form
+        form={form}
+        onFinishFailed={onFinishFailed}
+        onSubmit={submit}
+    >
+        <Form.Item
+            label="count"
+            name='count'
+            rules={[{required: true, message: 'Please input your username!'}]}
 
-[//]: # (        <Form.Item)
+        >
+            <PriceInput/>
+        </Form.Item>
 
-[//]: # (            label="count")
+        <Form.Item>
+            <Button type="primary" htmlType="submit">提交</Button>
+        </Form.Item>
+      
+    </Form>
 
-[//]: # (            name='count')
+}
 
-[//]: # (            rules={[{required: true, message: 'Please input your username!'}]})
 
-[//]: # ()
 
-[//]: # (        >)
-
-[//]: # (            <PriceInput/>)
-
-[//]: # ()
-
-[//]: # (        </Form.Item>)
-
-[//]: # ()
-
-[//]: # (        <Form.Item>)
-
-[//]: # (            <Button type="primary" htmlType="submit">)
-
-[//]: # (                提交)
-
-[//]: # (            </Button>)
-
-[//]: # (        </Form.Item>)
-
-[//]: # ()
-
-[//]: # (    </Form>)
-
-[//]: # ()
-
-[//]: # ()
-
-[//]: # (})
-
-[//]: # ()
-
-[//]: # (```)
+```
 
 ### 多表单联动 
 页面中如果需要多个表单 且有关联 那么你可以 这样使用
 
-[//]: # (```tsx)
+```tsx
+
+import {useState} from 'react';
+
+import uiStyle from './index.module.less';
+import {Modal, Button, Form, Input, Upload, Radio, Select} from 'ayongUI'
+
+export default () => {
+
+    const [open, setOpen] = useState(false);
+
+    const [modalData, setModalData] = useState([{account: '123', role: '1'}])
+
+    const [form] = Form.useForm();
+
+    const [form2] = Form.useForm();
+
+    const onClose = (date) => {
+        setOpen(false)
+    };
+    const onAdd = (date) => {
+        try {
+            const formData = form.submit();
+            const roleList = form2.getFieldValue('roleList');
+            form2.setFieldsValue({roleList: [...roleList, formData]});
+            onClose()
+        } catch (e) {
+            console.log('e', e)
+        }
+    };
+    const onModalSubmit = (formData) => {
+        console.log('onModalSubmit', formData)
+    }
+
+    const onFormSubmit = (formData) => {
+        console.log('onFormSubmit', formData)
+    }
+    return <div>
+        <Modal title='添加角色' open={open} onOk={onAdd} onCancel={onClose}>
+            <Form form={form} onSubmit={onModalSubmit}>
+                <Form.Item
+                    label="账号"
+                    name='account'
+                    rules={[{required: true, message: '请填写账号!'}, {
+                        validator: (name, value) => {
+                            // 自定义校验 匹配 只有英文 不能有中文字符出现
+                            const regex = /^[^\u4e00-\u9fa5\u3000-\u303f\uFF00-\uFFEF\u2000-\u206F\uFF00-\uFFEF\s]+$/;
+                            if (value.length !== 6 || !regex.test(value)) {
+                                return Promise.reject('请输入6位账号,并且不能有中文');
+                            }
+                            return Promise.resolve();
+                        },
+                        message: '超出最大长度显示'
+                    }]}
+                >
+                    <Input/>
+                </Form.Item>
+                <Form.Item
+                    label="角色"
+                    name='role'
+                >
+                    <Select
+                        style={{width: 150}}
+                        options={[
+                            {value: '1', label: '超级管理员'},
+                            {value: '2', label: '总经理'},
+                            {value: '3', label: '主管'},
+                            {value: '9527', label: '普通员工'},
+                        ]}
+                    />
+                </Form.Item>
+                <Button type="primary" htmlType="submit">
+                    提交
+                </Button>
+            </Form>
+        </Modal>
+        <Form form={form2} onSubmit={onFormSubmit}>
+            <Form.Item
+                label="名单标题"
+                name='title'
+                rules={[{required: true, message: '请填写账号!'}]}
+            >
+                <Input/>
+            </Form.Item>
+
+            <Form.Item
+                label="名单列表"
+                name='roleList'
+            >
+                {({getFieldValue, props, ref}) => {
+                    const roleList = getFieldValue('roleList') || [];
+                    return <div>
+                        {roleList.map((item, index) => {
+                            return <Input style={{marginBottom: '15px'}} key={index} value={item?.account} disabled/>
+                        })}
+                    </div>
+                }}
+
+            </Form.Item>
+
+            <Form.Item>
+                <Button className={uiStyle.but} type="primary" htmlType="submit">
+                    提交
+                </Button>
 
-[//]: # (import {useState} from 'react';)
+                <Button className={uiStyle.but} onClick={() => form.setFieldsValue({name: '123'})}>
 
-[//]: # (import {Modal, Button, Form, Input, Upload, Radio, Select} from 'ayongUI')
+                    add
 
-[//]: # ()
-[//]: # ()
-[//]: # (export default &#40;&#41; => {)
+                </Button>
 
-[//]: # (    const [open, setOpen] = useState&#40;false&#41;;)
+                <Button onClick={() => setOpen(true)}>
+                    添加角色
+                </Button>
 
-[//]: # ()
-[//]: # (    const [modalData, setModalData] = useState&#40;[{account: '123', role: '1'}]&#41;)
+            </Form.Item>
 
-[//]: # (    const [form] = Form.useForm&#40;&#41;;)
+        </Form>
 
-[//]: # ()
-[//]: # (    const [form2] = Form.useForm&#40;&#41;;)
+    </div>
 
-[//]: # (    const onClose = &#40;date&#41; => {)
 
-[//]: # (        setOpen&#40;false&#41;)
+}
 
-[//]: # (    };)
 
-[//]: # ()
-[//]: # (    const onAdd = &#40;date&#41; => {)
-
-[//]: # (        try {)
-
-[//]: # (            const formData = form.submit&#40;&#41;;)
-
-[//]: # (            const roleList = form2.getFieldValue&#40;'roleList'&#41;;)
-
-[//]: # ()
-[//]: # (            form2.setFieldsValue&#40;{roleList: [...roleList, formData]}&#41;;)
-
-[//]: # (            onClose&#40;&#41;)
-
-[//]: # (        } catch &#40;e&#41; {)
-
-[//]: # (            console.log&#40;'e', e&#41;)
-
-[//]: # (        })
-
-[//]: # ()
-[//]: # (    };)
-
-[//]: # ()
-[//]: # (    const onModalSubmit = &#40;formData&#41; => {)
-
-[//]: # (        console.log&#40;'onModalSubmit', formData&#41;)
-
-[//]: # (    })
-
-[//]: # (    const onFormSubmit = &#40;formData&#41; => {)
-
-[//]: # (        console.log&#40;'onFormSubmit', formData&#41;)
-
-[//]: # (    })
-
-[//]: # (    return <div>)
-
-[//]: # (        <Modal title='添加角色' open={open} onOk={onAdd} onCancel={onClose}>)
-
-[//]: # (            <Form form={form} onSubmit={onModalSubmit}>)
-
-[//]: # (                <Form.Item)
-
-[//]: # ()
-[//]: # (                    label="账号")
-
-[//]: # (                    name='account')
-
-[//]: # (                    rules={[{required: true, message: '请填写账号!'}, {)
-
-[//]: # (                        validator: &#40;name, value&#41; => {)
-
-[//]: # (                            // 自定义校验 匹配 只有英文 不能有中文字符出现)
-
-[//]: # (                            const regex = /^[^\u4e00-\u9fa5\u3000-\u303f\uFF00-\uFFEF\u2000-\u206F\uFF00-\uFFEF\s]+$/;)
-
-[//]: # (                            if &#40;value.length !== 6 || !regex.test&#40;value&#41;&#41; {)
-
-[//]: # (                                return Promise.reject&#40;'请输入6位账号,并且不能有中文'&#41;;)
-
-[//]: # (                            })
-
-[//]: # (                            return Promise.resolve&#40;&#41;;)
-
-[//]: # ()
-[//]: # (                        },)
-
-[//]: # (                        message: '超出最大长度显示')
-
-[//]: # (                    }]})
-
-[//]: # (                >)
-
-[//]: # (                    <Input/>)
-
-[//]: # (                </Form.Item>)
-
-[//]: # ()
-[//]: # ()
-[//]: # (                <Form.Item)
-
-[//]: # (                    label="角色")
-
-[//]: # (                    name='role')
-
-[//]: # (                >)
-
-[//]: # (                    <Select)
-
-[//]: # (                        style={{width: 150}})
-
-[//]: # (                        options={[)
-
-[//]: # (                            {value: '1', label: '超级管理员'},)
-
-[//]: # (                            {value: '2', label: '总经理'},)
-
-[//]: # (                            {value: '3', label: '主管'},)
-
-[//]: # (                            {value: '9527', label: '普通员工'},)
-
-[//]: # (                        ]})
-
-[//]: # (                    />)
-
-[//]: # (                </Form.Item>)
-
-[//]: # (                <Button type="primary" htmlType="submit">)
-
-[//]: # (                    提交)
-
-[//]: # (                </Button>)
-
-[//]: # (            </Form>)
-
-[//]: # ()
-[//]: # (        </Modal>)
-
-[//]: # ()
-[//]: # (        <Form form={form2} onSubmit={onFormSubmit}>)
-
-[//]: # (            <Form.Item)
-
-[//]: # (                label="名单标题")
-
-[//]: # (                name='title')
-
-[//]: # (                rules={[{required: true, message: '请填写账号!'}]})
-
-[//]: # (            >)
-
-[//]: # (                <Input/>)
-
-[//]: # (            </Form.Item>)
-
-[//]: # ()
-[//]: # ()
-[//]: # (            <Form.Item)
-
-[//]: # (                label="名单列表")
-
-[//]: # (                name='roleList')
-
-[//]: # (            >)
-
-[//]: # (                {&#40;{getFieldValue, props, ref}&#41; => {)
-
-[//]: # (                    const roleList = getFieldValue&#40;'roleList'&#41; || [];)
-
-[//]: # (                    return <div>)
-
-[//]: # (                        {roleList.map&#40;&#40;item, index&#41; => {)
-
-[//]: # (                            return <Input  style={{marginBottom:'15px'}} key={index} value={item?.account} disabled/>)
-
-[//]: # (                        }&#41;})
-
-[//]: # (                    </div>)
-
-[//]: # (                }})
-
-[//]: # (            </Form.Item>)
-
-[//]: # ()
-[//]: # ()
-[//]: # (            <Form.Item>)
-
-[//]: # ()
-[//]: # (                <Button type="primary" htmlType="submit">)
-
-[//]: # (                    提交)
-
-[//]: # (                </Button>)
-
-[//]: # (                <Button onClick={&#40;&#41; => form.setFieldsValue&#40;{name: '123'}&#41;}>)
-
-[//]: # (                    add)
-
-[//]: # (                </Button>)
-
-[//]: # (                <Button onClick={&#40;&#41; => setOpen&#40;true&#41;}>)
-
-[//]: # (                    添加角色)
-
-[//]: # (                </Button>)
-
-[//]: # (            </Form.Item>)
-
-[//]: # (        </Form>)
-
-[//]: # (    </div>)
-
-[//]: # ()
-[//]: # (})
-
-[//]: # ()
-[//]: # (```)
+```
 
 
 ### 动态增减嵌套字段
@@ -1826,7 +1186,7 @@ export default () => {
                                 >
                                     <Input placeholder="First Name"/>
                                 </Form.Item>
-                                <Close style={{padding: '10px 10px 0px 12px', cursor: 'pointer'}}
+                                <Close style={{padding: '10px 10px 0px 12px', cursor: 'pointer',width: '30px'}}
                                        onClick={() => remove(key)}/>
                             </div>
                         })}
@@ -1849,3 +1209,34 @@ export default () => {
     </Form>
 };
 ```
+
+
+## Porps 介绍
+| 属性名              | 说明                     | 默认值    | 类型                                        | 支持版本 |
+| -------------------| ------------------------| ---------| -------------------------------------------| -------- |
+| name               | 表单名称                 |           | string                                      |  1.0        |
+| size               | 表单尺寸                 | 'middle' | 'small' | 'middle' | 'large'              |   1.0         | 
+| style              | 表单的样式               |           | React.CSSProperties                        |  1.0          |
+| labelWidth         | 标签的宽度               | '100px'  | string                                      |   1.0         |
+| form               | 表单实例对象             | {}        | any                                         |   1.0         |
+| children           | 表单子元素               |           | React.ReactNode                             |  1.0          |
+| initialValues      | 初始值对象               | {}        | { [key: string]: any }                     |   1.0         |
+| autoComplete       | 自动完成属性             |           | string                                      |   1.0         |
+| errorInfo          | 表单校验错误信息         |           | { errorFields: { name: string; errors: string }[] } |   1.0         |
+| disabled           | 是否禁用                 | false     | boolean                                     |   1.0         |
+| formLayout         | 表单布局方式             | 'right'   | 'left' | 'right' | 'vertical'             |   1.0         |
+| onSubmit           | 表单提交时的回调函数     | () => {}  | () => void                                  |  1.0          |
+| onFinish           | 表单完成时的回调函数     | () => {}  | () => void                                  |  1.0          |
+| onFinishFailed     | 表单完成失败时的回调函数 | () => {}  | () => void                                  |  1.0          |
+| onValuesChange     | 表单值变化时的回调函数   | () => {}  | () => void                                  |  1.0          |
+
+
+<span id="form">**form方法介绍**</span>
+| 方法名          | 说明                     | 参数类型                   | 返回值类型      | 支持版本 |
+| -------------- | ------------------------| --------------------------| ---------------| -------- |
+| getFieldValue  | 获取表单字段值            | (key:string)  =>string                  | string            |      1.0      |
+| setFieldsValue | 设置表单字段值            | { [key: string]: any }    | -            |          |
+| submit         | 提交表单                 | -                         | 返回当前formData表单数据            |          |
+| resetFields    | 重置表单字段值为初始值    | -                     | -             |          |
+| verify    | 验证表单    | 无                        | 无             |          |
+
