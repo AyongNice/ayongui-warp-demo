@@ -48,11 +48,8 @@ export default () => {
     return <div style={{width: '588px'}}>
 
         <Radio
-
             checked={componentDisabled}
-
             onChange={(checked) => setComponentDisabled(checked)}
-
         >
 
             Form 禁用
@@ -62,6 +59,8 @@ export default () => {
         <Form formLayout={formLayout}
 
               disabled={componentDisabled}
+
+              initialValues={{layout: formLayout}}
 
               onValuesChange={onValuesChange}
 
@@ -77,7 +76,7 @@ export default () => {
 
             >
 
-                <Radio.Group>
+                <Radio.Group value={formLayout}>
 
                     <Radio.Button value="left">靠左对齐</Radio.Button>
 
@@ -147,9 +146,9 @@ export default () => {
 
             <Form.Item
 
-                label="是否跨越"
+                label="是否加密"
 
-                name="cors"
+                name="encrypt"
 
                 rules={[{required: true, message: 'Please input your username!'}]}
 
@@ -228,9 +227,12 @@ export default () => {
             rules={[
                 {required: true, message: 'Please input your username!'},
                 {
+                    trigger: 'blur',
                     maxLength: 7,
                     message: '超出最大长度7',
-                }
+                },
+
+
             ]}
         >
             <Input/>
@@ -242,11 +244,10 @@ export default () => {
             rules={[
                 {
                     trigger: 'blur',
-
                     validator: (name, value) => {
-
                         const regex = /^(https?:\/\/)/i;
 
+                        console.log('name', name, value, !regex.test(value))
 
                         if (!regex.test(value)) {
 
@@ -278,10 +279,10 @@ export default () => {
             label="是否跨域"
 
 
-            name="cors"
+            name="encrypt"
 
 
-            rules={[{required: true, message: 'Please input your cors!'}]}
+            rules={[{required: true, message: 'Please input your encrypt!'}]}
 
 
         >
@@ -514,9 +515,9 @@ export default () => {
 
             <Form.Item
 
-                label="是否跨越"
+                label="是否加密"
 
-                name="cors"
+                name="encrypt"
 
             >
 
@@ -876,9 +877,6 @@ export default () => {
                         ]}
                     />
                 </Form.Item>
-                <Button type="primary" htmlType="submit">
-                    提交
-                </Button>
             </Form>
         </Modal>
         <Form form={form2} onSubmit={onFormSubmit}>
@@ -909,17 +907,9 @@ export default () => {
                 <Button className={uiStyle.but} type="primary" htmlType="submit">
                     提交
                 </Button>
-
-                <Button className={uiStyle.but} onClick={() => form.setFieldsValue({name: '123'})}>
-
-                    add
-
-                </Button>
-
                 <Button onClick={() => setOpen(true)}>
                     添加角色
                 </Button>
-
             </Form.Item>
 
         </Form>
@@ -980,7 +970,7 @@ export default () => {
                         })}
                         <Form.Item>
                             <Button type="dashed" onClick={() => add()}>
-                                Add field
+                               新增
                             </Button>
                         </Form.Item>
                     </>
@@ -991,7 +981,7 @@ export default () => {
 
         <Form.Item>
             <Button type="primary" htmlType="submit">
-                Submit
+                提交
             </Button>
         </Form.Item>
     </Form>
