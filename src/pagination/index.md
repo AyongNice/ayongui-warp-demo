@@ -35,6 +35,6 @@ export default () => {
     }
 
 
-    return <Pagination onSizeChange={onSizeChange} onCurrentChange={onCurrentChange}/>
+    return <Pagination disabled showQuickJumper showSizeChanger  onSizeChange={onSizeChange} onCurrentChange={onCurrentChange}/>
 }
 ```
