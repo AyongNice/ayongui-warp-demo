@@ -1,4 +1,4 @@
-import {Mode, ModeAttribute} from ".././app.d";
+// import {Mode, ModeAttribute} from ".././app.d";
 
 /**
  *
@@ -35,21 +35,21 @@ export const copyText = (text: string): void => {
  * @param theme
  * @param color
  */
-export const setThemeColor = (theme: keyof Mode,color:ModeAttribute) => {
-    const mode = {
-        'night': {
-            background: '#181823',
-            color: ' #e8e6e3e0'
-        },
-        'light': {
-            background: '#e8e6e3e0',
-            color: '#181823'
-        },
-        'diy':color
-    }
-    document.documentElement.style.setProperty('--theme-background-color', mode[theme].background);
-    document.documentElement.style.setProperty('--theme-font-color', mode[theme].color);
-}
+// export const setThemeColor = (theme: keyof Mode,color) => {
+//     const mode = {
+//         'night': {
+//             background: '#181823',
+//             color: ' #e8e6e3e0'
+//         },
+//         'light': {
+//             background: '#e8e6e3e0',
+//             color: '#181823'
+//         },
+//         'diy':color
+//     }
+//     document.documentElement.style.setProperty('--theme-background-color', mode[theme].background);
+//     document.documentElement.style.setProperty('--theme-font-color', mode[theme].color);
+// }
 export const calculateComplementaryColor = (hexColor:string) => {
     // 将十六进制颜色转换为RGB
     let r = parseInt(hexColor.substring(1, 3), 16);

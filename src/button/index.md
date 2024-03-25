@@ -14,6 +14,8 @@ Demo:
 ```tsx
 
 import React from 'react';
+
+console.log(React)
 import {Button, Message} from 'ayongUI';
 import style from "./index.module.less";
 

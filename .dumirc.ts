@@ -22,7 +22,7 @@ export default defineConfig({
     // },
   },
 
-  base: '/ayonguidocs/',
+  // base: '/ayonguidocs/',
   publicPath: '/ayonguidocs/',
   proxy: {
     '/api': {
