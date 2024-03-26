@@ -25,7 +25,23 @@ import React, {useEffect, useState} from 'react';
 import {Pagination} from 'ayongUI'
 
 export default () => {
-    const [modelValue, setValue] = useState('');
+
+    const onCurrentChange = (pageNo) => {
+        console.log('当前页码变化了', pageNo)
+    }
+    return <Pagination total={150} onCurrentChange={onCurrentChange}/>
+}
+```
+
+
+### 展示所有配置
+
+```tsx
+import React, {useEffect, useState} from 'react';
+import {Pagination} from 'ayongUI'
+
+export default () => {
+
 
     const onSizeChange = (pageSize) => {
         console.log('页码显示大小变化了!', pageSize)
@@ -35,6 +51,40 @@ export default () => {
     }
 
 
-    return <Pagination disabled showQuickJumper showSizeChanger  onSizeChange={onSizeChange} onCurrentChange={onCurrentChange}/>
+    return <Pagination
+        total={50}
+        showQuickJumper
+        showSizeChanger
+        onSizeChange={onSizeChange}
+        onCurrentChange={onCurrentChange}
+    />
+}
+```
+
+
+### 自定义分页大小
+
+```tsx
+import React, {useEffect, useState} from 'react';
+import {Pagination} from 'ayongUI'
+
+export default () => {
+
+
+    const onSizeChange = (pageSize) => {
+        console.log('页码显示大小变化了!', pageSize)
+    }
+    const onCurrentChange = (pageNo) => {
+        console.log('当前页码变化了', pageNo)
+    }
+
+
+    return <Pagination
+        total={50}
+        pageSizeOptions={[15,30]}
+        showSizeChanger
+        onSizeChange={onSizeChange}
+        onCurrentChange={onCurrentChange}
+    />
 }
 ```

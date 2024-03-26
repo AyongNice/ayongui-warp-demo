@@ -15,8 +15,7 @@ Demo:
 
 import React from 'react';
 
-console.log(React)
-import {Button, Message} from 'ayongUI';
+import {Button} from 'ayongUI';
 import style from "./index.module.less";
 
 export default () => {
@@ -26,7 +25,7 @@ export default () => {
         <div style={{display: 'flex', justifyContent: 'space-around'}}>
             <Button>默认类型</Button>
             <Button type='primary' disabled>禁用选择</Button>
-            <Button  type='dashed'>dashed-虚线按钮</Button>
+            <Button type='dashed'>dashed-虚线按钮</Button>
             <Button type='primary'>primary-主题按钮</Button>
             <Button type='error'>dangerous-危险按钮</Button>
             <Button type='warn'>warn-警告按钮</Button>
@@ -42,7 +41,7 @@ export default () => {
 ```tsx
 
 import React from 'react';
-import {Button, Message} from 'ayongUI';
+import {Button} from 'ayongUI';
 import style from "./index.module.less";
 
 export default () => {
@@ -65,7 +64,7 @@ export default () => {
 ```tsx 
 
 import React from 'react';
-import {Button, Message} from 'ayongUI';
+import {Button} from 'ayongUI';
 import style from "./index.module.less";
 
 export default () => {
@@ -88,7 +87,7 @@ export default () => {
 ```tsx
 
 import React from 'react';
-import {Button, Message} from 'ayongUI';
+import {Button} from 'ayongUI';
 import style from "./index.module.less";
 
 export default () => {
