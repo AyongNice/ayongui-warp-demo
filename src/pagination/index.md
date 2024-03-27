@@ -27,7 +27,7 @@ import {Pagination} from 'ayongUI'
 export default () => {
 
     const onCurrentChange = (pageNo) => {
-        console.log('当前页码变化了', pageNo)
+        // console.log('当前页码变化了', pageNo)
     }
     return <Pagination total={150} onCurrentChange={onCurrentChange}/>
 }
