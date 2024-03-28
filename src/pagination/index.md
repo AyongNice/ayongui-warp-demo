@@ -60,7 +60,33 @@ export default () => {
     />
 }
 ```
+### 迷你版分页器
 
+```tsx
+import React, {useEffect, useState} from 'react';
+import {Pagination} from 'ayongUI'
+
+export default () => {
+
+
+    const onSizeChange = (pageSize) => {
+        console.log('页码显示大小变化了!', pageSize)
+    }
+    const onCurrentChange = (pageNo) => {
+        console.log('当前页码变化了', pageNo)
+    }
+
+
+    return <Pagination
+        size="small"
+        total={50}
+        pageSizeOptions={[15, 30]}
+        showSizeChanger
+        onSizeChange={onSizeChange}
+        onCurrentChange={onCurrentChange}
+    />
+}
+```
 
 ### 自定义分页大小
 
@@ -88,3 +114,21 @@ export default () => {
     />
 }
 ```
+
+
+### 分页器 入参详情介绍
+| 属性名             | 说明                               | 默认值 | 类型                                  | 支持版本 |
+|--------------------|--------------------------------------|--------|---------------------------------------|----------|
+| total              | 总数                                 | -      | number                                |          |
+| current            | 当前页                               | -      | number                                |          |
+| pageSize           | 每页条数                             | -      | number                                |          |
+| disabled           | 是否禁用                             | -      | boolean                               |          |
+| showJumpInput      | 是否显示跳转输入框                   | -      | boolean                               |          |
+| showSizeChanger    | 是否显示每页条数选择器               | -      | boolean                               |          |
+| hideOnSinglePage   | 只有一页时是否隐藏                   | -      | boolean                               |          |
+| pageSizeOptions    | 每页条数选择器可选值                 | -      | string[] \| number[]                  |          |
+| onChange           | 页码变化回调                         | -      | (pageNo: number) => void              |          |
+| size               | 大小                                 | -      | string                                |          |
+| showQuickJumper   | 是否显示跳转                         | -      | boolean                               |          |
+| onSizeChange       | 大小变化回调                         | -      | (pageSize: number) => void            |          |
+| onCurrentChange    | 当前页变化回调                       | -      | (pageNo: number) => void              |          |
