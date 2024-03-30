@@ -2,7 +2,7 @@ import {defineConfig} from 'dumi';
 
 
 export default defineConfig({
-  outputPath: 'docs-dist',
+  outputPath: 'dist',
   favicons: ['/images/Ayong.png'],
   logo: '/ayonguidocs/images/AyongUI.png',
   title: 'AyongUI',
@@ -22,7 +22,7 @@ export default defineConfig({
     // },
   },
 
-  // base: '/ayonguidocs/',
+  base: '/ayonguidocs/',
   publicPath: '/ayonguidocs/',
   proxy: {
     '/api': {
