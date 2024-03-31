@@ -38,46 +38,47 @@
 
 ```tsx hideCode=true inline=true
 import React, {useState} from 'react';
-import './index.less';
+import style from './index.module.less';
+
 
 const TabSwitcher = () => {
-    const [activeTab, setActiveTab] = useState('npm');
-    const list = [
-      {name: 'npm', install: 'npm install ayongUI --save'},
-      {
-        name: 'yarn',
-        install: 'yarn add ayongUI '
-      },
-      {name: 'pnpm', install: 'pnpm install ayongUI --save'}
-    ]
-    const handleTabClick = (item) => {
-      setActiveTab(item.name);
-    };
+        const [activeTab, setActiveTab] = useState('npm');
+        const list = [
+            {name: 'npm', install: 'npm install ayongUI --save'},
+            {
+                name: 'yarn',
+                install: 'yarn add ayongUI '
+            },
+            {name: 'pnpm', install: 'pnpm install ayongUI --save'}
+        ]
+        const handleTabClick = (item) => {
+            setActiveTab(item.name);
+        };
 
-    return (
-      <div>
-        <div className="tabs">
-          {list.map((item, index) => {
-            return <div
-              key={index}
-              className={`tab ${activeTab === item.name ? 'active' : ''}`}
-              onClick={() => handleTabClick(item)}
-            >
-              {item.name}
+        return (
+            <div>
+                <div className={style.tabs}>
+                    {list.map((item, index) => {
+                        return <div
+                            key={index}
+                            className={`${style.tab} ${activeTab === item.name ? style.active : ''}`}
+                            onClick={() => handleTabClick(item)}
+                        >
+                            {item.name}
+                        </div>
+                    })}
+                </div>
+
+                <div className="tab-content">
+                    {list.map((item, index) => {
+                        if (activeTab === item.name) {
+                            return <pre>{item.install}</pre>
+                        }
+                    })}
+                </div>
             </div>
-          })}
-        </div>
-
-        <div className="tab-content">
-          {list.map((item, index) => {
-            if (activeTab === item.name) {
-              return <pre>{item.install}</pre>
-            }
-          })}
-        </div>
-      </div>
-    );
-  }
+        );
+    }
 ;
 
 export default TabSwitcher;
@@ -89,7 +90,7 @@ export default TabSwitcher;
 一定要将组件样式 引入在 App.tsx 之前!!!</span>
 
 ```tsx | pure
-import React from 'react'
+import React from 'react';
 import {createRoot} from 'react-dom/client';
 
 import 'ayongUI/style.css'; //引入组件样式
@@ -104,9 +105,9 @@ import './index.css' //引入项目全局样式
 const root: ReactDOM.Root = createRoot(document.getElementById('root'));
 
 root.render(
-  <BrowserRouter>
-    <App/>
-  </BrowserRouter>
+    <BrowserRouter>
+        <App/>
+    </BrowserRouter>
 );
 
 ```
@@ -127,20 +128,22 @@ root.render(
 ***<span style="color: #808080;">并且在项目入口文件 ` main.js ` 中引入</span>***
 
 ```tsx | pure
-import React from 'react'
-import {createRoot} from 'react-dom/client'
-import App from './App.tsx'
+import React from 'react';
+import {createRoot} from 'react-dom/client';
+import 'ayongUI/style.css'; //引入组件样式
+
+
+import App from './App.tsx';
 import {BrowserRouter} from "react-router-dom";
 
-import './index.css' //引入项目全局样式
-import 'ayongUI/style.css' //引入组件样式
+import './index.css'; //引入项目全局样式
 
 const root: ReactDOM.Root = createRoot(document.getElementById('root'));
 
 root.render(
-  <BrowserRouter>
-    <App/>
-  </BrowserRouter>
+    <BrowserRouter>
+        <App/>
+    </BrowserRouter>
 );
 
 ```
