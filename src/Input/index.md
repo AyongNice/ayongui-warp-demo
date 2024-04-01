@@ -3,34 +3,11 @@ demo:
   cols: 2
 ---
 
-### 基本使用
+ 
 
-```tsx
-import React, {useEffect, useState} from 'react';
-import {Input, Button} from 'ayongUI'
-import type {InputProps} from 'ayongUI'
 
-export default () => {
-    const [modelValue, setValue] = useState('');
-    const [clerabledValue, setClerabledValue] = useState('');
 
-    const [textAreaValue, setTextAreaValue] = useState('');
-    return <React.Fragment>
-        <Input value={modelValue} onChange={setValue}/>
-        <br/>
-        <Input value={clerabledValue} clerabled onChange={setClerabledValue}/>
-        <br/>
-
-        <Input.TextArea value={textAreaValue} onChange={setTextAreaValue}/>
-    </React.Fragment>
-}
-```
-
-<code src="./demos/size.tsx">input 大小</code>
-
-<code src="./demos/fix.tsx">插槽 prefix | suffix</code>
-
-# Input
+# Input 输入框
 
 ```tsx  hideCode=true inline=true
 import {usePrefersColor} from 'dumi';
@@ -48,124 +25,18 @@ export default () => {
 
 };
 ```
-
-
-
-### input类型
-
-```tsx
-import React, {useEffect, useState} from 'react';
-import {Input, Button, UserHollow} from 'ayongUI'
-import type {InputProps} from 'ayongUI'
-
-export default () => {
-  const [modelValue, setValue] = useState('');
-
-  return <Input value={modelValue} type="number"/>
-}
-```
-
-### maxLength、 trim
-
-```tsx
-import React, {useEffect, useState} from 'react';
-import {Input, Button, UserHollow} from 'ayongUI'
-import type {InputProps} from 'ayongUI'
-
-export default () => {
-    const [modelValue, setValue] = useState('');
-    const [modelValue2, setValue2] = useState('');
-    const onChange = (value) => {
-        console.log(value)
-        setValue(value)
-    }
-    return <React.Fragment>
-        <Input value={modelValue} onChange={onChange} maxLength={8}/>
-        <br/>
-        <Input value={modelValue2} onChange={setValue2}/>
-    </React.Fragment>
-}
-```
-
-### 前置/后置标签
  
 
-```tsx
-import React, {useEffect, useState} from 'react';
-import {Input, Button, Select, UserHollow} from 'ayongUI'
-import type {InputProps} from 'ayongUI'
+ 
 
-const {Option} = Select;
-export default () => {
-
-    const [modelValue, setValue] = useState('');
-
-    const onChange = (value) => {
-        console.log(value)
-        setValue(value)
-    }
-
-    return <React.Fragment>
-        <Input addonBefore="http://" addonAfter=".com" defaultValue="ayongui"/>
-        <br/>
-        <Input
-            value={modelValue}
-            onChange={onChange}
-            addonBefore={() => <Select style={{width: '80px'}}
-                                       defaultValue="https://"
-                                       bordered={false}
-                                       options={[
-                                           {value: 'http://', label: 'http://'},
-                                           {value: 'https://', label: 'https://'},
-                                       ]}
-            />}
-            defaultValue="ayongui"
-            addonAfter={() => <Select style={{width: '70px'}}
-                                      defaultValue=".com"
-                                      bordered={false}
-                                      options={[
-                                          {value: '.com', label: '.com'},
-                                          {value: '.love', label: '.love'},
-                                          {value: '.cn', label: '.cn'},
-                                      ]}
-            />}
-        />
-
-    </React.Fragment>
-}
-```
-
-### 密码框
-
-```tsx
-import React, {useEffect, useState} from 'react';
-import {Input, Moon, Button, Sunny} from 'ayongUI'
-import type {InputProps} from 'ayongUI'
-import {Record} from "immutable";
-
-export default () => {
-    const [modelValue, setValue] = useState('');
-    const [visible, setPasswordVisible] = React.useState(false);
-
-
-    return <React.Fragment>
-        <Input value={modelValue} type="Password"/>
-        <br/>
-        <Input value={modelValue} type="Password" visibilityToggle={
-            {
-                visible,
-                iconRender: (visible) => {
-                    return visible ? <Sunny/> : <Moon/>
-                },
-                onVisibleChange: setPasswordVisible
-            }
-        }/>
-        <br/>
-        <Button type='primary'
-                onClick={() => setPasswordVisible(!visible)}>{visible ? '隐藏' : '显示'}密码 </Button>
-    </React.Fragment>
-}
-```
+<code src="./demos/baseuse.tsx">基本使用</code>
+<code src="./demos/type.tsx">input类型</code>
+<code src="./demos/fix.tsx">插槽 prefix | suffix</code>
+<code src="./demos/maxLength.tsx">maxLength、 trim</code>
+<code src="./demos/size.tsx">input 大小</code>
+<code src="./demos/addonBefore.tsx">前置/后置标签</code>
+<code src="./demos/Password.tsx">密码框</code>
+ 
 
 
 ### 组件Props参数

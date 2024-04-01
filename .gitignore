@@ -6,3 +6,10 @@ node_modules
 .DS_Store
 .husky
 .idea
+/docs-dist
+yarn.lock
+.stylelintrc
+.editorconfig
+.env
+.eslintrc.js
+.fatherrc.ts

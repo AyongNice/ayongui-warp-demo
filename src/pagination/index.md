@@ -1,3 +1,7 @@
+---
+demo:
+  cols: 2
+---
 # pagination 分页器
 
 ```tsx  hideCode=true inline=true
@@ -60,60 +64,12 @@ export default () => {
     />
 }
 ```
-### 迷你版分页器
 
-```tsx
-import React, {useEffect, useState} from 'react';
-import {Pagination} from 'ayongUI'
+<code src="./demos/min.tsx">迷你版分页器</code>
+<code src="./demos/diysize.tsx">自定义分页大小</code>
 
-export default () => {
-
-
-    const onSizeChange = (pageSize) => {
-        console.log('页码显示大小变化了!', pageSize)
-    }
-    const onCurrentChange = (pageNo) => {
-        console.log('当前页码变化了', pageNo)
-    }
-
-
-    return <Pagination
-        size="small"
-        total={50}
-        pageSizeOptions={[15, 30]}
-        showSizeChanger
-        onSizeChange={onSizeChange}
-        onCurrentChange={onCurrentChange}
-    />
-}
-```
-
-### 自定义分页大小
-
-```tsx
-import React, {useEffect, useState} from 'react';
-import {Pagination} from 'ayongUI'
-
-export default () => {
-
-
-    const onSizeChange = (pageSize) => {
-        console.log('页码显示大小变化了!', pageSize)
-    }
-    const onCurrentChange = (pageNo) => {
-        console.log('当前页码变化了', pageNo)
-    }
-
-
-    return <Pagination
-        total={50}
-        pageSizeOptions={[15,30]}
-        showSizeChanger
-        onSizeChange={onSizeChange}
-        onCurrentChange={onCurrentChange}
-    />
-}
-```
+ 
+ 
 
 
 ### 分页器 入参详情介绍
