@@ -25,16 +25,16 @@ import type {TooltipProps} from 'ayongUI'
 
 export default () => {
     return <div style={{display: "flex", justifyContent: 'space-around'}}>
-        <Tooltip placement="top">
+        <Tooltip title='向上弹出' placement="top">
               <Button >top</Button>
         </Tooltip >
-        <Tooltip placement="right">
+        <Tooltip title='向右弹出' placement="right">
               <Button >right</Button>
         </Tooltip >
-        <Tooltip placement="bottom">
+        <Tooltip  title='向下弹出' placement="bottom">
               <Button >bottom</Button>
         </Tooltip >
-        <Tooltip placement="left">
+        <Tooltip title='向坐弹出' placement="left">
               <Button >left</Button>
         </Tooltip >
     </div>
