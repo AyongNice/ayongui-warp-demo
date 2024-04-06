@@ -1,4 +1,9 @@
-# Tooltip 
+---
+demo:
+  cols: 2
+---
+
+# Tooltip  文字提示
 
 ```tsx  hideCode=true inline=true
 import {usePrefersColor} from 'dumi';
@@ -16,52 +21,28 @@ export default () => {
 
 };
 ```
+<code src="./demos/base.tsx">基本使用</code>
+<code src="./demos/color.tsx">自定义颜色</code>
+<code src="./demos/hidden.tsx">超出换行</code>
 
-### 基本使用
+ 
+ 
+ 
 
-```tsx
-import {Tooltip,Button} from 'ayongUI'
-import type {TooltipProps} from 'ayongUI'
+#### 组件props参数
 
-export default () => {
-    return <div style={{display: "flex", justifyContent: 'space-around'}}>
-        <Tooltip title='向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出' placement="top">
-              <Button >top</Button>
-        </Tooltip >
-        <Tooltip title='向右弹出' placement="right">
-              <Button >right</Button>
-        </Tooltip >
-        <Tooltip  title='向下弹出' placement="bottom">
-              <Button >bottom</Button>
-        </Tooltip >
-        <Tooltip title='向坐弹出' placement="left">
-              <Button >left</Button>
-        </Tooltip >
-    </div>
-}
-```
+| 属性名        | 类型                            | 默认值 | 描述                                      | 支持版本  |
+|---------------|---------------------------------|--------|-------------------------------------------|------------|
+| title         | string                          | -      | 标题，若为空则不显示                      | 1.0        |
+| style         | React.CSSProperties             | -      | 自定义样式                                | 1.0        |
+| className     | string                          | -      | 自定义样式类名                            | 1.0        |
+| children      | React.ReactNode                 | -      | 按钮内容                                  | 1.0        |
+| disabled      | boolean                         | false  | 是否禁用按钮                              | 1.0        |
+| width         | string                          | -      | 按钮宽度                                  | 1.0        |
+| color         | string                          | -      | 按钮颜色                                  | 1.0        |
+| whiteSpace    | 'normal' \| 'nowrap'           | -      | 换行方式                                  | 1.0        |
+| arrow         | boolean                         | -      | 是否显示箭头                              | 1.0        |
+| open          | boolean                         | false  | 是否打开，默认为false                     | 1.0        |
+| onOpenChange  | (open: boolean) => void         | -      | 打开关闭回调函数                          | 1.0        |
+| placement     | 'top' \| 'bottom' \| 'left' \| 'right' | -      | 定位方向                                  | 1.0        |
 
-
-### 自定义弹出原素
-```tsx
-import {Tooltip,Button} from 'ayongUI'
-import type {TooltipProps} from 'ayongUI'
-
-
-export default () => {
-    const popupN=()=>(<span style={{color:'red',fontSize:'20px'}}>我劝天公重抖擞,不拘一格降人才</span>)
-
-    return <div style={{display: "flex", justifyContent: 'space-around'}}>
-        <Tooltip placement="top" popup={popupN} >
-              <Button >top</Button>
-        </Tooltip >
-    </div>
-}
-```
-
-
-| 属性名   | 说明                                        | 类型    | 默认值  | 版本 |
-| -------- | ------------------------------------------- | ------ | ------- | ---- |
-| placement  | tooltip弹出位置topLeft / top / topRight / bottomLeft / bottom/ bottomRight / leftTop / left / leftBottom/ rightTop / right/ rightBottom                         | string | top | 1.0  |
-| popup  | 弹出框内容                              | string/HTMLElement | '' | 1.0  |
-<!-- | trigger     | tooltip激活方式hover/click | array | ['hover'] | 1.0  | -->
