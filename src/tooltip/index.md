@@ -25,7 +25,7 @@ import type {TooltipProps} from 'ayongUI'
 
 export default () => {
     return <div style={{display: "flex", justifyContent: 'space-around'}}>
-        <Tooltip title='向上弹出' placement="top">
+        <Tooltip title='向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出向上弹出' placement="top">
               <Button >top</Button>
         </Tooltip >
         <Tooltip title='向右弹出' placement="right">
