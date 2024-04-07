@@ -14,13 +14,8 @@ Demo:
 ```tsx
 
 import React from 'react';
-
 import {Button} from 'ayongUI';
-import style from "./index.module.less";
-
 export default () => {
-
-
     return (
         <div style={{display: 'flex', justifyContent: 'space-around'}}>
             <Button>默认类型</Button>
@@ -65,7 +60,6 @@ export default () => {
 
 import React from 'react';
 import {Button} from 'ayongUI';
-import style from "./index.module.less";
 
 export default () => {
     const onClick = () => {
