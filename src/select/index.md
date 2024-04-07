@@ -80,7 +80,7 @@ export default () => {
 ```
 
 ### 显示清除按钮
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
 import { Select } from 'ayongUI';
@@ -107,7 +107,7 @@ export default () => {
 ```
 
 ### 自定义 className 样式
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
 import { Select } from 'ayongUI';
@@ -242,7 +242,7 @@ export default () => {
 ```
 
 ### 自定义下拉菜单模版
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
 import { Select } from 'ayongUI';
@@ -285,7 +285,7 @@ export default () => {
 ```
 
 ### 自定义下拉菜单的头部
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import { useEffect, useState } from 'react';
 import { Select } from 'ayongUI';

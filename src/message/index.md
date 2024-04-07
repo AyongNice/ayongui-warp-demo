@@ -3,7 +3,7 @@
 
 
 ## 基本用法
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import {Button, Message} from 'ayongUI';
 import style from './index.module.less';
@@ -29,6 +29,7 @@ export default App;
 
 
 ## 显示关闭按钮
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import {Button, Message} from 'ayongUI';
 import style from './index.module.less';
@@ -54,6 +55,7 @@ export default App;
 ```
 ## 使用 HTML 片段作为正文内容
 * `message 还支持使用 HTML 字符串作为正文内容。 需要注意的是 防止XSS 攻击 必须设置useHTMLString为true`
+* * `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import {Button, Message} from 'ayongUI';
 import style from './index.module.less';
@@ -73,6 +75,7 @@ export default App;
 
 ## 自定义时长
 * 自定义显示时间6秒
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import {Button, Message} from 'ayongUI';
 import style from './index.module.less';
@@ -93,7 +96,7 @@ export default App;
 
 
 ## 自定义icon
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 
 import {Button, Message,Setting} from 'ayongUI';

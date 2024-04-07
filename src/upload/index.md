@@ -17,7 +17,7 @@ export default ({children}) => {
 ```
 
 ### 默认基本功能
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx  
 import React, {useEffect} from 'react';
 import {Upload, Button, Uploads} from 'ayongUI';
@@ -53,7 +53,7 @@ export default UpalodPage;
 ```
 
 ### 默认基本功能演示2
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx  
 import React, {useEffect} from 'react';
 import {Upload, Button, Uploads} from 'ayongUI';
@@ -83,7 +83,7 @@ export default UpalodPage;
 ```
 
 ### 默认基本功能演示3
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx  
 import React, {useEffect} from 'react';
 import {Upload, Button, Uploads} from 'ayongUI';

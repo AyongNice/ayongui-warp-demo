@@ -16,7 +16,7 @@ export default ({ children }) => {
   }, [color]);
 };
 ```
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React, { useEffect } from 'react';
 
@@ -109,7 +109,7 @@ export default App;
 ```
 
 ### JSX 风格写法
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
 import { Table } from 'ayongUI';
@@ -166,7 +166,7 @@ export default App;
 ### 指定排序
 
 - `排序功能需要在 columns 列数据中传入，指定用的 指定排序规则，defaultSortOrder 非必传字段为指定默认排序（升序/降序），可选值为 'ascend' 或 'descend'，或者设置为 false（默认值，表示不排序）。`
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
 import { Table } from 'ayongUI';
@@ -220,7 +220,7 @@ export default App;
 ```
 
 ### 表头分组
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
 import { Table } from 'ayongUI';
@@ -303,7 +303,7 @@ export default App;
 ```
 
 ### 可拖拽表格
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
 import { Table } from 'ayongUI';
@@ -357,7 +357,7 @@ export default App;
 ```
 
 ### 展开折叠行
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
 import { Table } from 'ayongUI';
@@ -433,7 +433,7 @@ export default App;
 ```
 
 ### 多条选择
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React, { useState } from 'react';
 import { Table, Minusround, Plusround, Radio } from 'ayongUI';
@@ -526,7 +526,7 @@ export default App;
 ```
 
 ### 自定义展开/折叠按钮
-
+* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
 import { Table, Minusround, Plusround } from 'ayongUI';
