@@ -8,9 +8,7 @@ export default () => {
       <Button shape="round">round-椭圆钮</Button>
 
       <Button shape="circle">C</Button>
-      <Button type="primary" href="https://github.com/AyongNice/ayongUI">
-        href-跳转按钮
-      </Button>
+
     </div>
   );
 };
