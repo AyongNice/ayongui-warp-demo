@@ -28,7 +28,7 @@ export default () => {
                 label="布局"
                 name="layout"
             >
-                <Radio.Group value={formLayout}>
+                <Radio.Group size='small' value={formLayout}>
                     <Radio.Button value="left">左对齐</Radio.Button>
                     <Radio.Button value="center">剧中</Radio.Button>
                     <Radio.Button value="right">右对齐</Radio.Button>

@@ -9,7 +9,7 @@ demo:
 
 <code src="./demos/base.tsx">基础用法</code>
 <code src="./demos/disabled.tsx">其他类型</code>
-<code src="./demos/base2.tsx">icon 按钮</code>
+<code src="./demos/base2.tsx">基础用法2</code>
 <code src="./demos/icon.tsx">icon 按钮</code>
 <code src="./demos/shape.tsx">shape 形状设置</code>
 <code src="./demos/diyclassname.tsx">自定义 className 样式</code>

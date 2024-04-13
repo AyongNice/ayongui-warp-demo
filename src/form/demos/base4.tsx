@@ -9,7 +9,7 @@ export default () => {
     const submit = (formData) => {
         console.log('submit~~~~', formData)
     }
-    return <div style={{width: '588px'}}>
+    return <div>
         <Form
             size={size}
             onSubmit={submit}

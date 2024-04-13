@@ -7,68 +7,8 @@ demo:
 
 # Select 选择器
 ### 基本用法
-* `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
-```tsx
-import React from 'react';
-import { Select } from 'ayongUI';
-export default () => {
-    const handleChange = (value: any) => {
-        console.log(`selected ${value}`);
-    };
-    return (
-        <React.Fragment>
-            <Select
-                onChange={handleChange}
-                style={{ width: 150 }}
-                options={[
-                    { value: 'jack', label: 'Jack' },
-                    { value: 'lucy', label: 'Lucy' },
-                    { value: 'Yiminghe', label: 'yiminghe' },
-                    { value: 'ayong', label: 'ayong' },
-                    { value: 'ui-com', label: 'ui-com' },
-                    { value: 'ayong5', label: 'ayong5' },
-                    { value: 'ayong1', label: 'ayong1' },
-                    { value: 'ayong2', label: 'ayong2' },
-                    { value: 'ayong3', label: 'ayon3' },
-                    { value: 'disabled', label: 'Disabled', disabled: true },
-                ]}
-            />
-            
-            <span>&nbsp;&nbsp;&nbsp;</span>
-            
-            <Select
-                defaultValue="jack"
-                onChange={handleChange}
-                style={{ width: 150 }}
-                options={[
-                    { value: 'jack', label: 'Jack' },
-                    { value: 'disabled', label: 'Disabled', disabled: true },
-                ]}
-            />
-            <span>&nbsp;&nbsp;&nbsp;</span>
-            <Select
-                defaultValue="jack"
-                onChange={handleChange}
-                style={{ width: 150 }}
-            >
-                <Select.Option value="jack" label="Jack"></Select.Option>
-                <Select.Option value="disabled" label="Disabled" disabled></Select.Option>
-            
-            </Select>
-            <span>&nbsp;&nbsp;&nbsp;</span>
-            
-            <Select
-                defaultValue="ayong"
-                style={{ width: 150 }}
-                disabled
-                onChange={handleChange}
-                options={[{ value: 'ayong', label: 'ayong' }]}
-            />
-        </React.Fragment>
-    );
-};
-```
-
+<code src="./demos/base-left.tsx">基本用法</code>
+<code src="./demos/base-right.tsx">禁用</code>
 <code src="./demos/base1.tsx">显示清除按钮</code>
 <code src="./demos/base2.tsx">自定义 className 样式</code>
 <code src="./demos/base3.tsx">多条选择</code>

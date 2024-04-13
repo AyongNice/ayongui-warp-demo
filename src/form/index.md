@@ -1,8 +1,7 @@
 ---
-nav:
-  title:使用说明
 demo:
   cols: 2
+order: 21
 ---
 # From 表单
 * `⚠️注意： 在该示例代码中 uiStyle 必须创建自定义样式文件提供使用`
