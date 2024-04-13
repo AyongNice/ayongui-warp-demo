@@ -12,8 +12,9 @@ order: 21
 <code src="./demos/base4.tsx">表单大小</code>
 <code src="./demos/base5.tsx">表单 字段属性嵌套</code>
 <code src="./demos/base6.tsx">使用自定义或第三方 表单控件</code>
-<code src="./demos/base7.tsx">多表单联动</code>
 <code src="./demos/base8.tsx">多表单联动</code>
+
+[//]: # (<code src="./demos/base7.tsx">多表单联动</code>)
 
 **注：**
 - ⚠️在使用 动态方法创建 `Form.Item` 内嵌套自身时候, 最外层`Form.Item` 必传 `isWarp`参数, 方法内接收 `props`参数 必须回传给内部嵌套的`Form.Item`

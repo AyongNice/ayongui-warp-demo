@@ -1,7 +1,10 @@
 ---
 nav:
   title: 使用说明
-demo:
+  order: 10
+  # 单独配置二级导航名称
+  second: 父级名称
+  demo:
   cols: 2
 ---
 

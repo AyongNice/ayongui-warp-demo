@@ -17,6 +17,23 @@ hero:
 #    description: 获取组件库最新版本动态  </br>  最新的前端技术文章博客
 ---
 
+
+```tsx  hideCode=true inline=true
+import {usePrefersColor} from 'dumi';
+import React, {useEffect} from 'react';
+import {setThemeVariables} from "ayongUI";
+import {ModeTheme} from '../globe/theme.ts'
+
+export default () => {
+  // color 为当前应用的主题色，dark or light
+  const [color] = usePrefersColor();
+  useEffect(() => {
+    setThemeVariables(new ModeTheme()[color])
+  }, [color])
+
+};
+```
+
 ```tsx hideCode=true inline=true
 import React from 'react';
 import style from './index.module.less';

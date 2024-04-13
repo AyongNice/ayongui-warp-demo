@@ -6,12 +6,14 @@ export function ModeTheme() {
     'ayong-font-color': '#fff',
     '--ayong-font-light': '#fff',
     'ayong-light': '#fff',
-    'ayong-bolck':'#000',
+    'ayong-bolck': '#000',
     'ayong-font-dark': '#222731',
     'ayong-plaster-grey': '#d3d5dc',
     'ayong-premium-grey': '#ededed',
     'ayong-primary-grey': '#e4ecff',
-  }
+    themeFontColor: '#40a9ff',
+    'ayong-grey': ' #dcdfe6',
+  };
   this.dark = {
     themeBulue: '#53728b',
     themeWithe: '#b0b0b0',
@@ -19,26 +21,26 @@ export function ModeTheme() {
     'ayong-font-color': '#bdb7af',
     '--ayong-font-light': '#fff',
     'ayong-light': '#46464d',
-    'ayong-bolck':'#9c9c9c',
+    'ayong-bolck': '#9c9c9c',
     'ayong-font-dark': '#c9c9cb',
     'ayong-primary-grey': '#a8c0fb',
     'ayong-grey-crescent': '#85465f',
     'ayong-plaster-grey': '#6c6d71',
     'ayong-premium-grey': '#dcdcdc',
     'ayong-primary-grey': '#959595',
-  }
-  this.undefined = this.light
+    themeFontColor: '#ccffd1',
+  };
+  this.undefined = this.light;
 }
 
-import {usePrefersColor} from 'dumi';
-import React, {useEffect} from 'react';
-import {setThemeVariables} from "ayongUI";
+import { setThemeVariables } from 'ayongUI';
+import { usePrefersColor } from 'dumi';
+import { useEffect } from 'react';
 
 export const handoffTheme = () => {
   // color 为当前应用的主题色，dark or light
   const [color] = usePrefersColor();
   useEffect(() => {
-    setThemeVariables(new ModeTheme()[color])
-  }, [color])
-
+    setThemeVariables(new ModeTheme()[color]);
+  }, [color]);
 };
