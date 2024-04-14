@@ -4,7 +4,7 @@ nav:
   order: 10
   # 单独配置二级导航名称
   second: 父级名称
-  demo:
+demo:
   cols: 2
 ---
 

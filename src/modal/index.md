@@ -86,7 +86,7 @@ export default () => {
             okText: '确认',
             cancelText: '取消',
             maskClosable: false,
-            placement: 'center',
+            placement: 'top',
             onOk: () => {
                 console.log('点击了OK')
             },
