@@ -6,25 +6,25 @@
 
 ### React 版本适配
 
-目前组件库 适配 ***`React@16.8.3`*** (含) 以后版本的react项目 ,更早之前的版本将在后续兼容,尽情期待、、、
+目前组件库 适配 **_`React@16.8.3`_** (含) 以后版本的 react 项目 ,更早之前的版本将在后续兼容,尽情期待、、、
 
 ### 下载
 
-[//]: # '#### npm'
+[//]: # "#### npm"
 [//]: #
-[//]: # '```clickhouse'
-[//]: # '      npm install ayongUI --save'
-[//]: # '```'
-[//]: # '#### yarn'
+[//]: # "```clickhouse"
+[//]: # "      npm install ayongUI --save"
+[//]: # "```"
+[//]: # "#### yarn"
 [//]: #
-[//]: # '```clickhouse'
-[//]: # '      yarn add ayongUI  '
-[//]: # '```'
-[//]: # '#### pnpm'
+[//]: # "```clickhouse"
+[//]: # "      yarn add ayongUI  "
+[//]: # "```"
+[//]: # "#### pnpm"
 [//]: #
-[//]: # '```clickhouse'
-[//]: # '      pnpm install ayongUI --save'
-[//]: # '```'
+[//]: # "```clickhouse"
+[//]: # "      pnpm install ayongUI --save"
+[//]: # "```"
 
 ```tsx hideCode=true inline=true
 import React, { useState } from 'react';
@@ -75,8 +75,6 @@ const TabSwitcher = () => {
 export default TabSwitcher;
 ```
 
-
-
 ### 样式配置
 
 <span style="color: #808080;">我们需要在项目入口文件 main.js 中引入 ayongUI 的样式文件</span>
@@ -84,11 +82,14 @@ export default TabSwitcher;
 - ⚠️`注意： ：为了保证 自定义className可以覆盖组件内部样式
 一定要将组件样式 引入在 App.tsx 之前!!!`
 
+⚠️ 一下为`react@18`版本的引入示例
+
 ```tsx | pure
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-import 'ayongUI/style.css'; //引入组件样式
+//为了保证 自定义className可以覆盖组件内部样式 一定要将组件样式 引入在 App.tsx 之前!!!
+import 'ayongUI/style.css'; 
 
 import App from './App.tsx';
 
@@ -103,6 +104,22 @@ root.render(
     <App />
   </BrowserRouter>,
 );
+```
+
+⚠️ 一下为`react@16.8`版本的引入示例 
+18版本和16版本 引入方式没有区别, 写两个示例 是为了防止 对版本不清楚的 盲目复制
+
+```ts
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+//为了保证 自定义className可以覆盖组件内部样式 一定要将组件样式 引入在 App.tsx 之前!!!
+import 'ayongUI/style.css'; 
+
+import App from './App.tsx';
+import './index.css';
+
+ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
 ### 自定义主题色
@@ -160,27 +177,23 @@ export default () => {
 
 <span id="ayonUIcss"  style="color:#8aabec;">**组件全局样式字段表详情**</span>
 
-| 样式名                    | 值        | 说明                                 |
-| ------------------------- | --------- | ------------------------------------ |
-| ayong-primary             | \#8aabec  | 组件全局主题色                       |
-| ayong-safe                | #8e8e8e   | 安全                                 |
-| ayong-error               | #ad0000   | 危险                                 |
-| ayong-warn                | #d6af0c   | 警告                                 |
-| ayong-font-color          | #fff      |                                      |
-| ayong-selected-font-color | #ffffff   | 选中文字颜色                         |
-| ayong-selected-bg-color   | #8aabec   | 选中背景色                           |
-| ayong-font-dark           | #222731   |                                      |
-| ayong-light               | #fff      |                                      |
-| ayong-bolck               | #000      | 黑夜色                               |
-| ayong-table-thead-color   | #f5f5f5   |                                      |
-| ayong-beige               | #EDF9E6FF | 米黄 message 组件                    |
-| ayong-leaf-yellow         | #d1eac1   | 叶黄 message 组件                    |
-| ayong-apricot-yellow      | #58BA2DFF | 杏黄 message 组件                    |
-| ayong-message-error       | #f79797   |                                      |
-| ayong-grey                | #dcdfe6   | 灰色                                 |
-| ayong-primary-grey        | #f0f4fd   | 主题灰                               |
-| ayong-premium-grey        | #ededed   | 高级灰                               |
-| ayong-stone-gray          | #9b9ea4   | 石灰色 字体颜色 边框颜色 select 字体 |
-| ayong-dark-green-gray     | #747679   | 浅莲灰 table 字体                    |
-| ayong-grey-crescent       | #f4f4f5   | 月牙灰色                             |
-| ayong-carbon-gray         | #222731   | 碳灰色                               |
+| 样式名                    | 值       | 说明                                        |
+| ------------------------- | -------- | ------------------------------------------- |
+| ayong-primary             | \#8aabec | 组件全局主题色                              |
+| ayong-safe                | #8e8e8e  | 安全                                        |
+| ayong-error               | #ad0000  | 危险                                        |
+| ayong-warn                | #d6af0c  | 警告                                        |
+| ayong-radius              | 5px      | 所有组件的圆角                              |
+| ayong-selected-font-color | #ffffff  | 选中文字颜色                                |
+| ayong-selected-bg-color   | #8aabec  | 选中背景色                                  |
+| ayong-font-dark           | #222731  | 所有深色姿字体颜色                          |
+| ayong-light               | #fff     | 白色色                                      |
+| ayong-bolck               | #000     | 黑夜色                                      |
+| ayong-grey                | #dcdfe6  | 灰色 组件边框的颜色                         |
+| ayong-primary-grey        | #f0f4fd  | 主题灰 组件浅蓝色的                         |
+| ayong-premium-grey        | #ededed  | 高级灰 table 、select、picker 组件使用      |
+| ayong-stone-gray          | #9b9ea4  | 石灰色 字体颜色 边框颜色 select 字体        |
+| ayong-dark-green-gray     | #747679  | 浅莲灰 table  表头字体                      |
+| ayong-grey-crescent       | #f4f4f5  | 月牙灰色 组件浅灰色灰色背景                 |
+| ayong-carbon-gray         | #222731  | 碳灰色  table组件  触摸时候 字体颜色        |
+| ayong-zindex0             | 666      | 组件定位层级  Darwer  、Modal、Notification |
