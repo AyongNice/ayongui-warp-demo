@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
-import {Drawer, Button, Close, Radio} from 'ayongUI'
-import style from './index.module.less'
+import { Button, Close, Drawer, Radio } from 'ayongUI';
+import React, { useState } from 'react';
+import style from './index.module.less';
 
 export default () => {
   const [open, setOpen] = useState(false);
@@ -13,31 +13,35 @@ export default () => {
     setOpen(() => false);
   };
   const onChange = (direction) => {
-    setPlacement(direction)
-  }
+    setPlacement(direction);
+  };
 
-  return <React.Fragment>
+  return (
+    <React.Fragment>
+      <Radio.Group onChange={onChange} value={placement}>
+        <Radio value="top">top</Radio>
+        <Radio value="bottom">bottom</Radio>
+        <Radio value="left">left</Radio>
+        <Radio value="right">right</Radio>
+      </Radio.Group>
+      <br />
+      <Button type="primary" onClick={showDrawer}>
+        Open
+      </Button>
 
-    <Button type='primary' onClick={showDrawer}>Open</Button>
-    <Radio.Group onChange={onChange} value={placement}>
-      <Radio value="top">top</Radio>
-      <Radio value="bottom">bottom</Radio>
-      <Radio value="left">left</Radio>
-      <Radio value="right">right</Radio>
-    </Radio.Group>
-
-    <Drawer
-      title="ayongUI的抽屉组件"
-      open={open}
-      placement={placement}
-      onClose={onClose}
-      closeIcon={<Close/>}
-      headerClassName={style.headerClassName}
-      bodyClassName={style.bodyClassName}
-    >
-      <p>这是对话框内容...</p>
-      <p>这是对话框内容...</p>
-      <p>这是对话框内容...</p>
-    </Drawer>
-  </React.Fragment>
-}
+      <Drawer
+        title="ayongUI的抽屉组件"
+        open={open}
+        placement={placement}
+        onClose={onClose}
+        closeIcon={<Close />}
+        headerClassName={style.headerClassName}
+        bodyClassName={style.bodyClassName}
+      >
+        <p>这是对话框内容...</p>
+        <p>这是对话框内容...</p>
+        <p>这是对话框内容...</p>
+      </Drawer>
+    </React.Fragment>
+  );
+};

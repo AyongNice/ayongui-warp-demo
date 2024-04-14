@@ -1,3 +1,11 @@
+---
+nav:
+  title: 使用说明
+order: 11
+demo:
+  cols: 2
+---
+
 # Switch 开关
 
 ```tsx  hideCode=true inline=true
@@ -18,60 +26,10 @@ export default () => {
 
 ### 基本使用
 
-```tsx
-
-import React from 'react';
-import {Switch} from 'ayongUI';
-
-
-export default () => {
-
-    const onChange = (value) => {
-        console.log('change', value)
-    }
-
-    return <Switch value={true} onChange={onChange}/>
-}
-```
-
-### 颜色设置
-
-```tsx
-
-import React from 'react';
-import {Switch} from 'ayongUI';
-
-export default () => {
-
-    return (
-        <div>
-
-            <Switch activeColor='#fbc00d' value={true} title={'设置打开状态颜色'} style={{marginBottom: '20px'}}/>
-
-            <Switch inactiveColor='#83eca3' value={true} title={'设置关闭状态颜色'}/>
-        </div>
-    )
-}
-```
-
-### 禁用状态
-
-```tsx
-
-import React from 'react';
-import {Switch} from 'ayongUI';
-
-export default () => {
-
-  return (
-    <div>
-      <Switch value={true} disabled style={{marginBottom: '20px'}}/>
-
-      <Switch value={false} disabled/>
-    </div>
-  )
-}
-```
+<code src="./demos/base.tsx">基本用法</code>
+<code src="./demos/color.tsx">颜色设置</code>
+<code src="./demos/disabled.tsx">禁用状态</code>
+ 
 
 ### 组件Props参数
 

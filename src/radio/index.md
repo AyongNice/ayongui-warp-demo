@@ -1,4 +1,7 @@
 ---
+nav:
+  title: 使用说明
+order: 9
 demo:
   cols: 2
 ---

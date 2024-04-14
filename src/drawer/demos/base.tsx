@@ -1,40 +1,43 @@
-import React,{useState} from 'react'
-import {Drawer, Button, Radio} from 'ayongUI'
-import DirectionSelector from './chebox.tsx'
+import { Button, Drawer, Radio } from 'ayongUI';
+import React, { useState } from 'react';
 
 export default () => {
-    const [open, setOpen] = useState(false);
-    const [placement, setPlacement] = useState('right');
+  const [open, setOpen] = useState(false);
+  const [placement, setPlacement] = useState('right');
 
-    const showDrawer = () => {
-        setOpen(true);
-    };
-    const onClose = () => {
-        setOpen(() => false);
-    };
-    const onChange = (direction) => {
-        setPlacement(direction)
-    }
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(() => false);
+  };
+  const onChange = (direction) => {
+    setPlacement(direction);
+  };
 
-    return <React.Fragment>
+  return (
+    <React.Fragment>
+      <Radio.Group onChange={onChange} value={placement}>
+        <Radio value="top">top</Radio>
+        <Radio value="bottom">bottom</Radio>
+        <Radio value="left">left</Radio>
+        <Radio value="right">right</Radio>
+      </Radio.Group>
+      <Drawer
+        title="ayongUI的抽屉组件"
+        open={open}
+        placement={placement}
+        onClose={onClose}
+      >
+        <p>这是对话框内容...</p>
+        <p>这是对话框内容...</p>
+        <p>这是对话框内容...</p>
+      </Drawer>
+      <br />
 
-        <Button type='primary' onClick={showDrawer}>Open</Button>
-        < br />
-        <Radio.Group onChange={onChange} value={placement}>
-            <Radio value="top">top</Radio>
-            <Radio value="bottom">bottom</Radio>
-            <Radio value="left">left</Radio>
-            <Radio value="right">right</Radio>
-        </Radio.Group>
-        <Drawer
-            title="ayongUI的抽屉组件"
-            open={open}
-            placement={placement}
-            onClose={onClose}
-        >
-            <p>这是对话框内容...</p>
-            <p>这是对话框内容...</p>
-            <p>这是对话框内容...</p>
-        </Drawer>
+      <Button type="primary" onClick={showDrawer}>
+        Open
+      </Button>
     </React.Fragment>
-}
+  );
+};
