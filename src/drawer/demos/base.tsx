@@ -1,4 +1,4 @@
-import { Button, Drawer, Radio } from 'ayongUI';
+import { Button, Drawer, Radio } from 'ayongui';
 import React, { useState } from 'react';
 
 export default () => {
@@ -24,7 +24,7 @@ export default () => {
         <Radio value="right">right</Radio>
       </Radio.Group>
       <Drawer
-        title="ayongUI的抽屉组件"
+        title="ayongui的抽屉组件"
         open={open}
         placement={placement}
         onClose={onClose}

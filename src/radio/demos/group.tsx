@@ -1,4 +1,4 @@
-import {Radio} from 'ayongUI'
+import {Radio} from 'ayongui'
 import {useState} from "react";
 
 export default () => {

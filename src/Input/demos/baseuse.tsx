@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Input, Button} from 'ayongUI'
-import type {InputProps} from 'ayongUI'
+import {Input, Button} from 'ayongui'
+import type {InputProps} from 'ayongui'
 
 export default () => {
     const [modelValue, setValue] = useState('');

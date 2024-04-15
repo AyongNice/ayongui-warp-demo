@@ -1,4 +1,4 @@
-import { Button, Message, Setting } from 'ayongUI';
+import { Button, Message, Setting } from 'ayongui';
 
 const App = () => {
   const onDiyIcon = () => {

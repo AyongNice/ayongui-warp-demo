@@ -24,7 +24,7 @@ import {
     Codeblock,Bookmarks,Sunny,Moon,Laughing,Posits,Skin,Handoff,Top,Left,Facright,Highlight,
     Bgcolor,Plus,Minus,Return,Forwards,Open,Openoff,Key,Addfile,Deletefile,Warning,Carry,
     Clear,Link,Wifi,
-} from "ayongUI";
+} from "ayongui";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
 import "./index.less";
@@ -658,7 +658,7 @@ import {
     Settings,Bellfiled,Bulb,Replys,Star,Bookmark,User,Addser,Switchusers,Handsolid,
     Bell,Questions,Uploadss,Deletes,Thumb,Stepon,Addsfile,Erasefile,Mute,Sounds,
     Begin,Timeout,Downloads,
-} from "ayongUI";
+} from "ayongui";
 import Tab from "./components/tab.tsx";
 import {copyText} from "./utils/index.ts";
 import "./index.less";

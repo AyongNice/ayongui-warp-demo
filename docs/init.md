@@ -89,7 +89,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 //为了保证 自定义className可以覆盖组件内部样式 一定要将组件样式 引入在 App.tsx 之前!!!
-import 'ayongUI/style.css'; 
+import 'ayongui/style.css'; 
 
 import App from './App.tsx';
 
@@ -114,7 +114,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 //为了保证 自定义className可以覆盖组件内部样式 一定要将组件样式 引入在 App.tsx 之前!!!
-import 'ayongUI/style.css'; 
+import 'ayongui/style.css'; 
 
 import App from './App.tsx';
 import './index.css';

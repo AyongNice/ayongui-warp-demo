@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Sound, Save, Send, Poweroff } from 'ayongUI';
+import { Button, Sound, Save, Send, Poweroff } from 'ayongui';
 
 export default () => {
   return (

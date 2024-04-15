@@ -14,7 +14,7 @@ order: 22
 ```tsx  hideCode=true inline=true
 import {usePrefersColor} from 'dumi';
 import React, {useEffect} from 'react';
-import {setThemeVariables} from "ayongUI";
+import {setThemeVariables} from "ayongui";
 import {ModeTheme} from '../../globe/theme.ts'
 
 export default () => {
@@ -30,7 +30,7 @@ export default () => {
 ### 基本使用
 
 ```tsx
-import {Notification, Button, Alert} from 'ayongUI'
+import {Notification, Button, Alert} from 'ayongui'
 
 export default () => {
 
@@ -104,7 +104,7 @@ export default () => {
 
 
 ```tsx
-import {Notification, Button} from 'ayongUI'
+import {Notification, Button} from 'ayongui'
 
 export default () => {
 

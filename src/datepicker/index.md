@@ -7,7 +7,7 @@ order: 20
 ```tsx  hideCode=true inline=true
 import {usePrefersColor} from 'dumi';
 import React, {useEffect} from 'react';
-import {setThemeVariables} from "ayongUI";
+import {setThemeVariables} from "ayongui";
 import {ModeTheme} from '../../globe/theme.ts'
 
 export default () => {
@@ -25,8 +25,8 @@ export default () => {
 ### 基本使用
 
 ```tsx
-import {DatePicker} from 'ayongUI'
-import type {DatePickerProps} from 'ayongUI'
+import {DatePicker} from 'ayongui'
+import type {DatePickerProps} from 'ayongui'
 
 export default () => {
     const onChange: DatePickerProps['onChange'] = (date, dateString) => {
@@ -43,8 +43,8 @@ export default () => {
 ### 月份、季度、年份
 
 ```tsx
-import {DatePicker} from 'ayongUI'
-import type {DatePickerProps} from 'ayongUI'
+import {DatePicker} from 'ayongui'
+import type {DatePickerProps} from 'ayongui'
 
 export default () => {
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
@@ -62,8 +62,8 @@ export default () => {
 ### 禁止选择
 
 ```tsx
-import {DatePicker} from 'ayongUI'
-import type {DatePickerProps, DayItem} from 'ayongUI'
+import {DatePicker} from 'ayongui'
+import type {DatePickerProps, DayItem} from 'ayongui'
 
 export default () => {
     const onChange: DatePickerProps['onChange'] = (date, dateString) => {
@@ -90,8 +90,8 @@ export default () => {
 ****需要注意！ 组件value 和 defaultValue 的数据格式需要 Date 格式****
 *温馨提示！父组件通过value直接控制日期组件时候， 日期组件在改变日期数据时候 不会单独触发onChange事件； 因为此时日期的数据的状态在父组件维护，所以也不会需要再次单独触发onChange事件；只有点击交互日期组件才会触发onChange事件*
 ```tsx
-import {DatePicker, Button} from 'ayongUI'
-import type {DatePickerProps} from 'ayongUI'
+import {DatePicker, Button} from 'ayongui'
+import type {DatePickerProps} from 'ayongui'
 import {useState} from "react";
 
 export default () => {
@@ -121,7 +121,7 @@ export default () => {
 ### 日期范围选择
 
 ```tsx
-import {RangePicker} from 'ayongUI';
+import {RangePicker} from 'ayongui';
 
 export default () => {
     const onChange = (date, dateString) => {

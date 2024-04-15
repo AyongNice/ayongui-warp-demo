@@ -1,4 +1,4 @@
-import {Modal, Button} from 'ayongUI'
+import {Modal, Button} from 'ayongui'
 import {useState} from "react";
 
 export default () => {

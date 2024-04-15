@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'ayongUI';
+import { Button } from 'ayongui';
 
 export default () => {
   return (

@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Select} from 'ayongUI';
+import {Select} from 'ayongui';
 import React from 'react';
 export default () => {
     const [checked, setChecked] = useState<boolean>(false);

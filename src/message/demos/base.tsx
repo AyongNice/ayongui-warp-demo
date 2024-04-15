@@ -1,4 +1,4 @@
-import { Button, Message } from 'ayongUI';
+import { Button, Message } from 'ayongui';
 
 const App = () => (
   <div style={{ display: 'flex', justifyContent: 'space-around' }}>

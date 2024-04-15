@@ -1,4 +1,4 @@
-import { Button, Close, Form, Input } from 'ayongUI';
+import { Button, Close, Form, Input } from 'ayongui';
 import React from 'react';
 
 export default () => {

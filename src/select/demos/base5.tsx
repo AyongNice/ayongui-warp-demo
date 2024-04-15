@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select } from 'ayongUI';
+import { Select } from 'ayongui';
 import style from '../index.module.less';
 
 export default () => {

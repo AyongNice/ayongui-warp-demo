@@ -1,4 +1,4 @@
-import { Select } from 'ayongUI';
+import { Select } from 'ayongui';
 import React from 'react';
 export default () => {
   return (

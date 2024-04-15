@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Input, Button, Select, UserHollow} from 'ayongUI'
-import type {InputProps} from 'ayongUI'
+import {Input, Button, Select, UserHollow} from 'ayongui'
+import type {InputProps} from 'ayongui'
 
 const {Option} = Select;
 export default () => {

@@ -1,4 +1,4 @@
-import { Button, Drawer, Radio } from 'ayongUI';
+import { Button, Drawer, Radio } from 'ayongui';
 import { useState } from 'react';
 
 export default () => {
@@ -39,7 +39,7 @@ export default () => {
       </Button>
 
       <Drawer
-        title="ayongUI的抽屉组件"
+        title="ayongui的抽屉组件"
         getContainer={false}
         open={open}
         placement={placement}

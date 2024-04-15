@@ -6,7 +6,7 @@ order: 19
 ```tsx  hideCode=true inline=true
 import {usePrefersColor} from 'dumi';
 import React, {useEffect} from 'react';
-import {setThemeVariables} from "ayongUI";
+import {setThemeVariables} from "ayongui";
 import {ModeTheme} from '../../globe/theme.ts'
 
 export default () => {
@@ -24,7 +24,7 @@ export default () => {
 
 ```tsx
 
-import {Calendar, Select} from 'ayongUI'
+import {Calendar, Select} from 'ayongui'
 
 
 export default () => {
@@ -38,7 +38,7 @@ export default () => {
 ### 默认值+ 通过状态控制日期
 
 ```tsx
-import {Calendar, Select} from 'ayongUI'
+import {Calendar, Select} from 'ayongui'
 
 export default () => {
   return <Calendar defaultValue='2024-02'/>
@@ -48,7 +48,7 @@ export default () => {
 ### 日期单选
 
 ```tsx
-import {Calendar, Select} from 'ayongUI'
+import {Calendar, Select} from 'ayongui'
 
 export default () => {
   const onChange = (dayItem) => {
@@ -61,7 +61,7 @@ export default () => {
 ### 日期多选
 
 ```tsx
-import {Calendar, Select} from 'ayongUI'
+import {Calendar, Select} from 'ayongui'
 
 export default () => {
 
@@ -77,7 +77,7 @@ export default () => {
 `我们可以通过配置style 的宽度来调整日历大小`
 
 ```tsx
-import {Calendar, Select} from 'ayongUI'
+import {Calendar, Select} from 'ayongui'
 
 export default () => {
   return <Calendar style={{width: '50px', height: '50px'}}/>
@@ -87,7 +87,7 @@ export default () => {
 ### 自定义单元格渲染内容
 
 ```tsx
-import {Calendar, Select} from 'ayongUI'
+import {Calendar, Select} from 'ayongui'
 import style from './index.module.less'
 
 export default () => {

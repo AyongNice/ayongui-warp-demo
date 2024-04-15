@@ -9,7 +9,7 @@ order: 21
 ```tsx  hideCode=true inline=true
 import {usePrefersColor} from 'dumi';
 import React, {useEffect} from 'react';
-import {setThemeVariables} from "ayongUI";
+import {setThemeVariables} from "ayongui";
 import {ModeTheme} from '../../globe/theme.ts'
 
 export default () => {
@@ -31,7 +31,7 @@ export default () => {
 ### 自定义脚页 和 icon
 
 ```tsx
-import {Modal, Button, Close} from 'ayongUI'
+import {Modal, Button, Close} from 'ayongui'
 import {useState} from "react";
 
 export default () => {
@@ -74,7 +74,7 @@ export default () => {
 ### 通过API形式调用组件
 
 ```tsx
-import {Modal, Button, Close} from 'ayongUI'
+import {Modal, Button, Close} from 'ayongui'
 
 export default () => {
 

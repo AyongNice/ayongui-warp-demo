@@ -1,4 +1,4 @@
-import { Button, Drawer, Radio } from 'ayongUI';
+import { Button, Drawer, Radio } from 'ayongui';
 import React, { useState } from 'react';
 
 export default () => {

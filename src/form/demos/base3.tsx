@@ -1,4 +1,4 @@
-import {Button, Form, Input, Select} from 'ayongUI'
+import {Button, Form, Input, Select} from 'ayongui'
 import uiStyle from '../index.module.less';
 
 export default () => {

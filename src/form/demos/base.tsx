@@ -1,5 +1,5 @@
 
-import {Button, Form, Input, Upload, Radio} from 'ayongUI'
+import {Button, Form, Input, Upload, Radio} from 'ayongui'
 import React from 'react';
 import {useState} from "react";
 export default () => {

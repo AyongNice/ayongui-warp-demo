@@ -1,4 +1,4 @@
-import {Button, Form, Input, Upload, Radio, Select} from 'ayongUI'
+import {Button, Form, Input, Upload, Radio, Select} from 'ayongui'
 import React, {useState} from "react";
 const PriceInput: React.FC<PriceInputProps> = ({value = {}, onChange}) => {
     const [number, setNumber] = useState(0);

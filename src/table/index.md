@@ -5,7 +5,7 @@
 ```tsx hideCode=true inline=true
 import { usePrefersColor } from 'dumi';
 import React, { useEffect } from 'react';
-import { setThemeVariables } from 'ayongUI';
+import { setThemeVariables } from 'ayongui';
 import { ModeTheme } from '../../globe/theme.ts';
 
 export default ({ children }) => {
@@ -20,7 +20,7 @@ export default ({ children }) => {
 ```tsx
 import React, { useEffect } from 'react';
 
-import { Table } from 'ayongUI';
+import { Table } from 'ayongui';
 import style from './index.module.less';
 
 const data = [
@@ -112,7 +112,7 @@ export default App;
 * `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
-import { Table } from 'ayongUI';
+import { Table } from 'ayongui';
 import style from './index.module.less';
 
 const Column = Table.Column;
@@ -169,7 +169,7 @@ export default App;
 * `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
-import { Table } from 'ayongUI';
+import { Table } from 'ayongui';
 import style from './index.module.less';
 const data = [
   {
@@ -223,7 +223,7 @@ export default App;
 * `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
-import { Table } from 'ayongUI';
+import { Table } from 'ayongui';
 import style from './index.module.less';
 
 const ColumnGroup = Table.ColumnGroup;
@@ -306,7 +306,7 @@ export default App;
 * `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
-import { Table } from 'ayongUI';
+import { Table } from 'ayongui';
 import style from './index.module.less';
 
 const columns = [
@@ -360,7 +360,7 @@ export default App;
 * `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
-import { Table } from 'ayongUI';
+import { Table } from 'ayongui';
 import style from './index.module.less';
 const Column = Table.Column;
 
@@ -436,9 +436,9 @@ export default App;
 * `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React, { useState } from 'react';
-import { Table, Minusround, Plusround, Radio } from 'ayongUI';
+import { Table, Minusround, Plusround, Radio } from 'ayongui';
 
-import type { DataItem, Column } from 'ayongUI';
+import type { DataItem, Column } from 'ayongui';
 import style from './index.module.less';
 
 const Column = Table.Column;
@@ -529,7 +529,7 @@ export default App;
 * `⚠️注意： 在该示例代码中 style 必须创建自定义样式文件提供使用`
 ```tsx
 import React from 'react';
-import { Table, Minusround, Plusround } from 'ayongUI';
+import { Table, Minusround, Plusround } from 'ayongui';
 import style from './index.module.less';
 const Column = Table.Column;
 const data = [

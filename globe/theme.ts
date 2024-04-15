@@ -33,7 +33,7 @@ export function ModeTheme() {
   this.undefined = this.light;
 }
 
-import { setThemeVariables } from 'ayongUI';
+import { setThemeVariables } from 'ayongui';
 import { usePrefersColor } from 'dumi';
 import { useEffect } from 'react';
 

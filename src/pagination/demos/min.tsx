@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Pagination} from 'ayongUI'
+import {Pagination} from 'ayongui'
 
 export default () => {
 

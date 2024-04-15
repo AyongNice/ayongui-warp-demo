@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {Tooltip,Button} from 'ayongUI'
+import {Tooltip,Button} from 'ayongui'
 
 
 export default () => {

@@ -1,4 +1,4 @@
-import { Button, Close, Drawer, Radio } from 'ayongUI';
+import { Button, Close, Drawer, Radio } from 'ayongui';
 import React, { useState } from 'react';
 import style from './index.module.less';
 
@@ -30,7 +30,7 @@ export default () => {
       </Button>
 
       <Drawer
-        title="ayongUI的抽屉组件"
+        title="ayongui的抽屉组件"
         open={open}
         placement={placement}
         onClose={onClose}

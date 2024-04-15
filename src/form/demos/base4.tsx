@@ -1,5 +1,5 @@
 
-import {Button, Form, Input, Upload, Radio} from 'ayongUI'
+import {Button, Form, Input, Upload, Radio} from 'ayongui'
 import {useState} from "react";
 export default () => {
     const [size, setSize] = useState('middle');

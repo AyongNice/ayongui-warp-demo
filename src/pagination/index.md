@@ -7,7 +7,7 @@ demo:
 ```tsx  hideCode=true inline=true
 import {usePrefersColor} from 'dumi';
 import React, {useEffect} from 'react';
-import {setThemeVariables} from "ayongUI";
+import {setThemeVariables} from "ayongui";
 import {ModeTheme} from '../../globe/theme.ts'
 
 
@@ -26,7 +26,7 @@ export default () => {
 
 ```tsx
 import React, {useEffect, useState} from 'react';
-import {Pagination} from 'ayongUI'
+import {Pagination} from 'ayongui'
 
 export default () => {
 
@@ -42,7 +42,7 @@ export default () => {
 
 ```tsx
 import React, {useEffect, useState} from 'react';
-import {Pagination} from 'ayongUI'
+import {Pagination} from 'ayongui'
 
 export default () => {
 

@@ -1,7 +1,7 @@
 
 import {useState} from 'react';
 import uiStyle from '../index.module.less';
-import {Modal, Button, Form, Input, Upload, Radio, Select} from 'ayongUI'
+import {Modal, Button, Form, Input, Upload, Radio, Select} from 'ayongui'
 import React from 'react';
 export default () => {
 

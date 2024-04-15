@@ -1,5 +1,5 @@
 import React from 'react';
-import { Rate } from 'ayongUI';
+import { Rate } from 'ayongui';
 
 const Ratepage: React.FC = () => {
     return <Rate disabled value={3} />

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Input, Button, UserHollow, Letter} from 'ayongUI'
-import type {InputProps} from 'ayongUI'
+import {Input, Button, UserHollow, Letter} from 'ayongui'
+import type {InputProps} from 'ayongui'
 
 export default () => {
   return <div>

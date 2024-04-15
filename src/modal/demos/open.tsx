@@ -1,4 +1,4 @@
-import {Modal, Button} from 'ayongUI'
+import {Modal, Button} from 'ayongui'
 import {useState} from "react";
 
 export default () => {
@@ -11,7 +11,7 @@ export default () => {
         <Button type="primary" onClick={() => setOpen(true)}>
             打开弹窗
         </Button>
-        <Modal title='ayongUI的Modal' open={open} onOk={onClose} onCancel={onClose} onClose={onClose}>
+        <Modal title='ayongui的Modal' open={open} onOk={onClose} onCancel={onClose} onClose={onClose}>
             <p>这是对话框内容...</p>
             <p>这是对话框内容...</p>
             <p>这是对话框内容...</p>

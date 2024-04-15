@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select } from 'ayongUI';
+import { Select } from 'ayongui';
 
 export default () => {
     const handleChange = (value: any) => {

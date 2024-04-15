@@ -1,4 +1,4 @@
-import { Button, Message } from 'ayongUI';
+import { Button, Message } from 'ayongui';
 const onUseHTML = () => {
   Message.info({
     message: <h2>这是一个HTML内容</h2>,

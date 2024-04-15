@@ -1,4 +1,4 @@
-import { Button, Tooltip } from 'ayongUI';
+import { Button, Tooltip } from 'ayongui';
 import React from 'react';
 
 export default () => {
