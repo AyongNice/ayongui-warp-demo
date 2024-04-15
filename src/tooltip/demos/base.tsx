@@ -1,5 +1,5 @@
 import React   from "react";
-import {Tooltip,Button} from 'ayongUI'
+import {Tooltip,Button} from 'ayongui'
 
 export default () => {
   return <div style={{display: "flex", justifyContent: 'space-around'}}>
