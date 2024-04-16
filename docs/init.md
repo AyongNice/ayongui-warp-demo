@@ -13,17 +13,17 @@
 [//]: # "#### npm"
 [//]: #
 [//]: # "```clickhouse"
-[//]: # "      npm install ayongUI --save"
+[//]: # "      npm install ayongui --save"
 [//]: # "```"
 [//]: # "#### yarn"
 [//]: #
 [//]: # "```clickhouse"
-[//]: # "      yarn add ayongUI  "
+[//]: # "      yarn add ayongui  "
 [//]: # "```"
 [//]: # "#### pnpm"
 [//]: #
 [//]: # "```clickhouse"
-[//]: # "      pnpm install ayongUI --save"
+[//]: # "      pnpm install ayongui --save"
 [//]: # "```"
 
 ```tsx hideCode=true inline=true
@@ -33,12 +33,12 @@ import style from './index.module.less';
 const TabSwitcher = () => {
   const [activeTab, setActiveTab] = useState('npm');
   const list = [
-    { name: 'npm', install: 'npm install ayongUI --save' },
+    { name: 'npm', install: 'npm install ayongui --save' },
     {
       name: 'yarn',
-      install: 'yarn add ayongUI ',
+      install: 'yarn add ayongui ',
     },
-    { name: 'pnpm', install: 'pnpm install ayongUI --save' },
+    { name: 'pnpm', install: 'pnpm install ayongui --save' },
   ];
   const handleTabClick = (item) => {
     setActiveTab(item.name);
@@ -77,7 +77,7 @@ export default TabSwitcher;
 
 ### 样式配置
 
-<span style="color: #808080;">我们需要在项目入口文件 main.js 中引入 ayongUI 的样式文件</span>
+<span style="color: #808080;">我们需要在项目入口文件 main.js 中引入 ayongui 的样式文件</span>
 
 - ⚠️`注意： ：为了保证 自定义className可以覆盖组件内部样式
 一定要将组件样式 引入在 App.tsx 之前!!!`
@@ -131,7 +131,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ```css | pure
 :root {
-  --ayong-primary: #8aabec; /* 更改ayongUI主题色 */
+  --ayong-primary: #8aabec; /* 更改ayongui主题色 */
 }
 ```
 
@@ -140,7 +140,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```tsx | pure
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import 'ayongUI/style.css'; //引入组件样式
+import 'ayongui/style.css'; //引入组件样式
 
 import App from './App.tsx';
 import { BrowserRouter } from 'react-router-dom';
@@ -164,7 +164,7 @@ root.render(
 
 ```tsx | pure
 import React, { useEffect } from 'react';
-import { setThemeVariables } from 'ayongUI';
+import { setThemeVariables } from 'ayongui';
 
 export default () => {
   return (

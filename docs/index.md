@@ -21,7 +21,7 @@ hero:
 ```tsx  hideCode=true inline=true
 import {usePrefersColor} from 'dumi';
 import React, {useEffect} from 'react';
-import {setThemeVariables} from "ayongUI";
+import {setThemeVariables} from "ayongui";
 import {ModeTheme} from '../globe/theme.ts'
 
 export default () => {
