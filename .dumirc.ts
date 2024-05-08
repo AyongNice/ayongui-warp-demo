@@ -24,7 +24,7 @@ var version = params.get('version');
 // 输出参数值
 console.log('参数值为：version', version);
 
-localStorage.setItem('version',version || 1)
+localStorage.setItem('version',version || 1.4)
 
     `,
   ],
@@ -77,11 +77,11 @@ localStorage.setItem('version',version || 1)
         children: [
           {
             title: '1.0.3',
-            link: 'http://192.168.33.52:3001/ayonguidocs?version=2.0',
+            link: 'https://ayongnice.github.io/ayonguidocs?version=1.3',
           },
           {
             title: '1.0.4',
-            link: 'http://192.168.33.52:3001/ayonguidocs?version=2.0',
+            link: 'https://ayongnice.github.io/ayonguidocs?version=1.4',
           },
           // 添加其他版本
         ],

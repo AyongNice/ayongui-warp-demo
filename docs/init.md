@@ -92,12 +92,12 @@ root.render(
     <App />
   </BrowserRouter>,
 );`;
-  const [version, setVersions] = useState('1');
+  const [version, setVersions] = useState('1.4');
 
   useEffect(() => {
     setVersions(localStorage.getItem('version'));
   }, []);
-  return version === '1' ? (
+  return version === '1.3' ? (
     <OmsSyntaxHighlight textContent={textContent} />
   ) : null;
 };
