@@ -66,7 +66,7 @@ export default () => {
 ```
 
 <code src="./demos/min.tsx">迷你版分页器</code>
-<code src="./demos/diysize.tsx">自定义分页大小</code>
+<code src="./demos/diysize.tsx">自定义分页范围大小</code>
 
  
  

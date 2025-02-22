@@ -1,19 +1,20 @@
-import { Button, Message } from 'ayongui';
+import {Button, Message} from 'ayongui';
 
 
 const App = () => (
-  <div style={{display:'flex',justifyContent:'space-around'}}>
+  <div style={{display: 'flex', justifyContent: 'space-around'}}>
     <Button
-      onClick={() => Message.info({ message: 'This is a info message' })}
+      type="warn"
+      onClick={() => Message.warning({message: 'This is a warning message'})}
     >
-      info-消息
+      warning-警告
     </Button>
 
     <Button
-      type="primary"
-      onClick={() => Message.success({ message: 'This is a info message' })}
+      type="error"
+      onClick={() => Message.error({message: 'This is a error message'})}
     >
-      success-消息
+      error-报错
     </Button>
   </div>
 );

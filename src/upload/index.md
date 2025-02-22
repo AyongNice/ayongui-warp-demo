@@ -19,7 +19,7 @@ export default ({ children }) => {
   }, [color]);
 };
 ```
-
+ 
 <code src="./demos/base.tsx">基本使用</code>
 <code src="./demos/base2.tsx">基本使用</code>
 <code src="./demos/customRequest.tsx">customRequest 自定义上传</code>

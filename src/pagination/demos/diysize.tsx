@@ -14,7 +14,7 @@ export default () => {
 
     return <Pagination
         total={50}
-        pageSizeOptions={[15,30]}
+        pageSizeOptions={[20,30]}
         showSizeChanger
         onSizeChange={onSizeChange}
         onCurrentChange={onCurrentChange}

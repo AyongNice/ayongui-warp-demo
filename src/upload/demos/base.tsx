@@ -1,5 +1,6 @@
+// import Button from 'ayongUI/radio/demos/button';
 import type { UploadFile } from 'ayongui';
-import { Upload } from 'ayongui';
+import { Button, Upload } from 'ayongui';
 import React from 'react';
 
 export default () => {
@@ -23,5 +24,23 @@ export default () => {
       console.log('onChange', file);
     },
   };
-  return <Upload {...porps} multiple />;
+
+  const qeruys = async () => {
+    //post 请求
+    fetch('/api/expertLookBoard/queryAllExpertInfoQuery', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        typeEcharts: '01'
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {})
+  };
+
+  return (
+    <Upload {...porps} multiple />
+  );
 };
