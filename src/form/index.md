@@ -16,7 +16,7 @@ demo:
 <code src="./demos/base6.tsx">使用自定义或第三方 表单控件</code>
 <code src="./demos/base8.tsx">多表单联动</code>
 
-[//]: # (<code src="./demos/base7.tsx">多表单联动</code>)
+[//]: # (已移除示例引用：此处原先引用 `./demos/base7.tsx`，为避免在未注册自定义元素时被加载，已改为说明。)
 
 **注：**
 - ⚠️在使用 动态方法创建 `Form.Item` 内嵌套自身时候, 最外层`Form.Item` 必传 `isWarp`参数, 方法内接收 `props`参数 必须回传给内部嵌套的`Form.Item`

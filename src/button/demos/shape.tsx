@@ -1,14 +1,20 @@
 import React from 'react';
-import { Button } from 'ayongui';
 
 export default () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-      <Button shape="strong">直角-按钮</Button>
-      <Button shape="round">round-椭圆钮</Button>
-
-      <Button shape="circle">C</Button>
-
+      {React.createElement('ayong-button', {
+        shape: 'strong',
+        text: '直角-按钮',
+      })}
+      {React.createElement('ayong-button', {
+        shape: 'round',
+        text: 'round-椭圆钮',
+      })}
+      {React.createElement('ayong-button', {
+        shape: 'circle',
+        text: 'C',
+      })}
     </div>
   );
 };

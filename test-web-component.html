@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AyongUI Button Web Component Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #666;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AyongUI Button Web Component 测试</h1>
+
+        <div class="test-section">
+            <h3>基础按钮类型</h3>
+            <div class="button-group">
+                <ayong-button text="默认按钮"></ayong-button>
+                <ayong-button type="primary" text="主题按钮"></ayong-button>
+                <ayong-button type="dashed" text="虚线按钮"></ayong-button>
+                <ayong-button type="text" text="文本按钮"></ayong-button>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>状态按钮</h3>
+            <div class="button-group">
+                <ayong-button type="error" text="错误按钮"></ayong-button>
+                <ayong-button type="warn" text="警告按钮"></ayong-button>
+                <ayong-button type="safe" text="安全按钮"></ayong-button>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>尺寸按钮</h3>
+            <div class="button-group">
+                <ayong-button size="small" text="小按钮"></ayong-button>
+                <ayong-button size="default" text="默认按钮"></ayong-button>
+                <ayong-button size="large" text="大按钮"></ayong-button>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>形状按钮</h3>
+            <div class="button-group">
+                <ayong-button shape="circle" text="圆形"></ayong-button>
+                <ayong-button shape="round" text="圆角"></ayong-button>
+                <ayong-button shape="strong" text="直角"></ayong-button>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>禁用和加载状态</h3>
+            <div class="button-group">
+                <ayong-button disabled text="禁用按钮"></ayong-button>
+                <ayong-button loading text="加载中"></ayong-button>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>防抖测试 (1000ms)</h3>
+            <div class="button-group">
+                <ayong-button time="1000" text="防抖按钮"></ayong-button>
+            </div>
+            <div class="output" id="debounce-output">点击输出将显示在这里</div>
+        </div>
+
+        <div class="test-section">
+            <h3>自定义样式</h3>
+            <div class="button-group">
+                <ayong-button
+                    style="background-color: #3d2fd6; color: white; border: none;"
+                    text="自定义样式">
+                </ayong-button>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>事件测试</h3>
+            <div class="button-group">
+                <ayong-button id="event-test-btn" text="点击测试事件"></ayong-button>
+            </div>
+            <div class="output" id="event-output">事件输出将显示在这里</div>
+        </div>
+    </div>
+
+    <!-- 内联 Web Component 定义 -->
+    <script>
+        // 简单的防抖函数
+        function debounce(func, delay) {
+            let timeoutId;
+            return function (...args) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => func.apply(null, args), delay);
+            };
+        }
+
+        // CSS 样式字符串
+        const buttonStyles = `
+        .ayong-button {
+            font-size: 14px;
+            border-radius: 5px;
+            padding: 5px 17px;
+            border: 1px solid #dcdfe6;
+            color: #747679;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            outline: none !important;
+            margin: 0;
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+
+        .ayong-button-icon {
+            fill: #747679 !important;
+            margin-right: 8px;
+        }
+
+        .ayong-button-icon-white {
+            fill: #fff !important;
+            margin-right: 8px;
+        }
+
+        .ayong-button:hover:not(.ayong-button-disabled) {
+            opacity: 0.9;
+        }
+
+        .ayong-button:active:not(.ayong-button-disabled) {
+            filter: brightness(1.1);
+        }
+
+        .ayong-button-disabled {
+            cursor: not-allowed;
+            filter: brightness(0.9);
+            color: #dcdfe6 !important;
+        }
+
+        .ayong-button-primary {
+            color: #fff;
+            border: 1px solid #8aabec;
+            background: #8aabec;
+        }
+
+        .ayong-button-dashed {
+            border: 1px dashed #8aabec;
+            color: #8aabec;
+            background: none;
+        }
+
+        .ayong-button-text {
+            border: 0;
+            color: #8aabec;
+        }
+
+        .ayong-button-error {
+            color: #fff;
+            border: 1px solid #ff4d4f;
+            background: #ff4d4f;
+        }
+
+        .ayong-button-warn {
+            color: #fff;
+            border: 1px solid #d6af0c;
+            background: #d6af0c;
+        }
+
+        .ayong-button-safe {
+            color: #fff;
+            border: 1px solid #8e8e8e;
+            background: #8e8e8e;
+        }
+
+        .ayong-button-small {
+            font-size: 12px;
+            padding: 3px 5px;
+        }
+
+        .ayong-button-large {
+            padding: 10px 25px;
+            font-size: 17px;
+        }
+
+        .ayong-button-circle {
+            padding: 10px 10px;
+            border-radius: 50%;
+        }
+
+        .ayong-button-strong {
+            border-radius: 0;
+        }
+
+        .ayong-button-round {
+            border-radius: 999px;
+        }
+
+        .ayong-button-loading {
+            opacity: 0.7;
+        }
+        `;
+
+        const parseStyleAttribute = (styleAttr) => {
+            if (!styleAttr) return {};
+
+            return styleAttr.split(';').reduce((acc, pair) => {
+                const [key, value] = pair.split(':');
+                if (!key || !value) return acc;
+
+                const camelKey = key.trim().replace(/-([a-z])/g, (_, char) => char.toUpperCase());
+                acc[camelKey] = value.trim();
+                return acc;
+            }, {});
+        };
+
+        const parseBooleanAttribute = (value) => {
+            return value !== null && value !== 'false';
+        };
+
+        const parseNumberAttribute = (value, fallback = 0) => {
+            if (!value) return fallback;
+            const parsed = Number(value);
+            return Number.isNaN(parsed) ? fallback : parsed;
+        };
+
+        const getPropsFromAttributes = (element) => ({
+            style: parseStyleAttribute(element.getAttribute('style')),
+            type: element.getAttribute('type') || 'default',
+            size: element.getAttribute('size') || 'default',
+            shape: element.getAttribute('shape') || 'default',
+            href: element.getAttribute('href') || '',
+            htmlType: element.getAttribute('html-type') || 'button',
+            className: element.getAttribute('class-name') || '',
+            disabled: parseBooleanAttribute(element.getAttribute('disabled')),
+            text: element.getAttribute('text') || '',
+            time: parseNumberAttribute(element.getAttribute('time'), 0),
+            loading: parseBooleanAttribute(element.getAttribute('loading')),
+        });
+
+        const createLoadingIcon = () => {
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('width', '16');
+            svg.setAttribute('height', '16');
+            svg.setAttribute('viewBox', '0 0 24 24');
+            svg.setAttribute('fill', 'none');
+            svg.setAttribute('stroke', 'currentColor');
+            svg.setAttribute('stroke-width', '2');
+            svg.setAttribute('stroke-linecap', 'round');
+            svg.setAttribute('stroke-linejoin', 'round');
+            svg.innerHTML = '<path d="M21 12a9 9 0 1 1-6.219-8.56"/>';
+            return svg;
+        };
+
+        class AyongButtonElement extends HTMLElement {
+            constructor() {
+                super();
+                this.shadow = this.attachShadow({ mode: 'open' });
+
+                // 创建样式元素
+                const style = document.createElement('style');
+                style.textContent = buttonStyles;
+                this.shadow.appendChild(style);
+
+                // 创建按钮元素
+                this.buttonElement = document.createElement('button');
+                this.buttonElement.className = 'ayong-button';
+                this.shadow.appendChild(this.buttonElement);
+
+                this.buttonElement.addEventListener('click', this.handleClick.bind(this));
+            }
+
+            static get observedAttributes() {
+                return ['style', 'type', 'size', 'shape', 'href', 'html-type', 'class-name', 'disabled', 'text', 'time', 'loading'];
+            }
+
+            connectedCallback() {
+                this.render();
+            }
+
+            attributeChangedCallback() {
+                this.render();
+            }
+
+            handleClick() {
+                const props = getPropsFromAttributes(this);
+                if (props.disabled) return;
+
+                const clickHandler = () => {
+                    if (props.href) {
+                        window.open(props.href);
+                    }
+                    this.dispatchEvent(new Event('click', { bubbles: true, composed: true }));
+                };
+
+                if (props.time > 0) {
+                    if (!this.debouncedClick) {
+                        this.debouncedClick = debounce(clickHandler, props.time);
+                    }
+                    this.debouncedClick();
+                } else {
+                    clickHandler();
+                }
+            }
+
+            render() {
+                const props = getPropsFromAttributes(this);
+
+                // 设置类名
+                const classes = ['ayong-button'];
+                if (props.type && props.type !== 'default') {
+                    classes.push(`ayong-button-${props.type}`);
+                }
+                if (props.size && props.size !== 'default') {
+                    classes.push(`ayong-button-${props.size}`);
+                }
+                if (props.shape && props.shape !== 'default') {
+                    classes.push(`ayong-button-${props.shape}`);
+                }
+                if (props.disabled) {
+                    classes.push('ayong-button-disabled');
+                }
+                if (props.loading) {
+                    classes.push('ayong-button-loading');
+                }
+                if (props.className) {
+                    classes.push(props.className);
+                }
+
+                this.buttonElement.className = classes.join(' ');
+                this.buttonElement.disabled = props.disabled;
+                this.buttonElement.type = props.htmlType;
+
+                // 设置样式
+                Object.assign(this.buttonElement.style, props.style);
+
+                // 清除内容
+                this.buttonElement.innerHTML = '';
+
+                // 添加加载图标
+                if (props.loading) {
+                    const loadingIcon = createLoadingIcon();
+                    loadingIcon.classList.add('ayong-button-icon');
+                    this.buttonElement.appendChild(loadingIcon);
+                }
+
+                // 添加文本内容
+                const textNode = document.createTextNode(props.text || this.textContent || '');
+                this.buttonElement.appendChild(textNode);
+            }
+        }
+
+        // 注册自定义元素
+        if (!window.customElements.get('ayong-button')) {
+            window.customElements.define('ayong-button', AyongButtonElement);
+        }
+    </script>
+
+    <script>
+        // 等待组件加载完成后绑定事件
+        document.addEventListener('DOMContentLoaded', function() {
+            const eventBtn = document.getElementById('event-test-btn');
+            const eventOutput = document.getElementById('event-output');
+            const debounceOutput = document.getElementById('debounce-output');
+
+            if (eventBtn) {
+                eventBtn.addEventListener('click', function() {
+                    const timestamp = new Date().toLocaleTimeString();
+                    eventOutput.textContent = `按钮被点击了！时间: ${timestamp}`;
+                });
+            }
+
+            // 监听所有 ayong-button 的点击事件
+            document.addEventListener('click', function(e) {
+                if (e.target.tagName === 'AYONG-BUTTON') {
+                    const timestamp = new Date().toLocaleTimeString();
+                    if (e.target.hasAttribute('time')) {
+                        debounceOutput.textContent = `防抖按钮点击: ${timestamp}`;
+                    }
+                }
+            });
+
+            console.log('AyongUI Button Web Component 测试页面已加载');
+            console.log('可用的自定义元素:', window.customElements.get('ayong-button'));
+        });
+    </script>
+</body>
+</html>
