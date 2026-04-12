@@ -32,8 +32,8 @@ localStorage.setItem('version',version || 1.4)
   resolve: {
     alias: {
       // 将ayongUI和ayongui都映射到同一个路径
-      ayongUI: path.resolve(__dirname, 'node_modules/ayongui'),
-      ayongui: path.resolve(__dirname, 'node_modules/ayongui'),
+      // ayongUI: path.resolve(__dirname, 'node_modules/ayongui'),
+      // ayongui: path.resolve(__dirname, 'node_modules/ayongui'),
     },
   },
 
